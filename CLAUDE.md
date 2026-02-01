@@ -37,6 +37,51 @@ vendor/bin/pint --dirty
 - Tests for each new feature are encouraged
 - When creating new modules, create useful factories and seeders
 
+## Diretrizes de Português
+
+Todos os textos voltados ao usuário (mensagens de erro, labels, descrições, comentários em português) devem seguir rigorosamente as normas da língua portuguesa.
+
+### Acentuação
+
+- **Sempre utilizar acentos corretamente** — palavras como `código`, `número`, `médico`, `diagnóstico`, `histórico`
+- **Atenção a palavras paroxítonas e proparoxítonas** — `paciente` (sem acento), `prontuário` (com acento)
+- **Cuidado com acentos diferenciais** — `pôde` (passado) vs `pode` (presente)
+
+### Pontuação
+
+- **Usar vírgulas corretamente** — antes de conjunções adversativas, em enumerações, para isolar apostos
+- **Ponto final obrigatório** — em frases completas e mensagens de erro
+- **Dois-pontos** — antes de explicações ou listagens
+- **Aspas** — usar aspas duplas para citações e valores literais em mensagens
+
+### Gramática
+
+- **Concordância verbal e nominal** — o verbo deve concordar com o sujeito; adjetivos com substantivos
+- **Regência verbal** — atenção a verbos que exigem preposições específicas (ex: `assistir a`, `obedecer a`)
+- **Uso correto de pronomes** — evitar `aonde` quando o correto é `onde`; usar `este/esse` adequadamente
+- **Plural de palavras compostas** — seguir regras específicas (ex: `exames-padrão`, `prontuários-modelo`)
+
+### Exemplos em Código
+
+```php
+// ✅ Correto
+'required' => 'O campo :attribute é obrigatório.',
+'email' => 'O campo :attribute deve ser um endereço de e-mail válido.',
+'cpf.unique' => 'Este CPF já está cadastrado no sistema.',
+
+// ❌ Incorreto
+'required' => 'O campo :attribute e obrigatorio.',  // Falta acento
+'email' => 'O campo :attribute deve ser um endereco de email valido',  // Falta acentos e ponto
+'cpf.unique' => 'Esse CPF ja está cadastrado no sistema',  // Falta acento em "já" e ponto final
+```
+
+### Revisão Obrigatória
+
+- **Revisar todas as strings em português** antes de finalizar alterações
+- **Verificar mensagens de validação** — especialmente em Form Requests
+- **Atenção a textos em migrations** — comentários e descrições de colunas
+- **Documentação de API** — descrições em PHPDoc devem seguir as mesmas regras
+
 ## Strong Typing and PHPDoc
 
 ### Strict Types
