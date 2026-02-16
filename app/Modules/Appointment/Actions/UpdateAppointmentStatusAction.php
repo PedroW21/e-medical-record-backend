@@ -18,6 +18,11 @@ final class UpdateAppointmentStatusAction
     {
         if (in_array($newStatus, AppointmentStatus::blockingStatuses(), true)
             && ! in_array($appointment->status, AppointmentStatus::blockingStatuses(), true)) {
+            $this->appointmentService->checkWorkingHours(
+                $appointment->user_id,
+                $appointment->data,
+                $appointment->horario,
+            );
             $this->appointmentService->checkTimeConflict(
                 $appointment->user_id,
                 $appointment->data,

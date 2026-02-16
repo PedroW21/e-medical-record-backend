@@ -18,6 +18,7 @@ final class CreateAppointmentAction
 
     public function execute(int $doctorId, CreateAppointmentDTO $dto): Consulta
     {
+        $this->appointmentService->checkWorkingHours($doctorId, $dto->date, $dto->time);
         $this->appointmentService->checkTimeConflict($doctorId, $dto->date, $dto->time);
 
         return Consulta::query()->create([

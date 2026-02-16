@@ -10,11 +10,18 @@ use App\Modules\Appointment\Enums\AppointmentStatus;
 use App\Modules\Appointment\Enums\AppointmentType;
 use App\Modules\Appointment\Events\PublicAppointmentRequested;
 use App\Modules\Appointment\Models\Consulta;
+use App\Modules\Appointment\Services\AppointmentService;
 
 final class BookPublicAppointmentAction
 {
+    public function __construct(
+        private readonly AppointmentService $appointmentService,
+    ) {}
+
     public function execute(int $doctorId, BookPublicAppointmentDTO $dto): Consulta
     {
+        $this->appointmentService->checkWorkingHours($doctorId, $dto->date, $dto->time);
+
         $appointment = Consulta::query()->create([
             'user_id' => $doctorId,
             'paciente_id' => null,

@@ -20,6 +20,11 @@ final class UpdateAppointmentAction
         $time = $dto->time ?? $appointment->horario;
 
         if ($dto->date !== null || $dto->time !== null) {
+            $this->appointmentService->checkWorkingHours(
+                $appointment->user_id,
+                $date,
+                $time,
+            );
             $this->appointmentService->checkTimeConflict(
                 $appointment->user_id,
                 $date,
