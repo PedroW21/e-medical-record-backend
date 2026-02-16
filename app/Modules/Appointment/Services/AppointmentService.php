@@ -27,7 +27,8 @@ final class AppointmentService
      */
     public function listByDateRange(User $user, array $filters): Collection
     {
-        $doctorIds = $this->resolveDoctorIds($user, $filters['doctor_id'] ?? null);
+        $requestedDoctorId = isset($filters['doctor_id']) ? (int) $filters['doctor_id'] : null;
+        $doctorIds = $this->resolveDoctorIds($user, $requestedDoctorId);
 
         return Consulta::query()
             ->whereIn('user_id', $doctorIds)
