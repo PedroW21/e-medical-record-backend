@@ -20,6 +20,7 @@ use Laravel\Sanctum\HasApiTokens;
  * @property string|null $crm
  * @property string|null $specialty
  * @property string|null $avatar_url
+ * @property string|null $slug
  * @property string|null $remember_token
  * @property \Illuminate\Support\Carbon $created_at
  * @property \Illuminate\Support\Carbon $updated_at
@@ -40,6 +41,7 @@ class User extends Authenticatable
         'crm',
         'specialty',
         'avatar_url',
+        'slug',
     ];
 
     /**

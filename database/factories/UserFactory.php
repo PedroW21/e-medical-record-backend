@@ -31,6 +31,7 @@ class UserFactory extends Factory
             'crm' => fake()->numerify('CRM/SP ######'),
             'specialty' => fake()->randomElement(['Clínico Geral', 'Cardiologia', 'Dermatologia', 'Ortopedia']),
             'avatar_url' => null,
+            'slug' => fake()->unique()->slug(2),
         ];
     }
 
