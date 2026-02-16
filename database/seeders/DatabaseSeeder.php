@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Database\Seeders;
 
+use App\Modules\Appointment\Database\Seeders\AppointmentSeeder;
 use App\Modules\Auth\Database\Seeders\UserSeeder;
+use App\Modules\Delegation\Database\Seeders\DelegationSeeder;
 use App\Modules\Patient\Database\Seeders\AllergySeeder;
 use App\Modules\Patient\Database\Seeders\ChronicConditionSeeder;
 use App\Modules\Patient\Database\Seeders\PatientSeeder;
@@ -22,6 +24,8 @@ class DatabaseSeeder extends Seeder
             AllergySeeder::class,
             ChronicConditionSeeder::class,
             PatientSeeder::class,
+            DelegationSeeder::class,
+            AppointmentSeeder::class,
         ]);
     }
 }
