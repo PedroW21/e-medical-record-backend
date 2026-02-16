@@ -30,12 +30,90 @@ vendor/bin/pint --dirty
 
 ## Code Guidelines
 
-- Table and field names must be in Portuguese (e.g., `nome_paciente`, `data_nascimento`)
-- Schema names must be in English (e.g., `auth`, `app`)
 - Follow existing module conventions when creating new code
 - Use early returns over nested conditionals
 - Tests for each new feature are encouraged
 - When creating new modules, create useful factories and seeders
+- **Route Model Binding is prohibited** — never use implicit or explicit route model binding. Always receive the ID (or other identifier) as a primitive parameter and resolve the model manually (e.g., via repository, service, or query)
+
+## Language Policy (Code vs Data)
+
+**All code MUST be in English.** The only exceptions are database-related names and user-facing strings.
+
+### What MUST be in English
+
+- **Module names** — `Patient`, `MedicalRecord`, `Auth` (never `Paciente`, `Prontuario`)
+- **Class names** — `PatientController`, `CreatePatientAction`, `PatientService`, `PatientPolicy`
+- **Method names** — `findForUser()`, `listPatients()`, `syncAllergies()` (never `getPaciente()`, `sincronizarAlergias()`)
+- **Variable names** — `$patient`, `$allergies`, `$chronicConditions` (never `$paciente`, `$alergias`)
+- **DTO property names** — `$firstName`, `$birthDate`, `$bloodType`
+- **PHPDoc blocks** — all descriptions, `@param`, `@return`, `@throws` in English
+- **Scribe/API documentation** — `@group`, descriptions, parameter docs all in English
+- **Route URIs** — `/patients`, `/patients/{id}`, `/allergies`, `/addresses/zip/{zip}`
+- **Enum case names** — `TitleCase` in English: `Male`, `Female`, `Active`, `Inactive`
+- **Test descriptions** — `it('lists patients for the authenticated doctor')`
+- **Schema names** — `auth`, `app`
+
+### What MUST be in Portuguese
+
+- **Database table names** — `pacientes`, `alergias`, `condicoes_cronicas`, `enderecos`
+- **Database column names** — `nome`, `cpf`, `data_nascimento`, `tipo_sanguineo`
+- **Eloquent Model class names** — `Paciente`, `Alergia`, `CondicaoCronica`, `Endereco` (to mirror the table)
+- **Eloquent relationship method names** — `paciente->alergias()`, `paciente->condicoesCronicas()` (to mirror the table/model)
+- **User-facing strings** — validation messages, API error messages returned to the frontend
+- **Seeder data** — e.g., allergy names like `'Penicilina'`, condition names like `'Hipertensão Arterial'`
+
+### Examples
+
+```php
+// ✅ Correct — English code, Portuguese model reflecting the table
+class PatientController
+{
+    /**
+     * List all patients for the authenticated doctor.
+     */
+    public function index(ListPatientRequest $request): AnonymousResourceCollection
+    {
+        $patients = $this->patientService->listForUser(
+            userId: $request->user()->id,
+            filters: $request->validated(),
+        );
+
+        return PatientListResource::collection($patients);
+    }
+}
+
+// Model mirrors the Portuguese table name
+class Paciente extends Model
+{
+    protected $table = 'pacientes';
+
+    public function alergias(): BelongsToMany { /* ... */ }
+}
+
+// ❌ Wrong — mixing Portuguese in code
+class PacienteController  // Should be PatientController
+{
+    public function getPacientes() { /* ... */ }  // Should be listPatients/index
+}
+```
+
+### Summary Table
+
+| Element | Language | Example |
+|---------|----------|---------|
+| Module folder | English | `app/Modules/Patient/` |
+| Controller | English | `PatientController` |
+| Service/Action/DTO | English | `CreatePatientAction`, `PatientDTO` |
+| Method names | English | `findForUser()`, `syncAllergies()` |
+| PHPDoc | English | `/** Retrieve a patient by ID. */` |
+| Scribe docs | English | `@group Patients` |
+| Route URIs | English | `/patients/{id}` |
+| Test descriptions | English | `it('creates a patient with address')` |
+| Model class | Portuguese | `Paciente`, `Alergia` |
+| Relationship methods | Portuguese | `->alergias()`, `->condicoesCronicas()` |
+| Table/column names | Portuguese | `pacientes.nome`, `data_nascimento` |
+| Validation messages | Portuguese | `'O campo nome é obrigatório.'` |
 
 ## Diretrizes de Português
 
@@ -80,7 +158,7 @@ Todos os textos voltados ao usuário (mensagens de erro, labels, descrições, c
 - **Revisar todas as strings em português** antes de finalizar alterações
 - **Verificar mensagens de validação** — especialmente em Form Requests
 - **Atenção a textos em migrations** — comentários e descrições de colunas
-- **Documentação de API** — descrições em PHPDoc devem seguir as mesmas regras
+- **Nota:** PHPDoc e Scribe documentation are written in English (see Language Policy above). Portuguese rules apply only to user-facing strings (validation messages, error responses)
 
 ## Strong Typing and PHPDoc
 
@@ -239,28 +317,30 @@ final readonly class CreatePacienteDTO
 
 - **Always update Scribe documentation** after creating or modifying API endpoints
 - Run `php artisan scribe:generate` to regenerate docs after changes
+- **All Scribe documentation must be in English** — descriptions, group names, parameter docs, scenario names
 - Use PHPDoc annotations for documentation:
 
 ```php
 /**
- * List all patients for the authenticated user.
+ * List all patients for the authenticated doctor.
  *
  * Retrieves a paginated list of patients,
  * ordered by creation date (most recent first).
  *
  * @authenticated
- * @group Pacientes
+ * @group Patients
  *
  * @queryParam page int The page number. Example: 1
  * @queryParam per_page int Items per page (max 100). Example: 15
+ * @queryParam search string Search by name or CPF. Example: Maria
  *
  * @response 200 scenario="Success" {
  *   "data": [
  *     {
  *       "id": 1,
- *       "nome": "João Silva",
+ *       "name": "João Silva",
  *       "cpf": "123.456.789-00",
- *       "criado_em": "2024-01-15T10:30:00Z"
+ *       "created_at": "2024-01-15T10:30:00Z"
  *     }
  *   ],
  *   "meta": {
@@ -268,7 +348,7 @@ final readonly class CreatePacienteDTO
  *     "total": 50
  *   }
  * }
- * @response 401 scenario="Unauthenticated" {"message": "Token inválido"}
+ * @response 401 scenario="Unauthenticated" {"message": "Token inválido."}
  */
 ```
 
@@ -351,6 +431,7 @@ This application is a Laravel application and its main Laravel ecosystems packag
 - php - 8.5.0
 - laravel/framework (LARAVEL) - v12
 - laravel/prompts (PROMPTS) - v0
+- laravel/sanctum (SANCTUM) - v4
 - laravel/mcp (MCP) - v0
 - laravel/pint (PINT) - v1
 - laravel/sail (SAIL) - v1
