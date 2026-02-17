@@ -8,6 +8,7 @@ use App\Modules\Appointment\Events\PublicAppointmentRequested;
 use App\Modules\Appointment\Listeners\SendNewAppointmentNotification;
 use App\Modules\Appointment\Models\Consulta;
 use App\Modules\Appointment\Policies\AppointmentPolicy;
+use App\Modules\Notification\NotificationTypeRegistry;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
@@ -26,6 +27,12 @@ final class AppointmentServiceProvider extends ServiceProvider
         Event::listen(
             PublicAppointmentRequested::class,
             SendNewAppointmentNotification::class,
+        );
+
+        NotificationTypeRegistry::register(
+            slug: 'new_public_appointment_requested',
+            label: 'Nova solicitação de agendamento',
+            channels: ['database', 'mail', 'broadcast'],
         );
     }
 }
