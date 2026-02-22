@@ -415,6 +415,43 @@ Directories prefixed with `_` (e.g., `_Contracts`, `_Helpers`, `_Traits`) are ex
 - Module tests live in `app/Modules/{ModuleName}/Tests/`
 - Standard tests in `tests/Feature/` and `tests/Unit/`
 
+## Session Checkpoints (Serena Memories)
+
+Always use Serena MCP and its memory system to maintain session continuity. This is **mandatory** for every working session.
+
+### Checkpoint File
+
+- Use `mcp__serena__write_memory` to create/update a checkpoint memory called `session-checkpoint.md`
+- This file must track:
+  - **What was done** — completed tasks, files changed, decisions made
+  - **What is being done** — current task in progress, current state
+  - **What will be done** — pending tasks, next steps planned
+- Update the checkpoint **frequently** as work progresses (at minimum: when starting a task, completing a task, or before any natural pause)
+
+### After Session Compaction
+
+- **Every time the session context is compacted**, immediately read the checkpoint memory using `mcp__serena__read_memory` with `session-checkpoint.md` to recover the full context of where you were
+- This ensures no loss of continuity even when conversation history is compressed
+
+### Format Example
+
+```markdown
+# Session Checkpoint
+
+## Completed
+- [x] Created Patient module migration
+- [x] Added Paciente model with relationships
+
+## In Progress
+- [ ] Building PatientController with CRUD endpoints
+  - Status: index and show done, working on store
+
+## Next Steps
+- [ ] Create PatientService
+- [ ] Write feature tests for Patient endpoints
+- [ ] Add Scribe documentation
+```
+
 ---
 
 <laravel-boost-guidelines>
@@ -431,6 +468,7 @@ This application is a Laravel application and its main Laravel ecosystems packag
 - php - 8.5.0
 - laravel/framework (LARAVEL) - v12
 - laravel/prompts (PROMPTS) - v0
+- laravel/reverb (REVERB) - v1
 - laravel/sanctum (SANCTUM) - v4
 - laravel/mcp (MCP) - v0
 - laravel/pint (PINT) - v1
@@ -547,6 +585,13 @@ protected function isAccessible(User $user, ?string $path = null): bool
 ## PHPDoc Blocks
 
 - Add useful array shape type definitions when appropriate.
+
+=== tests rules ===
+
+# Test Enforcement
+
+- Every change must be programmatically tested. Write a new test or update an existing test, then run the affected tests to make sure they pass.
+- Run the minimum number of tests needed to ensure code quality and speed. Use `php artisan test --compact` with a specific filename or filter.
 
 === laravel/core rules ===
 
