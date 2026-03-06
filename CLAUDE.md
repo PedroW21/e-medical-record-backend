@@ -35,6 +35,11 @@ vendor/bin/pint --dirty
 - Tests for each new feature are encouraged
 - When creating new modules, create useful factories and seeders
 - **Route Model Binding is prohibited** — never use implicit or explicit route model binding. Always receive the ID (or other identifier) as a primitive parameter and resolve the model manually (e.g., via repository, service, or query)
+- Prefer dependency injection via constructor for services and repositories
+- Prefer collections and higher-order functions over raw loops for array manipulations
+- Prefer events and listeners for decoupling components (e.g., dispatching domain events after significant actions)
+- Prefer Laravel Exceptions (`ModelNotFoundException`, `InvalidArgumentException`, etc.) for error handling — let the exception handler produce the response
+- Always use Context7 MCP tools (`resolve-library-id` and `query-docs`) for non-Laravel library documentation, setup, or code generation. For Laravel ecosystem packages, use `search-docs` from Laravel Boost instead
 
 ## Language Policy (Code vs Data)
 
@@ -352,15 +357,31 @@ final readonly class CreatePacienteDTO
  */
 ```
 
-- Documentation must be **complete and descriptive** with concrete examples
-- Include all possible response scenarios (success, validation errors, auth errors)
+- Documentation must be **complete and descriptive** with concrete, realistic examples (real-looking names, CPFs, dates — not generic placeholders)
+- Every endpoint MUST include `@response` blocks for ALL expected scenarios:
+  - `200` — Success (with full realistic data payload)
+  - `201` — Created (when applicable)
+  - `401` — Unauthenticated
+  - `403` — Forbidden (when authorization/policies apply)
+  - `404` — Not found (when fetching by ID)
+  - `422` — Validation error (with realistic `errors` object showing field-level messages)
+  - Use `scenario="Description"` to label each response
 - Document all query parameters, body parameters, and headers
+- Any change that affects API behavior (new endpoints, modified responses, added/removed fields, changed status codes) **MUST** include updated Scribe documentation and regenerate docs with `php artisan scribe:generate`
 
 ## Commit Guidelines
 
 - Must use conventional commits (e.g., `feat:`, `fix:`, `refactor:`, `chore:`, `docs:`, `test:`)
 - Do NOT mention Claude Code in commit messages
 - Do NOT add "Co-Authored-By: Claude" or similar
+- **NEVER commit AI-generated files** (plans, design docs, memory files, etc.) — these live locally only and are already in `.gitignore` (`docs/`, `.serena/`, `.claude/`). Never use `git add -f` to bypass this
+
+## Pull Request Guidelines
+
+- Title must be in Portuguese
+- Read past PRs to understand the style and format used in this repository
+- Do NOT mention Claude Code in PR descriptions
+- PRs must be targeted to the `main` branch
 
 ## Architecture
 
@@ -409,6 +430,23 @@ Directories prefixed with `_` (e.g., `_Contracts`, `_Helpers`, `_Traits`) are ex
 
 - **Engine**: PostgreSQL
 - **Connection**: Default connection is `pgsql`
+
+### Creating a New Module Feature
+
+1. Create the module structure (or enhance existing module)
+2. Define the Eloquent model in `Models/`
+3. Create migrations in `Database/Migrations/`
+4. Create Form Request validation in `Http/Requests/`
+5. Create service in `Services/` for business logic
+6. Create controller in `Http/Controllers/`
+7. Add routes to `routes.php`
+8. Register bindings in `Providers/{ModuleName}ServiceProvider`
+9. Create factories and seeders in `Database/`
+10. Write feature tests in `Tests/`
+11. Add Scribe documentation to controller methods
+12. Run `vendor/bin/pint --dirty` to format code
+13. Run `php artisan scribe:generate` to regenerate docs
+14. Run tests: `php artisan test`
 
 ### Testing
 
