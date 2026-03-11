@@ -65,3 +65,17 @@ it('rejects deletion by non-owner', function (): void {
 
     $response->assertForbidden();
 });
+
+it('rejects deletion when prescription belongs to a different medical record', function (): void {
+    $doctor = User::factory()->doctor()->create();
+    $prontuarioA = Prontuario::factory()->create(['user_id' => $doctor->id]);
+    $prontuarioB = Prontuario::factory()->create(['user_id' => $doctor->id]);
+    $prescription = Prescricao::factory()->create(['prontuario_id' => $prontuarioA->id]);
+
+    $response = $this->actingAs($doctor)->deleteJson(
+        "/api/medical-records/{$prontuarioB->id}/prescriptions/{$prescription->id}"
+    );
+
+    $response->assertNotFound();
+    $this->assertDatabaseHas('prescricoes', ['id' => $prescription->id]);
+});

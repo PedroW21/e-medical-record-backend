@@ -126,3 +126,23 @@ it('returns 404 when deleting nonexistent template', function (): void {
 
     $response->assertNotFound();
 });
+
+it('clears tags when null is explicitly sent', function (): void {
+    $doctor = User::factory()->doctor()->create();
+    $template = ModeloPrescricao::factory()->create([
+        'user_id' => $doctor->id,
+        'tags' => ['antibiótico', 'infecção'],
+    ]);
+
+    $response = $this->actingAs($doctor)->putJson("/api/prescription-templates/{$template->id}", [
+        'tags' => null,
+    ]);
+
+    $response->assertOk()
+        ->assertJsonPath('data.tags', null);
+
+    $this->assertDatabaseHas('modelos_prescricao', [
+        'id' => $template->id,
+        'tags' => null,
+    ]);
+});
