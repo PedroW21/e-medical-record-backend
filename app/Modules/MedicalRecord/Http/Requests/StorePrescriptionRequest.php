@@ -57,6 +57,13 @@ final class StorePrescriptionRequest extends FormRequest
                 'string',
                 'max:255',
             ],
+            'items.*.medication_id' => ['nullable', 'integer'],
+            'items.*.instructions' => ['nullable', 'string', 'max:1000'],
+            'items.*.is_controlled' => ['nullable', 'boolean'],
+            'items.*.control_type' => ['nullable', 'string', 'max:10'],
+            'items.*.name' => ['nullable', 'string', 'max:255'],
+            'items.*.components' => ['nullable', 'array'],
+            'items.*.posology' => ['nullable', 'string', 'max:1000'],
             'notes' => ['nullable', 'string'],
             'recipe_type_override' => ['nullable', 'boolean'],
             'recipe_type' => [
