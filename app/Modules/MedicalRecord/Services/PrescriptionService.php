@@ -78,7 +78,11 @@ final class PrescriptionService
         $override = $dto->tipoReceitaOverride ?? $prescription->tipo_receita_override;
         $manual = $dto->tipoReceitaManual;
 
-        $data['tipo_receita'] = $this->resolveRecipeType($itens, $subtipo, $override, $manual);
+        if ($override && $manual === null) {
+            $data['tipo_receita'] = $prescription->tipo_receita;
+        } else {
+            $data['tipo_receita'] = $this->resolveRecipeType($itens, $subtipo, $override, $manual);
+        }
 
         $prescription->update($data);
 

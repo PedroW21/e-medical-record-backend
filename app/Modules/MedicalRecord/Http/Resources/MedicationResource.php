@@ -24,8 +24,8 @@ final class MedicationResource extends JsonResource
             'presentation' => $this->apresentacao,
             'manufacturer' => $this->fabricante,
             'anvisa_code' => $this->codigo_anvisa,
-            'anvisa_list' => $this->lista_anvisa,
-            'is_controlled' => $this->controlado,
+            'anvisa_list' => $this->lista_anvisa?->value,
+            'is_controlled' => $this->lista_anvisa !== null,
         ];
     }
 }

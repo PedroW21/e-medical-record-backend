@@ -20,8 +20,8 @@ final class PrescriptionResource extends JsonResource
         return [
             'id' => $this->id,
             'medical_record_id' => $this->prontuario_id,
-            'subtype' => $this->subtipo,
-            'recipe_type' => $this->tipo_receita,
+            'subtype' => $this->subtipo?->value,
+            'recipe_type' => $this->tipo_receita?->value,
             'recipe_type_override' => $this->tipo_receita_override,
             'items' => $this->itens,
             'notes' => $this->observacoes,

@@ -20,7 +20,7 @@ final class PrescriptionTemplateResource extends JsonResource
         return [
             'id' => $this->id,
             'name' => $this->nome,
-            'subtype' => $this->subtipo,
+            'subtype' => $this->subtipo?->value,
             'tags' => $this->tags,
             'items' => $this->itens,
             'created_at' => $this->created_at,

@@ -34,6 +34,7 @@ final class StorePrescriptionRequest extends FormRequest
         return [
             'subtype' => ['required', 'string', Rule::in(array_column(PrescriptionSubType::cases(), 'value'))],
             'items' => ['required', 'array', 'min:1'],
+            'items.*' => ['required', 'array'],
             'items.*.medication_name' => [
                 Rule::requiredIf(fn () => in_array($this->input('subtype'), $allopathicTypes, true)),
                 'string',
@@ -85,6 +86,7 @@ final class StorePrescriptionRequest extends FormRequest
             'items.required' => 'O campo itens é obrigatório.',
             'items.array' => 'O campo itens deve ser uma lista.',
             'items.min' => 'A prescrição deve conter pelo menos um item.',
+            'items.*.array' => 'Cada item da prescrição deve ser um objeto válido.',
             'items.*.medication_name.required' => 'O nome do medicamento é obrigatório para o subtipo selecionado.',
             'items.*.medication_name.max' => 'O nome do medicamento não pode ter mais de 255 caracteres.',
             'items.*.dosage.required' => 'A dosagem é obrigatória para prescrições alopáticas.',

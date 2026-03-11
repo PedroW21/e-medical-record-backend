@@ -24,6 +24,7 @@ final class UpdatePrescriptionRequest extends FormRequest
         return [
             'subtype' => ['sometimes', 'string', Rule::in(array_column(PrescriptionSubType::cases(), 'value'))],
             'items' => ['sometimes', 'array', 'min:1'],
+            'items.*' => ['required', 'array'],
             'items.*.medication_name' => ['sometimes', 'string', 'max:255'],
             'items.*.dosage' => ['nullable', 'string', 'max:255'],
             'items.*.frequency' => ['nullable', 'string', 'max:255'],
@@ -54,6 +55,7 @@ final class UpdatePrescriptionRequest extends FormRequest
             'subtype.in' => 'O subtipo informado é inválido.',
             'items.array' => 'O campo itens deve ser uma lista.',
             'items.min' => 'A prescrição deve conter pelo menos um item.',
+            'items.*.array' => 'Cada item da prescrição deve ser um objeto válido.',
             'items.*.medication_name.max' => 'O nome do medicamento não pode ter mais de 255 caracteres.',
             'items.*.dosage.max' => 'A dosagem não pode ter mais de 255 caracteres.',
             'items.*.frequency.max' => 'A frequência não pode ter mais de 255 caracteres.',
