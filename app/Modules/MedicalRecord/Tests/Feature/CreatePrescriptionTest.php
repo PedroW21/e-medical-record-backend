@@ -147,6 +147,26 @@ it('rejects creation with empty items', function (): void {
         ->assertJsonValidationErrors(['items']);
 });
 
+it('creates an injectable_im prescription', function (): void {
+    $doctor = User::factory()->doctor()->create();
+    $prontuario = Prontuario::factory()->create(['user_id' => $doctor->id]);
+
+    $response = $this->actingAs($doctor)->postJson("/api/medical-records/{$prontuario->id}/prescriptions", [
+        'subtype' => 'injectable_im',
+        'items' => [
+            [
+                'medication_name' => 'Diclofenaco Sódico 75mg/3mL',
+                'dosage' => '3mL',
+            ],
+        ],
+    ]);
+
+    $response->assertCreated()
+        ->assertJsonPath('data.medical_record_id', $prontuario->id)
+        ->assertJsonPath('data.subtype', 'injectable_im')
+        ->assertJsonPath('data.recipe_type', 'normal');
+});
+
 it('rejects unauthenticated access', function (): void {
     $prontuario = Prontuario::factory()->create();
 

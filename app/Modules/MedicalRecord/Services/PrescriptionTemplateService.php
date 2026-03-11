@@ -42,11 +42,23 @@ final class PrescriptionTemplateService
     {
         $template = $this->findOrFail($templateId);
 
-        $data = array_filter([
-            'nome' => $dto->nome,
-            'itens' => $dto->itens,
-            'tags' => $dto->tags,
-        ], fn ($value) => $value !== null);
+        $data = [];
+
+        if ($dto->nome !== null) {
+            $data['nome'] = $dto->nome;
+        }
+
+        if ($dto->subtipo !== null) {
+            $data['subtipo'] = $dto->subtipo;
+        }
+
+        if ($dto->itens !== null) {
+            $data['itens'] = $dto->itens;
+        }
+
+        if ($dto->hasTags) {
+            $data['tags'] = $dto->tags;
+        }
 
         $template->update($data);
 

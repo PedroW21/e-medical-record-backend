@@ -55,12 +55,23 @@ final class PrescriptionService
         $prescription = $this->findOrFail($prescriptionId);
         $this->ensureDraft($prescription->prontuario);
 
-        $data = array_filter([
-            'subtipo' => $dto->subtipo,
-            'itens' => $dto->itens,
-            'observacoes' => $dto->observacoes,
-            'tipo_receita_override' => $dto->tipoReceitaOverride,
-        ], fn ($value) => $value !== null);
+        $data = [];
+
+        if ($dto->subtipo !== null) {
+            $data['subtipo'] = $dto->subtipo;
+        }
+
+        if ($dto->itens !== null) {
+            $data['itens'] = $dto->itens;
+        }
+
+        if ($dto->tipoReceitaOverride !== null) {
+            $data['tipo_receita_override'] = $dto->tipoReceitaOverride;
+        }
+
+        if ($dto->hasObservacoes) {
+            $data['observacoes'] = $dto->observacoes;
+        }
 
         $itens = $dto->itens ?? $prescription->itens;
         $subtipo = $dto->subtipo ?? $prescription->subtipo;
@@ -87,6 +98,17 @@ final class PrescriptionService
         $prescription = Prescricao::query()->with('prontuario')->find($prescriptionId);
 
         if (! $prescription) {
+            throw new NotFoundHttpException('Prescrição não encontrada.');
+        }
+
+        return $prescription;
+    }
+
+    public function findForMedicalRecordOrFail(int $prescriptionId, int $medicalRecordId): Prescricao
+    {
+        $prescription = $this->findOrFail($prescriptionId);
+
+        if ($prescription->prontuario_id !== $medicalRecordId) {
             throw new NotFoundHttpException('Prescrição não encontrada.');
         }
 

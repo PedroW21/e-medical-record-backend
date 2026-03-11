@@ -396,8 +396,8 @@ final class MedicationSeeder extends Seeder
                 'nome' => 'Venlafaxina 75mg',
                 'principio_ativo' => 'Cloridrato de Venlafaxina',
                 'apresentacao' => 'Cápsula de liberação prolongada 75mg',
-                'lista_anvisa' => null,
-                'controlado' => false,
+                'lista_anvisa' => 'C1',
+                'controlado' => true,
             ],
             [
                 'nome' => 'Amitriptilina 25mg',
@@ -410,15 +410,15 @@ final class MedicationSeeder extends Seeder
                 'nome' => 'Bupropiona 150mg',
                 'principio_ativo' => 'Cloridrato de Bupropiona',
                 'apresentacao' => 'Comprimido de liberação prolongada 150mg',
-                'lista_anvisa' => null,
-                'controlado' => false,
+                'lista_anvisa' => 'C1',
+                'controlado' => true,
             ],
             [
                 'nome' => 'Duloxetina 60mg',
                 'principio_ativo' => 'Cloridrato de Duloxetina',
                 'apresentacao' => 'Cápsula gastrorresistente 60mg',
-                'lista_anvisa' => null,
-                'controlado' => false,
+                'lista_anvisa' => 'C1',
+                'controlado' => true,
             ],
             [
                 'nome' => 'Paroxetina 20mg',
@@ -573,6 +573,52 @@ final class MedicationSeeder extends Seeder
                 'principio_ativo' => 'Cloridrato de Tapentadol',
                 'apresentacao' => 'Comprimido revestido 50mg',
                 'lista_anvisa' => 'A2',
+                'controlado' => true,
+            ],
+
+            // Outros controlados C1
+            [
+                'nome' => 'Tramadol 50mg',
+                'principio_ativo' => 'Cloridrato de Tramadol',
+                'apresentacao' => 'Comprimido 50mg',
+                'lista_anvisa' => 'C1',
+                'controlado' => true,
+            ],
+            [
+                'nome' => 'Sibutramina 15mg',
+                'principio_ativo' => 'Cloridrato de Sibutramina',
+                'apresentacao' => 'Cápsula 15mg',
+                'lista_anvisa' => 'C1',
+                'controlado' => true,
+            ],
+            [
+                'nome' => 'Topiramato 50mg',
+                'principio_ativo' => 'Topiramato',
+                'apresentacao' => 'Comprimido 50mg',
+                'lista_anvisa' => 'C1',
+                'controlado' => true,
+            ],
+
+            // Antirretrovirais C4
+            [
+                'nome' => 'Tenofovir 300mg',
+                'principio_ativo' => 'Tenofovir Disoproxil Fumarato',
+                'apresentacao' => 'Comprimido 300mg',
+                'lista_anvisa' => 'C4',
+                'controlado' => true,
+            ],
+            [
+                'nome' => 'Lamivudina 150mg',
+                'principio_ativo' => 'Lamivudina',
+                'apresentacao' => 'Comprimido 150mg',
+                'lista_anvisa' => 'C4',
+                'controlado' => true,
+            ],
+            [
+                'nome' => 'Dolutegravir 50mg',
+                'principio_ativo' => 'Dolutegravir Sódico',
+                'apresentacao' => 'Comprimido 50mg',
+                'lista_anvisa' => 'C4',
                 'controlado' => true,
             ],
 

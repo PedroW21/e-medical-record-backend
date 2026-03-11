@@ -33,3 +33,9 @@ it('returns 404 for nonexistent id', function (): void {
 
     $response->assertNotFound();
 });
+
+it('rejects unauthenticated access', function (): void {
+    $response = $this->getJson('/api/medications/1');
+
+    $response->assertUnauthorized();
+});

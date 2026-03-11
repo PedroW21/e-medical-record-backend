@@ -31,6 +31,28 @@ it('rejects deletion on finalized record', function (): void {
     $response->assertStatus(409);
 });
 
+it('rejects unauthenticated access', function (): void {
+    $prontuario = Prontuario::factory()->create();
+    $prescription = Prescricao::factory()->create(['prontuario_id' => $prontuario->id]);
+
+    $response = $this->deleteJson(
+        "/api/medical-records/{$prontuario->id}/prescriptions/{$prescription->id}"
+    );
+
+    $response->assertUnauthorized();
+});
+
+it('returns 404 for nonexistent prescription', function (): void {
+    $doctor = User::factory()->doctor()->create();
+    $prontuario = Prontuario::factory()->create(['user_id' => $doctor->id]);
+
+    $response = $this->actingAs($doctor)->deleteJson(
+        "/api/medical-records/{$prontuario->id}/prescriptions/99999"
+    );
+
+    $response->assertNotFound();
+});
+
 it('rejects deletion by non-owner', function (): void {
     $doctorA = User::factory()->doctor()->create();
     $doctorB = User::factory()->doctor()->create();

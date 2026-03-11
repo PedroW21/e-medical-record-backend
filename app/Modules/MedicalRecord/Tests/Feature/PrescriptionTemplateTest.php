@@ -108,3 +108,21 @@ it('rejects unauthenticated access', function (): void {
 
     $response->assertUnauthorized();
 });
+
+it('returns 404 when updating nonexistent template', function (): void {
+    $doctor = User::factory()->doctor()->create();
+
+    $response = $this->actingAs($doctor)->putJson('/api/prescription-templates/99999', [
+        'name' => 'New Name',
+    ]);
+
+    $response->assertNotFound();
+});
+
+it('returns 404 when deleting nonexistent template', function (): void {
+    $doctor = User::factory()->doctor()->create();
+
+    $response = $this->actingAs($doctor)->deleteJson('/api/prescription-templates/99999');
+
+    $response->assertNotFound();
+});

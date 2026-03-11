@@ -149,7 +149,7 @@ final class PrescriptionController
      */
     public function update(UpdatePrescriptionRequest $request, int $medicalRecordId, int $id): PrescriptionResource
     {
-        $prescription = $this->prescriptionService->findOrFail($id);
+        $prescription = $this->prescriptionService->findForMedicalRecordOrFail($id, $medicalRecordId);
 
         Gate::authorize('update', $prescription);
 
@@ -177,7 +177,7 @@ final class PrescriptionController
      */
     public function destroy(Request $request, int $medicalRecordId, int $id): JsonResponse
     {
-        $prescription = $this->prescriptionService->findOrFail($id);
+        $prescription = $this->prescriptionService->findForMedicalRecordOrFail($id, $medicalRecordId);
 
         Gate::authorize('delete', $prescription);
 

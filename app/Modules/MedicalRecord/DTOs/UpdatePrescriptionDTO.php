@@ -16,6 +16,7 @@ final readonly class UpdatePrescriptionDTO
         public ?PrescriptionSubType $subtipo = null,
         public ?array $itens = null,
         public ?string $observacoes = null,
+        public bool $hasObservacoes = false,
         public ?bool $tipoReceitaOverride = null,
         public ?string $tipoReceitaManual = null,
     ) {}
@@ -28,6 +29,7 @@ final readonly class UpdatePrescriptionDTO
             subtipo: isset($validated['subtype']) ? PrescriptionSubType::from($validated['subtype']) : null,
             itens: $validated['items'] ?? null,
             observacoes: array_key_exists('notes', $validated) ? $validated['notes'] : null,
+            hasObservacoes: array_key_exists('notes', $validated),
             tipoReceitaOverride: isset($validated['recipe_type_override']) ? (bool) $validated['recipe_type_override'] : null,
             tipoReceitaManual: $validated['recipe_type'] ?? null,
         );

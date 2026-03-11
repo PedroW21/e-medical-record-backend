@@ -27,6 +27,22 @@ it('returns empty for record with no prescriptions', function (): void {
         ->assertJsonCount(0, 'data');
 });
 
+it('rejects unauthenticated access', function (): void {
+    $prontuario = Prontuario::factory()->create();
+
+    $response = $this->getJson("/api/medical-records/{$prontuario->id}/prescriptions");
+
+    $response->assertUnauthorized();
+});
+
+it('returns 404 for nonexistent medical record', function (): void {
+    $doctor = User::factory()->doctor()->create();
+
+    $response = $this->actingAs($doctor)->getJson('/api/medical-records/99999/prescriptions');
+
+    $response->assertNotFound();
+});
+
 it('rejects listing by non-owner', function (): void {
     $doctorA = User::factory()->doctor()->create();
     $doctorB = User::factory()->doctor()->create();
