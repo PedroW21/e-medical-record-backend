@@ -378,7 +378,7 @@ final readonly class CreatePacienteDTO
 
 ## Pull Request Guidelines
 
-- Title must be in Portuguese
+- Title and description must be in Portuguese
 - Read past PRs to understand the style and format used in this repository
 - Do NOT mention Claude Code in PR descriptions
 - PRs must be targeted to the `main` branch
@@ -629,6 +629,7 @@ protected function isAccessible(User $user, ?string $path = null): bool
 # Test Enforcement
 
 - Every change must be programmatically tested. Write a new test or update an existing test, then run the affected tests to make sure they pass.
+- Any feature change must have its tests reviewed to ensure accuracy and quality, avoiding false positives and regressions.
 - Run the minimum number of tests needed to ensure code quality and speed. Use `php artisan test --compact` with a specific filename or filter.
 
 === laravel/core rules ===
