@@ -10,24 +10,21 @@ return new class extends Migration
 {
     public function up(): void
     {
-        if (Schema::hasTable('preferencias_notificacao')) {
-            return;
-        }
-
-        Schema::create('preferencias_notificacao', function (Blueprint $table): void {
+        Schema::create('modelos_prescricao', function (Blueprint $table): void {
             $table->id();
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
-            $table->string('tipo_notificacao');
-            $table->string('canal');
-            $table->boolean('ativo')->default(true);
+            $table->string('nome');
+            $table->jsonb('tags')->nullable();
+            $table->string('subtipo');
+            $table->jsonb('itens');
             $table->timestamps();
 
-            $table->unique(['user_id', 'tipo_notificacao', 'canal']);
+            $table->index(['user_id', 'subtipo']);
         });
     }
 
     public function down(): void
     {
-        Schema::dropIfExists('preferencias_notificacao');
+        Schema::dropIfExists('modelos_prescricao');
     }
 };
