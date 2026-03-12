@@ -9,6 +9,10 @@ return new class extends Migration
 {
     public function up(): void
     {
+        if (DB::getDriverName() !== 'pgsql') {
+            return;
+        }
+
         DB::unprepared("
             CREATE OR REPLACE FUNCTION prevent_finalized_prontuario_update()
             RETURNS TRIGGER AS \$\$
@@ -29,6 +33,10 @@ return new class extends Migration
 
     public function down(): void
     {
+        if (DB::getDriverName() !== 'pgsql') {
+            return;
+        }
+
         DB::unprepared("
             DROP TRIGGER IF EXISTS trg_prevent_finalized_prontuario_update ON prontuarios;
             DROP FUNCTION IF EXISTS prevent_finalized_prontuario_update();
