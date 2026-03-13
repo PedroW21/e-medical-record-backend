@@ -20,4 +20,10 @@ return Application::configure(basePath: dirname(__DIR__))
         $exceptions->shouldRenderJsonWhen(function (Request $request): bool {
             return $request->is('api/*') || $request->expectsJson();
         });
+
+        $exceptions->render(function (\DomainException $e, Request $request) {
+            if ($request->is('api/*') || $request->expectsJson()) {
+                return response()->json(['message' => $e->getMessage()], 409);
+            }
+        });
     })->create();

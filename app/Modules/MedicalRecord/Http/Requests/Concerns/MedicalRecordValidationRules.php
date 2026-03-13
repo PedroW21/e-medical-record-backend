@@ -166,7 +166,7 @@ trait MedicalRecordValidationRules
             'conduct.diets.*.default_text' => ['required', 'string', 'max:2000'],
             'conduct.diets.*.custom_text' => ['nullable', 'string', 'max:2000'],
             'conduct.physical_activity' => ['required_with:conduct', 'array'],
-            'conduct.physical_activity.default_text' => ['required', 'string', 'max:2000'],
+            'conduct.physical_activity.default_text' => ['required_with:conduct.physical_activity', 'string', 'max:2000'],
             'conduct.physical_activity.custom_text' => ['nullable', 'string', 'max:2000'],
             'conduct.xenobiotics_restriction' => ['required_with:conduct', 'boolean'],
             'conduct.xenobiotics_default_text' => ['required_with:conduct', 'string', 'max:2000'],
