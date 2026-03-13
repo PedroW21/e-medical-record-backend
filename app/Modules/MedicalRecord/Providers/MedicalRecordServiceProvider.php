@@ -7,6 +7,8 @@ namespace App\Modules\MedicalRecord\Providers;
 use App\Modules\MedicalRecord\Models\ModeloPrescricao;
 use App\Modules\MedicalRecord\Models\Prescricao;
 use App\Modules\MedicalRecord\Models\Prontuario;
+use App\Modules\MedicalRecord\Models\ValorLaboratorial;
+use App\Modules\MedicalRecord\Policies\LabResultPolicy;
 use App\Modules\MedicalRecord\Policies\MedicalRecordPolicy;
 use App\Modules\MedicalRecord\Policies\PrescriptionPolicy;
 use App\Modules\MedicalRecord\Policies\PrescriptionTemplatePolicy;
@@ -25,5 +27,6 @@ final class MedicalRecordServiceProvider extends ServiceProvider
         Gate::policy(Prontuario::class, MedicalRecordPolicy::class);
         Gate::policy(Prescricao::class, PrescriptionPolicy::class);
         Gate::policy(ModeloPrescricao::class, PrescriptionTemplatePolicy::class);
+        Gate::policy(ValorLaboratorial::class, LabResultPolicy::class);
     }
 }
