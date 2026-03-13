@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\MedicalRecord\Database\Factories;
 
+use App\Modules\MedicalRecord\Models\CatalogoExameLaboratorial;
 use App\Modules\MedicalRecord\Models\Prontuario;
 use App\Modules\MedicalRecord\Models\ValorLaboratorial;
 use Illuminate\Database\Eloquent\Factories\Factory;
@@ -35,13 +36,32 @@ final class LabResultFactory extends Factory
     }
 
     /**
+     * Configure the factory to ensure catalog exam exists before creating.
+     */
+    public function configure(): static
+    {
+        return $this->afterMaking(function (ValorLaboratorial $model): void {
+            if ($model->catalogo_exame_id && ! CatalogoExameLaboratorial::query()->find($model->catalogo_exame_id)) {
+                CatalogoExameLaboratorial::query()->create([
+                    'id' => $model->catalogo_exame_id,
+                    'nome' => 'Hemoglobina',
+                    'categoria' => 'hematologia',
+                    'unidade' => 'g/dL',
+                    'faixa_referencia' => '13,5-17,5 (H) / 12,0-16,0 (M)',
+                    'tipo_resultado' => 'numeric',
+                ]);
+            }
+        });
+    }
+
+    /**
      * Create a free-form (loose) lab result not linked to catalog.
      */
     public function loose(): static
     {
         return $this->state(fn (array $attributes) => [
             'catalogo_exame_id' => null,
-            'nome_avulso' => 'Exame avulso ' . $this->faker->word(),
+            'nome_avulso' => 'Exame avulso '.$this->faker->word(),
             'unidade' => $this->faker->randomElement(['mg/dL', 'U/L', 'mEq/L']),
             'faixa_referencia' => null,
         ]);

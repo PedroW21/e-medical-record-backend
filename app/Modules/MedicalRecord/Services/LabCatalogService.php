@@ -20,7 +20,7 @@ final class LabCatalogService
         $query = CatalogoExameLaboratorial::query()->orderBy('nome');
 
         if ($search) {
-            $query->where('nome', 'ilike', "%{$search}%");
+            $query->whereRaw('LOWER(nome) LIKE ?', ['%'.mb_strtolower($search).'%']);
         }
 
         if ($category) {
