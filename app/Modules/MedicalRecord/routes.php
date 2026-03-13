@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Modules\MedicalRecord\Http\Controllers\LabCatalogController;
+use App\Modules\MedicalRecord\Http\Controllers\LabResultController;
 use App\Modules\MedicalRecord\Http\Controllers\MedicationController;
 use App\Modules\MedicalRecord\Http\Controllers\PrescriptionController;
 use App\Modules\MedicalRecord\Http\Controllers\PrescriptionTemplateController;
@@ -23,4 +25,16 @@ Route::middleware('auth:sanctum')->group(function (): void {
     Route::post('/prescription-templates', [PrescriptionTemplateController::class, 'store']);
     Route::put('/prescription-templates/{id}', [PrescriptionTemplateController::class, 'update']);
     Route::delete('/prescription-templates/{id}', [PrescriptionTemplateController::class, 'destroy']);
+
+    // Lab Catalog (read-only)
+    Route::get('/lab-catalog', [LabCatalogController::class, 'indexCatalog']);
+    Route::get('/lab-catalog/{id}', [LabCatalogController::class, 'showCatalog']);
+    Route::get('/lab-panels', [LabCatalogController::class, 'indexPanels']);
+    Route::get('/lab-panels/{id}', [LabCatalogController::class, 'showPanel']);
+
+    // Lab Results (nested under medical record)
+    Route::get('/medical-records/{medicalRecordId}/lab-results', [LabResultController::class, 'index']);
+    Route::post('/medical-records/{medicalRecordId}/lab-results', [LabResultController::class, 'store']);
+    Route::put('/medical-records/{medicalRecordId}/lab-results/{id}', [LabResultController::class, 'update']);
+    Route::delete('/medical-records/{medicalRecordId}/lab-results/{id}', [LabResultController::class, 'destroy']);
 });
