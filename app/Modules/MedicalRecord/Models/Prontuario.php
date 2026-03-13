@@ -27,6 +27,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property-read User $user
  * @property-read Prontuario|null $prontuarioBase
  * @property-read \Illuminate\Database\Eloquent\Collection<int, Prescricao> $prescricoes
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, ValorLaboratorial> $valoresLaboratoriais
  */
 class Prontuario extends Model
 {
@@ -90,6 +91,14 @@ class Prontuario extends Model
     public function prescricoes(): HasMany
     {
         return $this->hasMany(Prescricao::class);
+    }
+
+    /**
+     * @return HasMany<ValorLaboratorial, $this>
+     */
+    public function valoresLaboratoriais(): HasMany
+    {
+        return $this->hasMany(ValorLaboratorial::class);
     }
 
     protected static function newFactory(): \App\Modules\MedicalRecord\Database\Factories\MedicalRecordFactory
