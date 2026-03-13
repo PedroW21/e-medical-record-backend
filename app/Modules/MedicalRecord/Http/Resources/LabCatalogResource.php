@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Modules\MedicalRecord\Http\Resources;
+
+use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\JsonResource;
+
+/**
+ * @mixin \App\Modules\MedicalRecord\Models\CatalogoExameLaboratorial
+ */
+final class LabCatalogResource extends JsonResource
+{
+    /**
+     * @return array<string, mixed>
+     */
+    public function toArray(Request $request): array
+    {
+        return [
+            'id' => $this->id,
+            'name' => $this->nome,
+            'category' => $this->categoria?->value,
+            'unit' => $this->unidade,
+            'reference_range' => $this->faixa_referencia,
+            'result_type' => $this->tipo_resultado?->value,
+        ];
+    }
+}
