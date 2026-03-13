@@ -18,4 +18,19 @@ final class MedicalRecordPolicy
     {
         return $user->id === $prontuario->user_id;
     }
+
+    public function create(User $user): bool
+    {
+        return true;
+    }
+
+    public function delete(User $user, Prontuario $prontuario): bool
+    {
+        return $user->id === $prontuario->user_id && $prontuario->isDraft();
+    }
+
+    public function finalize(User $user, Prontuario $prontuario): bool
+    {
+        return $user->id === $prontuario->user_id && $prontuario->isDraft();
+    }
 }
