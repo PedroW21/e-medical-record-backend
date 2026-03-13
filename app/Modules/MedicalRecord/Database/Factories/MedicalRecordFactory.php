@@ -45,4 +45,70 @@ final class MedicalRecordFactory extends Factory
             'tipo' => MedicalRecordType::FollowUp,
         ]);
     }
+
+    public function preAnesthetic(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'tipo' => MedicalRecordType::PreAnesthetic,
+        ]);
+    }
+
+    public function withPhysicalExam(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'exame_fisico' => [
+                'cardiac' => ['is_normal' => true],
+                'respiratory' => ['is_normal' => true],
+                'lower_limbs' => [
+                    'varicose_veins' => false,
+                    'edema' => false,
+                    'lymphedema' => false,
+                    'ulcer' => false,
+                    'asymmetry' => false,
+                    'sensitivity_alteration' => false,
+                    'motricity_alteration' => false,
+                ],
+                'dentition' => ['status' => 'regular'],
+                'gums' => ['status' => 'regular'],
+            ],
+        ]);
+    }
+
+    public function withProblemList(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'lista_problemas' => [
+                'selected_problems' => [
+                    [
+                        'problem_id' => 'has',
+                        'label' => 'Hipertensão Arterial Sistêmica',
+                        'category' => 'metabolic',
+                        'is_custom' => false,
+                    ],
+                ],
+                'custom_problems' => [],
+            ],
+        ]);
+    }
+
+    public function withConduct(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'conduta' => [
+                'sleep_hygiene' => true,
+                'sleep_default_text' => 'Manter higiene do sono adequada.',
+                'sleep_observations' => null,
+                'diets' => [],
+                'physical_activity' => [
+                    'default_text' => 'Atividade física regular conforme orientação.',
+                ],
+                'xenobiotics_restriction' => false,
+                'xenobiotics_default_text' => 'Evitar tabagismo e etilismo.',
+                'xenobiotics_observations' => null,
+                'medication_compliance' => true,
+                'medication_default_text' => 'Manter adesão medicamentosa.',
+                'medication_observations' => null,
+            ],
+        ]);
+    }
 }
