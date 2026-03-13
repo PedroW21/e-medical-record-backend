@@ -12,6 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * @property int $id
@@ -21,12 +22,17 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property MedicalRecordStatus $status
  * @property \Illuminate\Support\Carbon|null $finalizado_em
  * @property int|null $baseado_em_prontuario_id
+ * @property \App\Modules\MedicalRecord\DTOs\PhysicalExamData|null $exame_fisico
+ * @property \App\Modules\MedicalRecord\DTOs\ProblemListData|null $lista_problemas
+ * @property \App\Modules\MedicalRecord\DTOs\RiskScoresData|null $escores_risco
+ * @property \App\Modules\MedicalRecord\DTOs\ConductData|null $conduta
  * @property \Illuminate\Support\Carbon $created_at
  * @property \Illuminate\Support\Carbon $updated_at
  * @property-read Paciente $paciente
  * @property-read User $user
  * @property-read Prontuario|null $prontuarioBase
  * @property-read \Illuminate\Database\Eloquent\Collection<int, Prescricao> $prescricoes
+ * @property-read MedidaAntropometrica|null $medidaAntropometrica
  */
 class Prontuario extends Model
 {
@@ -41,6 +47,10 @@ class Prontuario extends Model
         'status',
         'finalizado_em',
         'baseado_em_prontuario_id',
+        'exame_fisico',
+        'lista_problemas',
+        'escores_risco',
+        'conduta',
     ];
 
     /**
@@ -52,7 +62,25 @@ class Prontuario extends Model
             'tipo' => MedicalRecordType::class,
             'status' => MedicalRecordStatus::class,
             'finalizado_em' => 'datetime',
+            'exame_fisico' => \App\Modules\MedicalRecord\Casts\PhysicalExamCast::class,
+            'lista_problemas' => \App\Modules\MedicalRecord\Casts\ProblemListCast::class,
+            'escores_risco' => \App\Modules\MedicalRecord\Casts\RiskScoresCast::class,
+            'conduta' => \App\Modules\MedicalRecord\Casts\ConductCast::class,
         ];
+    }
+
+    protected static function booted(): void
+    {
+        static::saving(function (Prontuario $prontuario): void {
+            if (! $prontuario->isDirty('finalizado_em') && $prontuario->getOriginal('finalizado_em') !== null) {
+                throw new \Illuminate\Validation\ValidationException(
+                    validator: validator([], []),
+                    response: response()->json([
+                        'message' => 'Não é possível modificar um prontuário finalizado.',
+                    ], 403)
+                );
+            }
+        });
     }
 
     public function isDraft(): bool
@@ -90,6 +118,14 @@ class Prontuario extends Model
     public function prescricoes(): HasMany
     {
         return $this->hasMany(Prescricao::class);
+    }
+
+    /**
+     * @return HasOne<MedidaAntropometrica, $this>
+     */
+    public function medidaAntropometrica(): HasOne
+    {
+        return $this->hasOne(MedidaAntropometrica::class);
     }
 
     protected static function newFactory(): \App\Modules\MedicalRecord\Database\Factories\MedicalRecordFactory
