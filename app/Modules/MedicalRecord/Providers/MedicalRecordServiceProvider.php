@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace App\Modules\MedicalRecord\Providers;
 
+use App\Modules\MedicalRecord\Enums\ExamType;
 use App\Modules\MedicalRecord\Models\ModeloPrescricao;
 use App\Modules\MedicalRecord\Models\Prescricao;
 use App\Modules\MedicalRecord\Models\Prontuario;
 use App\Modules\MedicalRecord\Models\ValorLaboratorial;
+use App\Modules\MedicalRecord\Policies\ExamResultPolicy;
 use App\Modules\MedicalRecord\Policies\LabResultPolicy;
 use App\Modules\MedicalRecord\Policies\MedicalRecordPolicy;
 use App\Modules\MedicalRecord\Policies\PrescriptionPolicy;
@@ -28,5 +30,9 @@ final class MedicalRecordServiceProvider extends ServiceProvider
         Gate::policy(Prescricao::class, PrescriptionPolicy::class);
         Gate::policy(ModeloPrescricao::class, PrescriptionTemplatePolicy::class);
         Gate::policy(ValorLaboratorial::class, LabResultPolicy::class);
+
+        foreach (ExamType::cases() as $examType) {
+            Gate::policy($examType->modelClass(), ExamResultPolicy::class);
+        }
     }
 }
