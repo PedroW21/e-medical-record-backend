@@ -17,15 +17,15 @@ final class CarotidEcodopplerResultResource extends JsonResource
      *
      * @return array{intimal_thickness: float|null, stenosis_degree: float|null}|null
      */
-    private function arteryMeasurement(?float $intimalThickness, ?float $stenosisDegree): ?array
+    private function arteryMeasurement(float|string|null $intimalThickness, float|string|null $stenosisDegree): ?array
     {
         if ($intimalThickness === null && $stenosisDegree === null) {
             return null;
         }
 
         return [
-            'intimal_thickness' => $intimalThickness,
-            'stenosis_degree' => $stenosisDegree,
+            'intimal_thickness' => $intimalThickness !== null ? (float) $intimalThickness : null,
+            'stenosis_degree' => $stenosisDegree !== null ? (float) $stenosisDegree : null,
         ];
     }
 
