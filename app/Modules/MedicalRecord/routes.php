@@ -2,6 +2,8 @@
 
 declare(strict_types=1);
 
+use App\Modules\MedicalRecord\Enums\ExamType;
+use App\Modules\MedicalRecord\Http\Controllers\ExamResultController;
 use App\Modules\MedicalRecord\Http\Controllers\LabCatalogController;
 use App\Modules\MedicalRecord\Http\Controllers\LabResultController;
 use App\Modules\MedicalRecord\Http\Controllers\MedicationController;
@@ -37,4 +39,12 @@ Route::middleware('auth:sanctum')->group(function (): void {
     Route::post('/medical-records/{medicalRecordId}/lab-results', [LabResultController::class, 'store']);
     Route::put('/medical-records/{medicalRecordId}/lab-results/{id}', [LabResultController::class, 'update']);
     Route::delete('/medical-records/{medicalRecordId}/lab-results/{id}', [LabResultController::class, 'destroy']);
+
+    // Structured Exam Results (all 14 types via examType slug)
+    $examTypePattern = implode('|', array_map(fn (ExamType $t): string => $t->value, ExamType::cases()));
+
+    Route::get('/medical-records/{medicalRecordId}/exam-results/{examType}', [ExamResultController::class, 'index'])->where('examType', $examTypePattern);
+    Route::post('/medical-records/{medicalRecordId}/exam-results/{examType}', [ExamResultController::class, 'store'])->where('examType', $examTypePattern);
+    Route::put('/medical-records/{medicalRecordId}/exam-results/{examType}/{id}', [ExamResultController::class, 'update'])->where('examType', $examTypePattern);
+    Route::delete('/medical-records/{medicalRecordId}/exam-results/{examType}/{id}', [ExamResultController::class, 'destroy'])->where('examType', $examTypePattern);
 });
