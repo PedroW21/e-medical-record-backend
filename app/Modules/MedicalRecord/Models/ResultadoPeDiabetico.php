@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property array<string, mixed>|null $vascular
  * @property array<string, mixed>|null $termometria
  * @property int|null $nss_score
+ * @property bool $nss_override
  * @property int|null $nds_score
  * @property bool $nds_override
  * @property float|null $itb_direito
@@ -58,6 +59,7 @@ class ResultadoPeDiabetico extends Model
         'vascular',
         'termometria',
         'nss_score',
+        'nss_override',
         'nds_score',
         'nds_override',
         'itb_direito',
@@ -88,6 +90,7 @@ class ResultadoPeDiabetico extends Model
             'vascular' => 'array',
             'termometria' => 'array',
             'nss_score' => 'integer',
+            'nss_override' => 'boolean',
             'nds_score' => 'integer',
             'nds_override' => 'boolean',
             'itb_direito' => 'decimal:4',

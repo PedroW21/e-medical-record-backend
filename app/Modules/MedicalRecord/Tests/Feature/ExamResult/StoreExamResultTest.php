@@ -283,6 +283,40 @@ it('stores a carotid ecodoppler with bilateral measurements', function (): void 
     ]);
 });
 
+it('stores a carotid ecodoppler with bulb_internal fields correctly mapped', function (): void {
+    $doctor = User::factory()->doctor()->create();
+    $prontuario = Prontuario::factory()->create(['user_id' => $doctor->id]);
+
+    $response = $this->actingAs($doctor)->postJson(
+        "/api/medical-records/{$prontuario->id}/exam-results/carotid-ecodoppler",
+        [
+            'date' => '2026-03-15',
+            'bulb_internal_left' => [
+                'intimal_thickness' => 0.85,
+                'stenosis_degree' => 25.0,
+            ],
+            'bulb_internal_right' => [
+                'intimal_thickness' => 0.90,
+                'stenosis_degree' => 30.0,
+            ],
+        ]
+    );
+
+    $response->assertCreated()
+        ->assertJsonPath('data.bulb_internal_left.intimal_thickness', 0.85)
+        ->assertJsonPath('data.bulb_internal_left.stenosis_degree', 25)
+        ->assertJsonPath('data.bulb_internal_right.intimal_thickness', 0.90)
+        ->assertJsonPath('data.bulb_internal_right.stenosis_degree', 30);
+
+    $this->assertDatabaseHas('resultados_ecodoppler_carotidas', [
+        'prontuario_id' => $prontuario->id,
+        'espessura_intimal_bulbo_interna_e' => 0.85,
+        'grau_estenose_bulbo_interna_e' => 25.0,
+        'espessura_intimal_bulbo_interna_d' => 0.90,
+        'grau_estenose_bulbo_interna_d' => 30.0,
+    ]);
+});
+
 // ─── Echo ────────────────────────────────────────────────────────────────────
 
 it('stores an echo result with valve assessments', function (): void {

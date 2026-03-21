@@ -55,13 +55,13 @@ final class CarotidEcodopplerResultResource extends JsonResource
                 $this->espessura_intimal_carotida_externa_d,
                 $this->grau_estenose_carotida_externa_d,
             ),
-            'internal_carotid_left' => $this->arteryMeasurement(
-                $this->espessura_intimal_carotida_interna_e,
-                $this->grau_estenose_carotida_interna_e,
+            'bulb_internal_left' => $this->arteryMeasurement(
+                $this->espessura_intimal_bulbo_interna_e,
+                $this->grau_estenose_bulbo_interna_e,
             ),
-            'internal_carotid_right' => $this->arteryMeasurement(
-                $this->espessura_intimal_carotida_interna_d,
-                $this->grau_estenose_carotida_interna_d,
+            'bulb_internal_right' => $this->arteryMeasurement(
+                $this->espessura_intimal_bulbo_interna_d,
+                $this->grau_estenose_bulbo_interna_d,
             ),
             'vertebral_left' => $this->arteryMeasurement(
                 $this->espessura_intimal_vertebral_e,

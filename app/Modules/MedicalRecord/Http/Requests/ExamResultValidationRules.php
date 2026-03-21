@@ -247,6 +247,7 @@ trait ExamResultValidationRules
                 'vascular' => ['nullable', 'array'],
                 'thermometry' => ['nullable', 'array'],
                 'nss_score' => ['nullable', 'integer', 'min:0'],
+                'nss_override' => ['nullable', 'boolean'],
                 'nds_score' => ['nullable', 'integer', 'min:0'],
                 'nds_override' => ['nullable', 'boolean'],
                 'itb_right' => ['nullable', 'numeric', 'min:0'],
@@ -257,8 +258,8 @@ trait ExamResultValidationRules
                 'tbi_left' => ['nullable', 'numeric', 'min:0'],
                 'tbi_right_override' => ['nullable', 'boolean'],
                 'tbi_left_override' => ['nullable', 'boolean'],
-                'iwgdf_category' => ['nullable', 'string', 'in:0,1,2,3'],
-                'iwgdf_category_override' => ['nullable', 'boolean'],
+                'iwgdf_category' => ['nullable', 'integer', 'in:0,1,2,3'],
+                'iwgdf_override' => ['nullable', 'boolean'],
                 'observations' => ['nullable', 'string', 'max:5000'],
             ],
         };
