@@ -42,6 +42,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, ResultadoCat> $resultadosCat
  * @property-read \Illuminate\Database\Eloquent\Collection<int, ResultadoCintilografia> $resultadosCintilografia
  * @property-read \Illuminate\Database\Eloquent\Collection<int, ResultadoPeDiabetico> $resultadosPeDiabetico
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, SolicitacaoExame> $solicitacoesExames
  */
 class Prontuario extends Model
 {
@@ -225,6 +226,14 @@ class Prontuario extends Model
     public function resultadosPeDiabetico(): HasMany
     {
         return $this->hasMany(ResultadoPeDiabetico::class);
+    }
+
+    /**
+     * @return HasMany<SolicitacaoExame, $this>
+     */
+    public function solicitacoesExames(): HasMany
+    {
+        return $this->hasMany(SolicitacaoExame::class);
     }
 
     protected static function newFactory(): \App\Modules\MedicalRecord\Database\Factories\MedicalRecordFactory
