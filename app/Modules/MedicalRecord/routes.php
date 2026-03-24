@@ -3,9 +3,12 @@
 declare(strict_types=1);
 
 use App\Modules\MedicalRecord\Enums\ExamType;
+use App\Modules\MedicalRecord\Http\Controllers\ExamRequestController;
+use App\Modules\MedicalRecord\Http\Controllers\ExamRequestModelController;
 use App\Modules\MedicalRecord\Http\Controllers\ExamResultController;
 use App\Modules\MedicalRecord\Http\Controllers\LabCatalogController;
 use App\Modules\MedicalRecord\Http\Controllers\LabResultController;
+use App\Modules\MedicalRecord\Http\Controllers\MedicalReportTemplateController;
 use App\Modules\MedicalRecord\Http\Controllers\MedicationController;
 use App\Modules\MedicalRecord\Http\Controllers\PrescriptionController;
 use App\Modules\MedicalRecord\Http\Controllers\PrescriptionTemplateController;
@@ -39,6 +42,25 @@ Route::middleware('auth:sanctum')->group(function (): void {
     Route::post('/medical-records/{medicalRecordId}/lab-results', [LabResultController::class, 'store']);
     Route::put('/medical-records/{medicalRecordId}/lab-results/{id}', [LabResultController::class, 'update']);
     Route::delete('/medical-records/{medicalRecordId}/lab-results/{id}', [LabResultController::class, 'destroy']);
+
+    // Exam Requests (nested under medical records)
+    Route::get('/medical-records/{medicalRecordId}/exam-requests', [ExamRequestController::class, 'index']);
+    Route::post('/medical-records/{medicalRecordId}/exam-requests', [ExamRequestController::class, 'store']);
+    Route::put('/medical-records/{medicalRecordId}/exam-requests/{id}', [ExamRequestController::class, 'update']);
+    Route::delete('/medical-records/{medicalRecordId}/exam-requests/{id}', [ExamRequestController::class, 'destroy']);
+    Route::post('/medical-records/{medicalRecordId}/exam-requests/{id}/print', [ExamRequestController::class, 'print']);
+
+    // Exam Request Models
+    Route::get('/exam-request-models', [ExamRequestModelController::class, 'index']);
+    Route::post('/exam-request-models', [ExamRequestModelController::class, 'store']);
+    Route::put('/exam-request-models/{id}', [ExamRequestModelController::class, 'update']);
+    Route::delete('/exam-request-models/{id}', [ExamRequestModelController::class, 'destroy']);
+
+    // Medical Report Templates
+    Route::get('/medical-report-templates', [MedicalReportTemplateController::class, 'index']);
+    Route::post('/medical-report-templates', [MedicalReportTemplateController::class, 'store']);
+    Route::put('/medical-report-templates/{id}', [MedicalReportTemplateController::class, 'update']);
+    Route::delete('/medical-report-templates/{id}', [MedicalReportTemplateController::class, 'destroy']);
 
     // Structured Exam Results (all 14 types via examType slug)
     $examTypePattern = implode('|', array_map(fn (ExamType $t): string => $t->value, ExamType::cases()));
