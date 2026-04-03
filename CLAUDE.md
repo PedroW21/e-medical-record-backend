@@ -32,6 +32,8 @@ vendor/bin/pint --dirty
 
 - Follow existing module conventions when creating new code
 - Use early returns over nested conditionals
+- Evitar o uso de ternários por questões de legibilidade; prefira early returns, nullable, etc. Se não der para evitar, prefira condições nomeadas
+- O uso de PHPDocs, DTOs e tipagem forte é incentivado para facilitar a manutenção e garantir dependência em contratos bem definidos
 - Tests for each new feature are encouraged
 - When creating new modules, create useful factories and seeders
 - **Route Model Binding is prohibited** — never use implicit or explicit route model binding. Always receive the ID (or other identifier) as a primitive parameter and resolve the model manually (e.g., via repository, service, or query)
