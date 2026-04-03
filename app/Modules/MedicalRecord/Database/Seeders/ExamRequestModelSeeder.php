@@ -1,0 +1,193 @@
+<?php
+
+declare(strict_types=1);
+
+namespace App\Modules\MedicalRecord\Database\Seeders;
+
+use App\Modules\MedicalRecord\Models\ModeloSolicitacaoExame;
+use Illuminate\Database\Seeder;
+
+final class ExamRequestModelSeeder extends Seeder
+{
+    public function run(): void
+    {
+        $models = [
+            [
+                'nome' => 'Exames Gerais',
+                'categoria' => 'geral',
+                'itens' => [
+                    ['id' => 'gen-01', 'name' => 'Hemograma completo'],
+                    ['id' => 'gen-02', 'name' => 'Glicemia de jejum'],
+                    ['id' => 'gen-03', 'name' => 'Hemoglobina glicada (HbA1c)'],
+                    ['id' => 'gen-04', 'name' => 'Insulina basal'],
+                    ['id' => 'gen-05', 'name' => 'HOMA-IR'],
+                    ['id' => 'gen-06', 'name' => 'Colesterol total'],
+                    ['id' => 'gen-07', 'name' => 'HDL colesterol'],
+                    ['id' => 'gen-08', 'name' => 'LDL colesterol'],
+                    ['id' => 'gen-09', 'name' => 'VLDL colesterol'],
+                    ['id' => 'gen-10', 'name' => 'Triglicerídeos'],
+                    ['id' => 'gen-11', 'name' => 'Colesterol não-HDL'],
+                    ['id' => 'gen-12', 'name' => 'Apolipoproteína B'],
+                    ['id' => 'gen-13', 'name' => 'Lipoproteína(a)'],
+                    ['id' => 'gen-14', 'name' => 'Creatinina'],
+                    ['id' => 'gen-15', 'name' => 'Ureia'],
+                    ['id' => 'gen-16', 'name' => 'Ácido úrico'],
+                    ['id' => 'gen-17', 'name' => 'TGO (AST)'],
+                    ['id' => 'gen-18', 'name' => 'TGP (ALT)'],
+                    ['id' => 'gen-19', 'name' => 'GGT'],
+                    ['id' => 'gen-20', 'name' => 'Fosfatase alcalina'],
+                    ['id' => 'gen-21', 'name' => 'Bilirrubinas totais e frações'],
+                    ['id' => 'gen-22', 'name' => 'Proteínas totais e frações'],
+                    ['id' => 'gen-23', 'name' => 'Ferritina'],
+                    ['id' => 'gen-24', 'name' => 'Ferro sérico'],
+                    ['id' => 'gen-25', 'name' => 'Transferrina'],
+                    ['id' => 'gen-26', 'name' => 'Saturação de transferrina'],
+                    ['id' => 'gen-27', 'name' => 'Vitamina D (25-OH)'],
+                    ['id' => 'gen-28', 'name' => 'Vitamina B12'],
+                    ['id' => 'gen-29', 'name' => 'Ácido fólico'],
+                    ['id' => 'gen-30', 'name' => 'Homocisteína'],
+                    ['id' => 'gen-31', 'name' => 'PCR ultrassensível'],
+                    ['id' => 'gen-32', 'name' => 'VHS'],
+                    ['id' => 'gen-33', 'name' => 'TSH'],
+                    ['id' => 'gen-34', 'name' => 'T4 livre'],
+                    ['id' => 'gen-35', 'name' => 'T3 livre'],
+                    ['id' => 'gen-36', 'name' => 'Sódio'],
+                    ['id' => 'gen-37', 'name' => 'Potássio'],
+                    ['id' => 'gen-38', 'name' => 'Magnésio'],
+                    ['id' => 'gen-39', 'name' => 'Cálcio total'],
+                    ['id' => 'gen-40', 'name' => 'Cálcio iônico'],
+                    ['id' => 'gen-41', 'name' => 'Fósforo'],
+                    ['id' => 'gen-42', 'name' => 'Zinco'],
+                    ['id' => 'gen-43', 'name' => 'Selênio'],
+                    ['id' => 'gen-44', 'name' => 'EAS (urina tipo 1)'],
+                    ['id' => 'gen-45', 'name' => 'Microalbuminúria'],
+                    ['id' => 'gen-46', 'name' => 'Relação albumina/creatinina urinária'],
+                ],
+            ],
+            [
+                'nome' => 'Painel Cardiológico',
+                'categoria' => 'cardiologico',
+                'itens' => [
+                    ['id' => 'card-01', 'name' => 'Eletrocardiograma (ECG)'],
+                    ['id' => 'card-02', 'name' => 'Ecocardiograma transtorácico'],
+                    ['id' => 'card-03', 'name' => 'Teste ergométrico'],
+                    ['id' => 'card-04', 'name' => 'Holter 24 horas'],
+                    ['id' => 'card-05', 'name' => 'MAPA 24 horas'],
+                    ['id' => 'card-06', 'name' => 'MRPA (7 dias)'],
+                    ['id' => 'card-07', 'name' => 'BNP ou NT-proBNP'],
+                    ['id' => 'card-08', 'name' => 'Troponina ultrassensível'],
+                    ['id' => 'card-09', 'name' => 'CPK total'],
+                    ['id' => 'card-10', 'name' => 'CPK-MB'],
+                    ['id' => 'card-11', 'name' => 'Fibrinogênio'],
+                    ['id' => 'card-12', 'name' => 'D-dímero'],
+                    ['id' => 'card-13', 'name' => 'Lipoproteína(a)'],
+                    ['id' => 'card-14', 'name' => 'Apolipoproteína B'],
+                    ['id' => 'card-15', 'name' => 'Apolipoproteína A1'],
+                    ['id' => 'card-16', 'name' => 'PCR ultrassensível'],
+                    ['id' => 'card-17', 'name' => 'Homocisteína'],
+                    ['id' => 'card-18', 'name' => 'Radiografia de tórax PA e perfil'],
+                ],
+            ],
+            [
+                'nome' => 'Painel Histamina',
+                'categoria' => 'alergologico',
+                'itens' => [
+                    ['id' => 'hist-01', 'name' => 'Histamina plasmática'],
+                    ['id' => 'hist-02', 'name' => 'Diamino oxidase (DAO)'],
+                    ['id' => 'hist-03', 'name' => 'Triptase sérica'],
+                    ['id' => 'hist-04', 'name' => 'IgE total'],
+                    ['id' => 'hist-05', 'name' => 'Eosinófilos (hemograma)'],
+                    ['id' => 'hist-06', 'name' => 'PCR ultrassensível'],
+                    ['id' => 'hist-07', 'name' => 'Vitamina B6'],
+                    ['id' => 'hist-08', 'name' => 'Vitamina C'],
+                    ['id' => 'hist-09', 'name' => 'Zinco'],
+                    ['id' => 'hist-10', 'name' => 'Cobre'],
+                ],
+            ],
+            [
+                'nome' => 'Coprologia Funcional',
+                'categoria' => 'gastrointestinal',
+                'itens' => [
+                    ['id' => 'copro-01', 'name' => 'Coprologia funcional'],
+                    ['id' => 'copro-02', 'name' => 'Calprotectina fecal'],
+                    ['id' => 'copro-03', 'name' => 'Zonulina fecal'],
+                    ['id' => 'copro-04', 'name' => 'Alfa-1-antitripsina fecal'],
+                    ['id' => 'copro-05', 'name' => 'Elastase pancreática fecal'],
+                    ['id' => 'copro-06', 'name' => 'Pesquisa de sangue oculto nas fezes'],
+                    ['id' => 'copro-07', 'name' => 'Parasitológico de fezes (3 amostras)'],
+                    ['id' => 'copro-08', 'name' => 'Coprocultura'],
+                    ['id' => 'copro-09', 'name' => 'Pesquisa de Clostridium difficile (toxinas A e B)'],
+                    ['id' => 'copro-10', 'name' => 'Pesquisa de Helicobacter pylori (antígeno fecal)'],
+                ],
+            ],
+            [
+                'nome' => 'Painel IgE',
+                'categoria' => 'alergologico',
+                'itens' => [
+                    ['id' => 'ige-01', 'name' => 'IgE total'],
+                    ['id' => 'ige-02', 'name' => 'IgE específica - leite de vaca'],
+                    ['id' => 'ige-03', 'name' => 'IgE específica - ovo (clara)'],
+                    ['id' => 'ige-04', 'name' => 'IgE específica - ovo (gema)'],
+                    ['id' => 'ige-05', 'name' => 'IgE específica - trigo'],
+                    ['id' => 'ige-06', 'name' => 'IgE específica - soja'],
+                    ['id' => 'ige-07', 'name' => 'IgE específica - amendoim'],
+                    ['id' => 'ige-08', 'name' => 'IgE específica - castanha-do-pará'],
+                    ['id' => 'ige-09', 'name' => 'IgE específica - camarão'],
+                    ['id' => 'ige-10', 'name' => 'IgE específica - peixe (bacalhau)'],
+                    ['id' => 'ige-11', 'name' => 'IgE específica - Dermatophagoides pteronyssinus'],
+                    ['id' => 'ige-12', 'name' => 'IgE específica - Dermatophagoides farinae'],
+                    ['id' => 'ige-13', 'name' => 'IgE específica - Blomia tropicalis'],
+                    ['id' => 'ige-14', 'name' => 'IgE específica - gato'],
+                    ['id' => 'ige-15', 'name' => 'IgE específica - cão'],
+                ],
+            ],
+            [
+                'nome' => 'Painel Mucosa',
+                'categoria' => 'gastrointestinal',
+                'itens' => [
+                    ['id' => 'muc-01', 'name' => 'Zonulina sérica'],
+                    ['id' => 'muc-02', 'name' => 'Anticorpos anti-gliadina IgA'],
+                    ['id' => 'muc-03', 'name' => 'Anticorpos anti-gliadina IgG'],
+                    ['id' => 'muc-04', 'name' => 'Anti-transglutaminase tecidual IgA'],
+                    ['id' => 'muc-05', 'name' => 'Anti-transglutaminase tecidual IgG'],
+                    ['id' => 'muc-06', 'name' => 'IgA total'],
+                    ['id' => 'muc-07', 'name' => 'Calprotectina fecal'],
+                    ['id' => 'muc-08', 'name' => 'Lactoferrina fecal'],
+                    ['id' => 'muc-09', 'name' => 'Beta-glucuronidase fecal'],
+                    ['id' => 'muc-10', 'name' => 'Ácidos graxos de cadeia curta (fezes)'],
+                ],
+            ],
+            [
+                'nome' => 'Painel Reumatológico',
+                'categoria' => 'reumatologico',
+                'itens' => [
+                    ['id' => 'reum-01', 'name' => 'Fator reumatoide (FR)'],
+                    ['id' => 'reum-02', 'name' => 'Anti-CCP (peptídeo citrulinado cíclico)'],
+                    ['id' => 'reum-03', 'name' => 'FAN (fator antinúcleo)'],
+                    ['id' => 'reum-04', 'name' => 'Anti-DNA nativo (anti-dsDNA)'],
+                    ['id' => 'reum-05', 'name' => 'Complemento C3'],
+                    ['id' => 'reum-06', 'name' => 'Complemento C4'],
+                    ['id' => 'reum-07', 'name' => 'PCR ultrassensível'],
+                    ['id' => 'reum-08', 'name' => 'VHS'],
+                    ['id' => 'reum-09', 'name' => 'Ácido úrico'],
+                    ['id' => 'reum-10', 'name' => 'Anti-SSA (Ro)'],
+                    ['id' => 'reum-11', 'name' => 'Anti-SSB (La)'],
+                    ['id' => 'reum-12', 'name' => 'Anti-Sm'],
+                    ['id' => 'reum-13', 'name' => 'Anti-RNP'],
+                    ['id' => 'reum-14', 'name' => 'Anticorpo antifosfolipídeo (IgG e IgM)'],
+                    ['id' => 'reum-15', 'name' => 'Anticoagulante lúpico'],
+                ],
+            ],
+        ];
+
+        foreach ($models as $model) {
+            ModeloSolicitacaoExame::updateOrCreate(
+                ['nome' => $model['nome'], 'user_id' => null],
+                [
+                    'categoria' => $model['categoria'],
+                    'itens' => $model['itens'],
+                ],
+            );
+        }
+    }
+}
