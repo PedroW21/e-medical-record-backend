@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Modules\MedicalRecord\Providers;
 
 use App\Modules\MedicalRecord\Enums\ExamType;
+use App\Modules\MedicalRecord\Events\AttachmentConfirmed;
+use App\Modules\MedicalRecord\Listeners\MaterializeConfirmedAttachment;
 use App\Modules\MedicalRecord\Models\Anexo;
 use App\Modules\MedicalRecord\Models\ModeloPrescricao;
 use App\Modules\MedicalRecord\Models\ModeloRelatorioMedico;
@@ -22,6 +24,7 @@ use App\Modules\MedicalRecord\Policies\MedicalRecordPolicy;
 use App\Modules\MedicalRecord\Policies\MedicalReportTemplatePolicy;
 use App\Modules\MedicalRecord\Policies\PrescriptionPolicy;
 use App\Modules\MedicalRecord\Policies\PrescriptionTemplatePolicy;
+use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
@@ -46,5 +49,7 @@ final class MedicalRecordServiceProvider extends ServiceProvider
         foreach (ExamType::cases() as $examType) {
             Gate::policy($examType->modelClass(), ExamResultPolicy::class);
         }
+
+        Event::listen(AttachmentConfirmed::class, MaterializeConfirmedAttachment::class);
     }
 }

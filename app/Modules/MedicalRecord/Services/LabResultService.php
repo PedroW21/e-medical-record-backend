@@ -177,6 +177,56 @@ final class LabResultService
         $labValue->delete();
     }
 
+    /**
+     * Replace all lab-analyte rows for this attachment with a fresh batch from `payload`.
+     *
+     * Idempotent: any previously materialised rows for this anexo are deleted before
+     * the new ones are created, covering the re-confirm scenario. If the payload has
+     * no `panels` or `loose`, no rows are created — but the purge still happens.
+     *
+     * @param  array<string, mixed>  $payload  Frontend-shape lab payload (date, panels[], loose[]).
+     * @return Collection<int, ValorLaboratorial>
+     *
+     * @throws NotFoundHttpException When the medical record is not found
+     */
+    public function materializeFromAttachment(
+        int $medicalRecordId,
+        int $anexoId,
+        array $payload,
+    ): Collection {
+        $prontuario = $this->findMedicalRecordOrFail($medicalRecordId);
+
+        return DB::transaction(function () use ($prontuario, $anexoId, $payload): Collection {
+            ValorLaboratorial::query()->where('anexo_id', $anexoId)->delete();
+
+            $panels = array_map(
+                fn (array $p): LabPanelEntryDTO => LabPanelEntryDTO::fromArray($p),
+                $payload['panels'] ?? [],
+            );
+
+            $loose = array_map(
+                fn (array $l): LabLooseEntryDTO => LabLooseEntryDTO::fromArray($l),
+                $payload['loose'] ?? [],
+            );
+
+            $created = new Collection;
+
+            foreach ($panels as $panelEntry) {
+                $created = $created->merge(
+                    $this->storePanelEntry($prontuario, $payload['date'] ?? now()->toDateString(), $panelEntry, $anexoId),
+                );
+            }
+
+            foreach ($loose as $looseEntry) {
+                $created->push(
+                    $this->storeLooseEntry($prontuario, $payload['date'] ?? now()->toDateString(), $looseEntry, $anexoId),
+                );
+            }
+
+            return $created->load(['catalogoExame', 'painel']);
+        });
+    }
+
     public function findOrFail(int $labValueId): ValorLaboratorial
     {
         $labValue = ValorLaboratorial::query()->with('prontuario')->find($labValueId);
