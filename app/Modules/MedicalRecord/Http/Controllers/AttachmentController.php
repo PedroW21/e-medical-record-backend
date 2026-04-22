@@ -14,6 +14,7 @@ use App\Modules\MedicalRecord\Models\Anexo;
 use App\Modules\MedicalRecord\Services\AttachmentService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\StreamedResponse;
@@ -48,7 +49,7 @@ final class AttachmentController
      *
      * @group Attachments
      */
-    public function store(UploadAttachmentRequest $request, int $prontuarioId): AttachmentResource
+    public function store(UploadAttachmentRequest $request, int $prontuarioId): JsonResponse
     {
         $prontuario = $this->attachmentService->findMedicalRecordOrFail($prontuarioId);
         Gate::authorize('create', [Anexo::class, $prontuario]);
@@ -62,7 +63,9 @@ final class AttachmentController
 
         $attachment = $this->attachmentService->upload($dto);
 
-        return new AttachmentResource($attachment);
+        return (new AttachmentResource($attachment))
+            ->response()
+            ->setStatusCode(Response::HTTP_CREATED);
     }
 
     /**

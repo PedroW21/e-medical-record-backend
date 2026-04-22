@@ -29,7 +29,7 @@ class AttachmentResource extends JsonResource
             'file_url' => URL::temporarySignedRoute(
                 'attachments.download',
                 now()->addMinutes(30),
-                ['attachment' => $this->id]
+                ['id' => $this->id]
             ),
             'file_size' => $this->tamanho_bytes,
             'processing_status' => $this->status_processamento?->value,
