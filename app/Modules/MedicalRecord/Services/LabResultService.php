@@ -61,13 +61,13 @@ final class LabResultService
 
             foreach ($dto->panels as $panelEntry) {
                 $created = $created->merge(
-                    $this->storePanelEntry($prontuario, $dto->date, $panelEntry),
+                    $this->storePanelEntry($prontuario, $dto->date, $panelEntry, $dto->anexoId),
                 );
             }
 
             foreach ($dto->loose as $looseEntry) {
                 $created->push(
-                    $this->storeLooseEntry($prontuario, $dto->date, $looseEntry),
+                    $this->storeLooseEntry($prontuario, $dto->date, $looseEntry, $dto->anexoId),
                 );
             }
 
@@ -80,7 +80,7 @@ final class LabResultService
      *
      * @return Collection<int, ValorLaboratorial>
      */
-    private function storePanelEntry(Prontuario $prontuario, string $date, LabPanelEntryDTO $panel): Collection
+    private function storePanelEntry(Prontuario $prontuario, string $date, LabPanelEntryDTO $panel, ?int $anexoId): Collection
     {
         $created = new Collection;
 
@@ -105,6 +105,7 @@ final class LabResultService
                 'unidade' => $catalog?->unidade ?? '',
                 'faixa_referencia' => $catalog?->faixa_referencia,
                 'painel_id' => $panel->panelId,
+                'anexo_id' => $anexoId,
             ]);
 
             $created->push($labValue);
@@ -116,7 +117,7 @@ final class LabResultService
     /**
      * Store a single loose (free-form) lab entry.
      */
-    private function storeLooseEntry(Prontuario $prontuario, string $date, LabLooseEntryDTO $entry): ValorLaboratorial
+    private function storeLooseEntry(Prontuario $prontuario, string $date, LabLooseEntryDTO $entry, ?int $anexoId): ValorLaboratorial
     {
         $numericValue = $this->extractNumericValue($entry->value);
 
@@ -131,6 +132,7 @@ final class LabResultService
             'unidade' => $entry->unit,
             'faixa_referencia' => $entry->referenceRange,
             'painel_id' => null,
+            'anexo_id' => $anexoId,
         ]);
     }
 
@@ -156,6 +158,10 @@ final class LabResultService
 
         if ($dto->collectionDate !== null) {
             $data['data_coleta'] = $dto->collectionDate;
+        }
+
+        if ($dto->hasAnexoId) {
+            $data['anexo_id'] = $dto->anexoId;
         }
 
         $labValue->update($data);

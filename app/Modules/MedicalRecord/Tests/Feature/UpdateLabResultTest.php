@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 use App\Models\User;
+use App\Modules\MedicalRecord\Enums\AttachmentType;
+use App\Modules\MedicalRecord\Models\Anexo;
 use App\Modules\MedicalRecord\Models\Prontuario;
 use App\Modules\MedicalRecord\Models\ValorLaboratorial;
 
@@ -168,4 +170,91 @@ it('rejects unauthenticated access', function (): void {
     );
 
     $response->assertUnauthorized();
+});
+
+// ─── Anexo linking ───────────────────────────────────────────────────────────
+
+it('updates anexo_id on a single lab value via PUT', function (): void {
+    $doctor = User::factory()->doctor()->create();
+    $prontuario = Prontuario::factory()->create(['user_id' => $doctor->id]);
+    $anexo = Anexo::factory()->create([
+        'prontuario_id' => $prontuario->id,
+        'paciente_id' => $prontuario->paciente_id,
+        'tipo_anexo' => AttachmentType::Lab,
+    ]);
+    $labValue = ValorLaboratorial::factory()->create([
+        'prontuario_id' => $prontuario->id,
+        'paciente_id' => $prontuario->paciente_id,
+        'anexo_id' => null,
+    ]);
+
+    $response = $this->actingAs($doctor)->putJson(
+        "/api/medical-records/{$prontuario->id}/lab-results/{$labValue->id}",
+        ['anexo_id' => $anexo->id]
+    );
+
+    $response->assertOk()
+        ->assertJsonPath('data.anexo_id', $anexo->id);
+
+    $this->assertDatabaseHas('valores_laboratoriais', [
+        'id' => $labValue->id,
+        'anexo_id' => $anexo->id,
+    ]);
+});
+
+it('unlinks anexo_id on a single lab value when explicitly null', function (): void {
+    $doctor = User::factory()->doctor()->create();
+    $prontuario = Prontuario::factory()->create(['user_id' => $doctor->id]);
+    $anexo = Anexo::factory()->create([
+        'prontuario_id' => $prontuario->id,
+        'paciente_id' => $prontuario->paciente_id,
+        'tipo_anexo' => AttachmentType::Lab,
+    ]);
+    $labValue = ValorLaboratorial::factory()->create([
+        'prontuario_id' => $prontuario->id,
+        'paciente_id' => $prontuario->paciente_id,
+        'anexo_id' => $anexo->id,
+    ]);
+
+    $response = $this->actingAs($doctor)->putJson(
+        "/api/medical-records/{$prontuario->id}/lab-results/{$labValue->id}",
+        ['anexo_id' => null]
+    );
+
+    $response->assertOk()
+        ->assertJsonPath('data.anexo_id', null);
+
+    $this->assertDatabaseHas('valores_laboratoriais', [
+        'id' => $labValue->id,
+        'anexo_id' => null,
+    ]);
+});
+
+it('keeps anexo_id unchanged when update payload omits anexo_id', function (): void {
+    $doctor = User::factory()->doctor()->create();
+    $prontuario = Prontuario::factory()->create(['user_id' => $doctor->id]);
+    $anexo = Anexo::factory()->create([
+        'prontuario_id' => $prontuario->id,
+        'paciente_id' => $prontuario->paciente_id,
+        'tipo_anexo' => AttachmentType::Lab,
+    ]);
+    $labValue = ValorLaboratorial::factory()->create([
+        'prontuario_id' => $prontuario->id,
+        'paciente_id' => $prontuario->paciente_id,
+        'anexo_id' => $anexo->id,
+    ]);
+
+    $response = $this->actingAs($doctor)->putJson(
+        "/api/medical-records/{$prontuario->id}/lab-results/{$labValue->id}",
+        ['value' => '20.0']
+    );
+
+    $response->assertOk()
+        ->assertJsonPath('data.anexo_id', $anexo->id);
+
+    $this->assertDatabaseHas('valores_laboratoriais', [
+        'id' => $labValue->id,
+        'anexo_id' => $anexo->id,
+        'valor' => '20.0',
+    ]);
 });
