@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\MedicalRecord\Enums;
 
-enum TipoAnexo: string
+enum AttachmentType: string
 {
     case Lab = 'lab';
     case Ecg = 'ecg';

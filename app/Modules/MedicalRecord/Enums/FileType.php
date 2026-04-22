@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\MedicalRecord\Enums;
 
-enum TipoArquivo: string
+enum FileType: string
 {
     case Pdf = 'pdf';
     case Jpg = 'jpg';
@@ -12,6 +12,11 @@ enum TipoArquivo: string
     case Png = 'png';
     case Gif = 'gif';
 
+    /**
+     * Build the enum from a file extension (case-insensitive).
+     *
+     * @throws \ValueError When the extension is not an allowed file type.
+     */
     public static function fromExtension(string $extension): self
     {
         return self::from(strtolower($extension));
