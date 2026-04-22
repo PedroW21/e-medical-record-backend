@@ -43,10 +43,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property array<string, mixed>|null $valva_mitral
  * @property array<string, mixed>|null $valva_tricuspide
  * @property string|null $analise_qualitativa
+ * @property int|null $anexo_id
  * @property \Illuminate\Support\Carbon $created_at
  * @property \Illuminate\Support\Carbon $updated_at
  * @property-read Prontuario $prontuario
  * @property-read Paciente $paciente
+ * @property-read Anexo|null $anexo
  */
 class ResultadoEcocardiograma extends Model
 {
@@ -87,6 +89,7 @@ class ResultadoEcocardiograma extends Model
         'valva_mitral',
         'valva_tricuspide',
         'analise_qualitativa',
+        'anexo_id',
     ];
 
     /**
@@ -140,6 +143,14 @@ class ResultadoEcocardiograma extends Model
     public function paciente(): BelongsTo
     {
         return $this->belongsTo(Paciente::class);
+    }
+
+    /**
+     * @return BelongsTo<Anexo, $this>
+     */
+    public function anexo(): BelongsTo
+    {
+        return $this->belongsTo(Anexo::class, 'anexo_id');
     }
 
     protected static function newFactory(): \App\Modules\MedicalRecord\Database\Factories\EchoResultFactory

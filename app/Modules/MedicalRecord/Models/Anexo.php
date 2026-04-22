@@ -13,6 +13,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 /**
  * @property int $id
@@ -84,6 +86,37 @@ class Anexo extends Model
     public function paciente(): BelongsTo
     {
         return $this->belongsTo(Paciente::class, 'paciente_id');
+    }
+
+    /**
+     * Dynamically resolve the exam-result `HasOne` relationship for this attachment,
+     * using `tipo_anexo->toExamType()->modelClass()`.
+     *
+     * Returns null for non-materialising types: `documento`, `outro`, and `lab`
+     * (lab uses `valoresLaboratoriais()` since it is one-to-many).
+     *
+     * @return HasOne<Model, $this>|null
+     */
+    public function materializedResult(): ?HasOne
+    {
+        $examType = $this->tipo_anexo->toExamType();
+
+        if ($examType === null || $this->tipo_anexo->isLabType()) {
+            return null;
+        }
+
+        /** @var class-string<Model> $modelClass */
+        $modelClass = $examType->modelClass();
+
+        return $this->hasOne($modelClass, 'anexo_id');
+    }
+
+    /**
+     * @return HasMany<ValorLaboratorial, $this>
+     */
+    public function valoresLaboratoriais(): HasMany
+    {
+        return $this->hasMany(ValorLaboratorial::class, 'anexo_id');
     }
 
     public function isParseable(): bool

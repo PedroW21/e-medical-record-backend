@@ -21,12 +21,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property string $unidade
  * @property string|null $faixa_referencia
  * @property string|null $painel_id
+ * @property int|null $anexo_id
  * @property \Illuminate\Support\Carbon $created_at
  * @property \Illuminate\Support\Carbon $updated_at
  * @property-read Prontuario $prontuario
  * @property-read Paciente $paciente
  * @property-read CatalogoExameLaboratorial|null $catalogoExame
  * @property-read PainelLaboratorial|null $painel
+ * @property-read Anexo|null $anexo
  */
 class ValorLaboratorial extends Model
 {
@@ -45,6 +47,7 @@ class ValorLaboratorial extends Model
         'unidade',
         'faixa_referencia',
         'painel_id',
+        'anexo_id',
     ];
 
     /**
@@ -88,6 +91,14 @@ class ValorLaboratorial extends Model
     public function painel(): BelongsTo
     {
         return $this->belongsTo(PainelLaboratorial::class, 'painel_id');
+    }
+
+    /**
+     * @return BelongsTo<Anexo, $this>
+     */
+    public function anexo(): BelongsTo
+    {
+        return $this->belongsTo(Anexo::class, 'anexo_id');
     }
 
     protected static function newFactory(): \App\Modules\MedicalRecord\Database\Factories\LabResultFactory

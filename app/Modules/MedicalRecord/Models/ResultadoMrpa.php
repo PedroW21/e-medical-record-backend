@@ -18,10 +18,12 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property int $dias_monitorados
  * @property string $membro
  * @property string|null $observacoes
+ * @property int|null $anexo_id
  * @property \Illuminate\Support\Carbon $created_at
  * @property \Illuminate\Support\Carbon $updated_at
  * @property-read Prontuario $prontuario
  * @property-read Paciente $paciente
+ * @property-read Anexo|null $anexo
  * @property-read \Illuminate\Database\Eloquent\Collection<int, MedicaoMrpa> $medicoes
  */
 class ResultadoMrpa extends Model
@@ -37,6 +39,7 @@ class ResultadoMrpa extends Model
         'dias_monitorados',
         'membro',
         'observacoes',
+        'anexo_id',
     ];
 
     /**
@@ -64,6 +67,14 @@ class ResultadoMrpa extends Model
     public function paciente(): BelongsTo
     {
         return $this->belongsTo(Paciente::class);
+    }
+
+    /**
+     * @return BelongsTo<Anexo, $this>
+     */
+    public function anexo(): BelongsTo
+    {
+        return $this->belongsTo(Anexo::class, 'anexo_id');
     }
 
     /**
