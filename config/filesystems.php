@@ -60,6 +60,13 @@ return [
             'report' => false,
         ],
 
+        'anexos' => [
+            'driver' => 'local',
+            'root' => storage_path('app/anexos'),
+            'throw' => false,
+            'report' => false,
+        ],
+
     ],
 
     /*
