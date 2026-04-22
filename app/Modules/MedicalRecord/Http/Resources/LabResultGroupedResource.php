@@ -41,6 +41,7 @@ final class LabResultGroupedResource
                         'id' => $v->id,
                         'analyte_id' => $v->catalogo_exame_id,
                         'value' => $v->valor,
+                        'anexo_id' => $v->anexo_id,
                     ])->values()->all(),
                 ];
             }
@@ -51,6 +52,7 @@ final class LabResultGroupedResource
                 'value' => $v->valor,
                 'unit' => $v->unidade,
                 'reference_range' => $v->faixa_referencia,
+                'anexo_id' => $v->anexo_id,
             ])->values()->all();
 
             $results[] = [

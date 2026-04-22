@@ -72,6 +72,7 @@ final class CarotidEcodopplerResultResource extends JsonResource
                 $this->grau_estenose_vertebral_d,
             ),
             'observations' => $this->observacoes,
+            'anexo_id' => $this->anexo_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];
