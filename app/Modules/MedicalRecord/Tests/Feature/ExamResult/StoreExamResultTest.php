@@ -3,7 +3,10 @@
 declare(strict_types=1);
 
 use App\Models\User;
+use App\Modules\MedicalRecord\Enums\AttachmentType;
+use App\Modules\MedicalRecord\Models\Anexo;
 use App\Modules\MedicalRecord\Models\Prontuario;
+use App\Modules\MedicalRecord\Models\ResultadoEcg;
 use App\Modules\MedicalRecord\Models\ResultadoMrpa;
 
 // ─── ECG ─────────────────────────────────────────────────────────────────────
@@ -589,4 +592,73 @@ it('rejects store on non-existent medical record', function (): void {
     );
 
     $response->assertNotFound();
+});
+
+// ─── Anexo linking ───────────────────────────────────────────────────────────
+
+it('persists anexo_id on store when provided', function (): void {
+    $doctor = User::factory()->doctor()->create();
+    $prontuario = Prontuario::factory()->create(['user_id' => $doctor->id]);
+    $anexo = Anexo::factory()->create([
+        'prontuario_id' => $prontuario->id,
+        'paciente_id' => $prontuario->paciente_id,
+        'tipo_anexo' => AttachmentType::Ecg,
+    ]);
+
+    $response = $this->actingAs($doctor)->postJson(
+        "/api/medical-records/{$prontuario->id}/exam-results/ecg",
+        ['date' => '2026-03-15', 'pattern' => 'normal', 'anexo_id' => $anexo->id]
+    );
+
+    $response->assertCreated()
+        ->assertJsonPath('data.anexo_id', $anexo->id);
+
+    $this->assertDatabaseHas('resultados_ecg', [
+        'prontuario_id' => $prontuario->id,
+        'padrao' => 'normal',
+        'anexo_id' => $anexo->id,
+    ]);
+});
+
+it('persists null anexo_id when omitted on store', function (): void {
+    $doctor = User::factory()->doctor()->create();
+    $prontuario = Prontuario::factory()->create(['user_id' => $doctor->id]);
+
+    $response = $this->actingAs($doctor)->postJson(
+        "/api/medical-records/{$prontuario->id}/exam-results/ecg",
+        ['date' => '2026-03-15', 'pattern' => 'normal']
+    );
+
+    $response->assertCreated()
+        ->assertJsonPath('data.anexo_id', null);
+
+    $this->assertDatabaseHas('resultados_ecg', [
+        'prontuario_id' => $prontuario->id,
+        'padrao' => 'normal',
+        'anexo_id' => null,
+    ]);
+});
+
+it('rejects anexo_id already linked to another exam result of the same type', function (): void {
+    $doctor = User::factory()->doctor()->create();
+    $prontuario = Prontuario::factory()->create(['user_id' => $doctor->id]);
+    $anexo = Anexo::factory()->create([
+        'prontuario_id' => $prontuario->id,
+        'paciente_id' => $prontuario->paciente_id,
+        'tipo_anexo' => AttachmentType::Ecg,
+    ]);
+
+    ResultadoEcg::factory()->create([
+        'prontuario_id' => $prontuario->id,
+        'paciente_id' => $prontuario->paciente_id,
+        'anexo_id' => $anexo->id,
+    ]);
+
+    $response = $this->actingAs($doctor)->postJson(
+        "/api/medical-records/{$prontuario->id}/exam-results/ecg",
+        ['date' => '2026-03-15', 'pattern' => 'normal', 'anexo_id' => $anexo->id]
+    );
+
+    $response->assertUnprocessable()
+        ->assertJsonValidationErrors(['anexo_id']);
 });

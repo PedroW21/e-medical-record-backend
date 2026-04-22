@@ -18,7 +18,10 @@ trait ExamResultFieldMap
      */
     public static function apiToDbMap(ExamType $examType): array
     {
-        $common = ['date' => 'data'];
+        $common = [
+            'date' => 'data',
+            'anexo_id' => 'anexo_id',
+        ];
 
         $specific = match ($examType) {
             ExamType::Ecg => [

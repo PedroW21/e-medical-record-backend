@@ -3,6 +3,8 @@
 declare(strict_types=1);
 
 use App\Models\User;
+use App\Modules\MedicalRecord\Enums\AttachmentType;
+use App\Modules\MedicalRecord\Models\Anexo;
 use App\Modules\MedicalRecord\Models\MedicaoMrpa;
 use App\Modules\MedicalRecord\Models\Prontuario;
 use App\Modules\MedicalRecord\Models\ResultadoEcg;
@@ -193,4 +195,65 @@ it('rejects unauthenticated update', function (): void {
     );
 
     $response->assertUnauthorized();
+});
+
+// ─── Anexo linking ───────────────────────────────────────────────────────────
+
+it('unlinks on update when anexo_id is explicitly null', function (): void {
+    $doctor = User::factory()->doctor()->create();
+    $prontuario = Prontuario::factory()->create(['user_id' => $doctor->id]);
+    $anexo = Anexo::factory()->create([
+        'prontuario_id' => $prontuario->id,
+        'paciente_id' => $prontuario->paciente_id,
+        'tipo_anexo' => AttachmentType::Ecg,
+    ]);
+    $result = ResultadoEcg::factory()->create([
+        'prontuario_id' => $prontuario->id,
+        'paciente_id' => $prontuario->paciente_id,
+        'anexo_id' => $anexo->id,
+    ]);
+
+    $response = $this->actingAs($doctor)->putJson(
+        "/api/medical-records/{$prontuario->id}/exam-results/ecg/{$result->id}",
+        ['anexo_id' => null]
+    );
+
+    $response->assertOk()
+        ->assertJsonPath('data.anexo_id', null);
+
+    $this->assertDatabaseHas('resultados_ecg', [
+        'id' => $result->id,
+        'anexo_id' => null,
+    ]);
+});
+
+it('keeps anexo_id unchanged when update payload omits anexo_id', function (): void {
+    $doctor = User::factory()->doctor()->create();
+    $prontuario = Prontuario::factory()->create(['user_id' => $doctor->id]);
+    $anexo = Anexo::factory()->create([
+        'prontuario_id' => $prontuario->id,
+        'paciente_id' => $prontuario->paciente_id,
+        'tipo_anexo' => AttachmentType::Ecg,
+    ]);
+    $result = ResultadoEcg::factory()->create([
+        'prontuario_id' => $prontuario->id,
+        'paciente_id' => $prontuario->paciente_id,
+        'anexo_id' => $anexo->id,
+        'padrao' => 'normal',
+    ]);
+
+    $response = $this->actingAs($doctor)->putJson(
+        "/api/medical-records/{$prontuario->id}/exam-results/ecg/{$result->id}",
+        ['pattern' => 'altered']
+    );
+
+    $response->assertOk()
+        ->assertJsonPath('data.anexo_id', $anexo->id)
+        ->assertJsonPath('data.pattern', 'altered');
+
+    $this->assertDatabaseHas('resultados_ecg', [
+        'id' => $result->id,
+        'anexo_id' => $anexo->id,
+        'padrao' => 'altered',
+    ]);
 });
