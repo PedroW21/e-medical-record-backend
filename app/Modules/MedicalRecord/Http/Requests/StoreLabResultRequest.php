@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\MedicalRecord\Http\Requests;
 
+use App\Modules\MedicalRecord\Rules\AttachmentLinkable;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
@@ -16,6 +17,16 @@ final class StoreLabResultRequest extends FormRequest
     {
         return [
             'date' => ['required', 'date', 'before_or_equal:today'],
+
+            'anexo_id' => [
+                'nullable',
+                'integer',
+                new AttachmentLinkable(
+                    prontuarioId: (int) $this->route('medicalRecordId'),
+                    doctorUserId: (int) $this->user()->id,
+                    allowMultipleLinks: true,
+                ),
+            ],
 
             'panels' => ['nullable', 'array'],
             'panels.*.panel_id' => [
@@ -50,6 +61,7 @@ final class StoreLabResultRequest extends FormRequest
             'date.required' => 'A data de coleta é obrigatória.',
             'date.date' => 'A data de coleta deve ser uma data válida.',
             'date.before_or_equal' => 'A data de coleta não pode ser futura.',
+            'anexo_id.integer' => 'O identificador do anexo deve ser um número inteiro.',
             'panels.*.panel_id.required' => 'O ID do painel é obrigatório.',
             'panels.*.panel_id.exists' => 'O painel informado não existe.',
             'panels.*.panel_name.required' => 'O nome do painel é obrigatório.',
