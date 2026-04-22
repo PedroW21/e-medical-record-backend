@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Modules\MedicalRecord\Enums\ExamType;
+use App\Modules\MedicalRecord\Http\Controllers\AttachmentController;
 use App\Modules\MedicalRecord\Http\Controllers\ExamRequestController;
 use App\Modules\MedicalRecord\Http\Controllers\ExamRequestModelController;
 use App\Modules\MedicalRecord\Http\Controllers\ExamResultController;
@@ -69,4 +70,13 @@ Route::middleware('auth:sanctum')->group(function (): void {
     Route::post('/medical-records/{medicalRecordId}/exam-results/{examType}', [ExamResultController::class, 'store'])->where('examType', $examTypePattern);
     Route::put('/medical-records/{medicalRecordId}/exam-results/{examType}/{id}', [ExamResultController::class, 'update'])->where('examType', $examTypePattern);
     Route::delete('/medical-records/{medicalRecordId}/exam-results/{examType}/{id}', [ExamResultController::class, 'destroy'])->where('examType', $examTypePattern);
+
+    // Attachments (nested under medical record for listing/creation, flat for single-resource ops)
+    Route::get('/medical-records/{medicalRecordId}/attachments', [AttachmentController::class, 'index']);
+    Route::post('/medical-records/{medicalRecordId}/attachments', [AttachmentController::class, 'store']);
+    Route::get('/attachments/{id}', [AttachmentController::class, 'show']);
+    Route::get('/attachments/{id}/download', [AttachmentController::class, 'download'])->name('attachments.download');
+    Route::post('/attachments/{id}/retry', [AttachmentController::class, 'retry']);
+    Route::post('/attachments/{id}/confirm', [AttachmentController::class, 'confirm']);
+    Route::delete('/attachments/{id}', [AttachmentController::class, 'destroy']);
 });
