@@ -43,6 +43,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  * @property-read \Illuminate\Database\Eloquent\Collection<int, ResultadoCintilografia> $resultadosCintilografia
  * @property-read \Illuminate\Database\Eloquent\Collection<int, ResultadoPeDiabetico> $resultadosPeDiabetico
  * @property-read \Illuminate\Database\Eloquent\Collection<int, SolicitacaoExame> $solicitacoesExames
+ * @property-read \Illuminate\Database\Eloquent\Collection<int, Anexo> $anexos
  */
 class Prontuario extends Model
 {
@@ -234,6 +235,14 @@ class Prontuario extends Model
     public function solicitacoesExames(): HasMany
     {
         return $this->hasMany(SolicitacaoExame::class);
+    }
+
+    /**
+     * @return HasMany<Anexo, $this>
+     */
+    public function anexos(): HasMany
+    {
+        return $this->hasMany(Anexo::class, 'prontuario_id');
     }
 
     protected static function newFactory(): \App\Modules\MedicalRecord\Database\Factories\MedicalRecordFactory
