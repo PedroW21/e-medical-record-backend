@@ -6,7 +6,9 @@ namespace Database\Seeders;
 
 use App\Modules\Appointment\Database\Seeders\AppointmentSeeder;
 use App\Modules\Auth\Database\Seeders\UserSeeder;
+use App\Modules\Catalog\Database\Seeders\CatalogDatabaseSeeder;
 use App\Modules\Delegation\Database\Seeders\DelegationSeeder;
+use App\Modules\MedicalRecord\Database\Seeders\LabPanelSeeder;
 use App\Modules\Patient\Database\Seeders\AllergySeeder;
 use App\Modules\Patient\Database\Seeders\ChronicConditionSeeder;
 use App\Modules\Patient\Database\Seeders\PatientSeeder;
@@ -26,6 +28,8 @@ class DatabaseSeeder extends Seeder
             PatientSeeder::class,
             DelegationSeeder::class,
             AppointmentSeeder::class,
+            CatalogDatabaseSeeder::class,
+            LabPanelSeeder::class,
         ]);
     }
 }
