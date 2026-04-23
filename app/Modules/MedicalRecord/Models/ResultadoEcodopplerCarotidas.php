@@ -31,10 +31,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property float|null $espessura_intimal_vertebral_d
  * @property float|null $grau_estenose_vertebral_d
  * @property string|null $observacoes
+ * @property int|null $anexo_id
  * @property \Illuminate\Support\Carbon $created_at
  * @property \Illuminate\Support\Carbon $updated_at
  * @property-read Prontuario $prontuario
  * @property-read Paciente $paciente
+ * @property-read Anexo|null $anexo
  */
 class ResultadoEcodopplerCarotidas extends Model
 {
@@ -63,6 +65,7 @@ class ResultadoEcodopplerCarotidas extends Model
         'espessura_intimal_vertebral_d',
         'grau_estenose_vertebral_d',
         'observacoes',
+        'anexo_id',
     ];
 
     /**
@@ -105,6 +108,14 @@ class ResultadoEcodopplerCarotidas extends Model
     public function paciente(): BelongsTo
     {
         return $this->belongsTo(Paciente::class);
+    }
+
+    /**
+     * @return BelongsTo<Anexo, $this>
+     */
+    public function anexo(): BelongsTo
+    {
+        return $this->belongsTo(Anexo::class, 'anexo_id');
     }
 
     protected static function newFactory(): \App\Modules\MedicalRecord\Database\Factories\CarotidEcodopplerResultFactory

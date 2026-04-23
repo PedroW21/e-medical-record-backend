@@ -153,6 +153,60 @@ final class ExamResultService
     }
 
     /**
+     * Create or update the exam-result row tied to the given attachment.
+     *
+     * Idempotent: if a row already exists with this `anexo_id`, it is updated;
+     * otherwise a fresh row is created. Intended for programmatic materialisation
+     * from a confirmed attachment payload (frontend-shape extracted data).
+     *
+     * @param  array<string, mixed>  $payload  Extracted data as stored in `anexo->dados_extraidos`.
+     *
+     * @throws NotFoundHttpException When the medical record is not found
+     */
+    public function materializeFromAttachment(
+        int $medicalRecordId,
+        ExamType $examType,
+        int $anexoId,
+        array $payload,
+    ): Model {
+        $prontuario = $this->findMedicalRecordOrFail($medicalRecordId);
+
+        /** @var class-string<Model> $modelClass */
+        $modelClass = $examType->modelClass();
+
+        $attributes = array_merge(
+            $this->mapApiToDb($examType, $payload),
+            [
+                'prontuario_id' => $prontuario->id,
+                'paciente_id' => $prontuario->paciente_id,
+                'anexo_id' => $anexoId,
+            ],
+        );
+
+        $existing = $modelClass::query()->where('anexo_id', $anexoId)->first();
+
+        if ($existing !== null) {
+            if ($examType === ExamType::Mrpa) {
+                $measurements = $payload['measurements'] ?? null;
+
+                return $this->updateMrpa($existing, $attributes, $measurements);
+            }
+
+            $existing->update($attributes);
+
+            return $existing->fresh();
+        }
+
+        if ($examType === ExamType::Mrpa) {
+            $measurements = $payload['measurements'] ?? [];
+
+            return $this->storeMrpa($attributes, $measurements);
+        }
+
+        return $modelClass::query()->create($attributes);
+    }
+
+    /**
      * Map API field names to DB column names for a given exam type.
      *
      * Handles dot-notation keys for nested API objects (e.g. CarotidEcodoppler arterias,

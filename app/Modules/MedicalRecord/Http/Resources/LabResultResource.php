@@ -29,6 +29,7 @@ final class LabResultResource extends JsonResource
             'unit' => $this->unidade,
             'reference_range' => $this->faixa_referencia,
             'panel_id' => $this->painel_id,
+            'anexo_id' => $this->anexo_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

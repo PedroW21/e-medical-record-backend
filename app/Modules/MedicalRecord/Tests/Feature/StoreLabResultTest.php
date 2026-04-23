@@ -3,11 +3,14 @@
 declare(strict_types=1);
 
 use App\Models\User;
+use App\Modules\MedicalRecord\Enums\AttachmentType;
 use App\Modules\MedicalRecord\Enums\LabCategory;
 use App\Modules\MedicalRecord\Enums\LabResultType;
+use App\Modules\MedicalRecord\Models\Anexo;
 use App\Modules\MedicalRecord\Models\CatalogoExameLaboratorial;
 use App\Modules\MedicalRecord\Models\PainelLaboratorial;
 use App\Modules\MedicalRecord\Models\Prontuario;
+use App\Modules\MedicalRecord\Models\ValorLaboratorial;
 
 it('stores panel-based lab results', function (): void {
     $doctor = User::factory()->doctor()->create();
@@ -329,6 +332,157 @@ it('extracts numeric value from comma-separated string', function (): void {
         'valor' => '14,5',
         'valor_numerico' => 14.5,
     ]);
+});
+
+// ─── Anexo linking ───────────────────────────────────────────────────────────
+
+it('propagates anexo_id to every analyte row on store', function (): void {
+    $doctor = User::factory()->doctor()->create();
+    $prontuario = Prontuario::factory()->create(['user_id' => $doctor->id]);
+    $anexo = Anexo::factory()->create([
+        'prontuario_id' => $prontuario->id,
+        'paciente_id' => $prontuario->paciente_id,
+        'tipo_anexo' => AttachmentType::Lab,
+    ]);
+
+    $panel = PainelLaboratorial::query()->create([
+        'id' => 'hemograma-completo',
+        'nome' => 'Hemograma Completo',
+        'categoria' => LabCategory::Hematologia,
+        'subsecoes' => [],
+    ]);
+
+    $analytes = collect(['hemo-hemoglobina', 'hemo-hematocrito', 'hemo-leucocitos'])
+        ->each(fn (string $id) => CatalogoExameLaboratorial::query()->create([
+            'id' => $id,
+            'nome' => ucfirst($id),
+            'categoria' => LabCategory::Hematologia,
+            'unidade' => '-',
+            'faixa_referencia' => '-',
+            'tipo_resultado' => LabResultType::Numeric,
+        ]));
+
+    $response = $this->actingAs($doctor)->postJson(
+        "/api/medical-records/{$prontuario->id}/lab-results",
+        [
+            'date' => '2026-03-10',
+            'anexo_id' => $anexo->id,
+            'panels' => [
+                [
+                    'panel_id' => $panel->id,
+                    'panel_name' => $panel->nome,
+                    'values' => $analytes->map(fn (string $id): array => [
+                        'analyte_id' => $id,
+                        'value' => '10',
+                    ])->all(),
+                ],
+            ],
+        ]
+    );
+
+    $response->assertCreated();
+
+    expect(ValorLaboratorial::query()->where('prontuario_id', $prontuario->id)->count())->toBe(3);
+    expect(ValorLaboratorial::query()
+        ->where('prontuario_id', $prontuario->id)
+        ->where('anexo_id', $anexo->id)
+        ->count())->toBe(3);
+});
+
+it('persists null anexo_id when no anexo_id is provided on lab store', function (): void {
+    $doctor = User::factory()->doctor()->create();
+    $prontuario = Prontuario::factory()->create(['user_id' => $doctor->id]);
+
+    $panel = PainelLaboratorial::query()->create([
+        'id' => 'hemograma-completo',
+        'nome' => 'Hemograma Completo',
+        'categoria' => LabCategory::Hematologia,
+        'subsecoes' => [],
+    ]);
+
+    $analyte = CatalogoExameLaboratorial::query()->create([
+        'id' => 'hemo-hemoglobina',
+        'nome' => 'Hemoglobina',
+        'categoria' => LabCategory::Hematologia,
+        'unidade' => 'g/dL',
+        'faixa_referencia' => '13,5-17,5',
+        'tipo_resultado' => LabResultType::Numeric,
+    ]);
+
+    $response = $this->actingAs($doctor)->postJson(
+        "/api/medical-records/{$prontuario->id}/lab-results",
+        [
+            'date' => '2026-03-10',
+            'panels' => [
+                [
+                    'panel_id' => $panel->id,
+                    'panel_name' => $panel->nome,
+                    'values' => [['analyte_id' => $analyte->id, 'value' => '14.5']],
+                ],
+            ],
+        ]
+    );
+
+    $response->assertCreated();
+
+    $this->assertDatabaseHas('valores_laboratoriais', [
+        'prontuario_id' => $prontuario->id,
+        'catalogo_exame_id' => 'hemo-hemoglobina',
+        'anexo_id' => null,
+    ]);
+});
+
+it('allows multiple lab store requests to reuse the same anexo_id', function (): void {
+    $doctor = User::factory()->doctor()->create();
+    $prontuario = Prontuario::factory()->create(['user_id' => $doctor->id]);
+    $anexo = Anexo::factory()->create([
+        'prontuario_id' => $prontuario->id,
+        'paciente_id' => $prontuario->paciente_id,
+        'tipo_anexo' => AttachmentType::Lab,
+    ]);
+
+    $panel = PainelLaboratorial::query()->create([
+        'id' => 'hemograma-completo',
+        'nome' => 'Hemograma Completo',
+        'categoria' => LabCategory::Hematologia,
+        'subsecoes' => [],
+    ]);
+
+    $analyte = CatalogoExameLaboratorial::query()->create([
+        'id' => 'hemo-hemoglobina',
+        'nome' => 'Hemoglobina',
+        'categoria' => LabCategory::Hematologia,
+        'unidade' => 'g/dL',
+        'faixa_referencia' => '13,5-17,5',
+        'tipo_resultado' => LabResultType::Numeric,
+    ]);
+
+    $payload = [
+        'date' => '2026-03-10',
+        'anexo_id' => $anexo->id,
+        'panels' => [
+            [
+                'panel_id' => $panel->id,
+                'panel_name' => $panel->nome,
+                'values' => [['analyte_id' => $analyte->id, 'value' => '14.5']],
+            ],
+        ],
+    ];
+
+    $this->actingAs($doctor)->postJson(
+        "/api/medical-records/{$prontuario->id}/lab-results",
+        $payload
+    )->assertCreated();
+
+    $this->actingAs($doctor)->postJson(
+        "/api/medical-records/{$prontuario->id}/lab-results",
+        $payload
+    )->assertCreated();
+
+    expect(ValorLaboratorial::query()
+        ->where('prontuario_id', $prontuario->id)
+        ->where('anexo_id', $anexo->id)
+        ->count())->toBe(2);
 });
 
 it('rejects panel with non-existent analyte_id', function (): void {

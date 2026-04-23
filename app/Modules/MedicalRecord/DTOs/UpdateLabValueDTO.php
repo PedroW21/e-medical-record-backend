@@ -14,6 +14,8 @@ final readonly class UpdateLabValueDTO
         public ?string $referenceRange = null,
         public ?string $collectionDate = null,
         public bool $hasReferenceRange = false,
+        public ?int $anexoId = null,
+        public bool $hasAnexoId = false,
     ) {}
 
     public static function fromRequest(UpdateLabValueRequest $request): self
@@ -26,6 +28,8 @@ final readonly class UpdateLabValueDTO
             referenceRange: $validated['reference_range'] ?? null,
             collectionDate: $validated['collection_date'] ?? null,
             hasReferenceRange: $request->has('reference_range'),
+            anexoId: $validated['anexo_id'] ?? null,
+            hasAnexoId: $request->has('anexo_id'),
         );
     }
 }

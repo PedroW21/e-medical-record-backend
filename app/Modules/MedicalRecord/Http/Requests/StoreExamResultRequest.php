@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Modules\MedicalRecord\Http\Requests;
 
 use App\Modules\MedicalRecord\Enums\ExamType;
+use App\Modules\MedicalRecord\Rules\AttachmentLinkable;
 use Illuminate\Foundation\Http\FormRequest;
 
 final class StoreExamResultRequest extends FormRequest
@@ -18,7 +19,20 @@ final class StoreExamResultRequest extends FormRequest
     {
         $examType = ExamType::from($this->route('examType'));
 
-        return $this->storeRulesFor($examType);
+        $rules = $this->storeRulesFor($examType);
+
+        $rules['anexo_id'] = [
+            'nullable',
+            'integer',
+            new AttachmentLinkable(
+                prontuarioId: (int) $this->route('medicalRecordId'),
+                doctorUserId: (int) $this->user()->id,
+                ignoreResultId: $this->resolveIgnoreResultId(),
+                resultModelClass: $this->resolveExamTypeModelClass(),
+            ),
+        ];
+
+        return $rules;
     }
 
     /**
@@ -26,6 +40,30 @@ final class StoreExamResultRequest extends FormRequest
      */
     public function messages(): array
     {
-        return $this->examMessages();
+        return array_merge(
+            $this->examMessages(),
+            [
+                'anexo_id.integer' => 'O identificador do anexo deve ser um número inteiro.',
+            ],
+        );
+    }
+
+    /**
+     * Resolves the Eloquent model class name for the current exam type.
+     *
+     * @return class-string<\Illuminate\Database\Eloquent\Model>
+     */
+    private function resolveExamTypeModelClass(): string
+    {
+        return ExamType::from((string) $this->route('examType'))->modelClass();
+    }
+
+    /**
+     * Returns the result ID that should be ignored for the uniqueness check.
+     * Store requests never ignore any existing result.
+     */
+    private function resolveIgnoreResultId(): ?int
+    {
+        return null;
     }
 }

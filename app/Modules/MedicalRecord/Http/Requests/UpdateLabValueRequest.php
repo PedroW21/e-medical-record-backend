@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Modules\MedicalRecord\Http\Requests;
 
+use App\Modules\MedicalRecord\Rules\AttachmentLinkable;
 use Illuminate\Foundation\Http\FormRequest;
 
 final class UpdateLabValueRequest extends FormRequest
@@ -18,6 +19,15 @@ final class UpdateLabValueRequest extends FormRequest
             'unit' => ['sometimes', 'string', 'max:50'],
             'reference_range' => ['nullable', 'string', 'max:255'],
             'collection_date' => ['sometimes', 'date', 'before_or_equal:today'],
+            'anexo_id' => [
+                'nullable',
+                'integer',
+                new AttachmentLinkable(
+                    prontuarioId: (int) $this->route('medicalRecordId'),
+                    doctorUserId: (int) $this->user()->id,
+                    allowMultipleLinks: true,
+                ),
+            ],
         ];
     }
 
@@ -31,6 +41,7 @@ final class UpdateLabValueRequest extends FormRequest
             'unit.string' => 'A unidade de medida deve ser um texto.',
             'collection_date.date' => 'A data de coleta deve ser uma data válida.',
             'collection_date.before_or_equal' => 'A data de coleta não pode ser futura.',
+            'anexo_id.integer' => 'O identificador do anexo deve ser um número inteiro.',
         ];
     }
 }

@@ -16,10 +16,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property \Illuminate\Support\Carbon $data
  * @property string $padrao
  * @property string|null $texto_personalizado
+ * @property int|null $anexo_id
  * @property \Illuminate\Support\Carbon $created_at
  * @property \Illuminate\Support\Carbon $updated_at
  * @property-read Prontuario $prontuario
  * @property-read Paciente $paciente
+ * @property-read Anexo|null $anexo
  */
 class ResultadoEcg extends Model
 {
@@ -33,6 +35,7 @@ class ResultadoEcg extends Model
         'data',
         'padrao',
         'texto_personalizado',
+        'anexo_id',
     ];
 
     /**
@@ -59,6 +62,14 @@ class ResultadoEcg extends Model
     public function paciente(): BelongsTo
     {
         return $this->belongsTo(Paciente::class);
+    }
+
+    /**
+     * @return BelongsTo<Anexo, $this>
+     */
+    public function anexo(): BelongsTo
+    {
+        return $this->belongsTo(Anexo::class, 'anexo_id');
     }
 
     protected static function newFactory(): \App\Modules\MedicalRecord\Database\Factories\EcgResultFactory

@@ -37,8 +37,39 @@ class AttachmentResource extends JsonResource
             'processing_error' => $this->erro_processamento,
             'processed_at' => $this->processado_em?->toIso8601String(),
             'confirmed_at' => $this->confirmado_em?->toIso8601String(),
+            'materialized' => $this->resolveMaterializedReference(),
+            'lab_analytes_count' => $this->tipo_anexo->isLabType()
+                ? (int) $this->valoresLaboratoriais()->count()
+                : null,
             'created_at' => $this->created_at->toIso8601String(),
             'updated_at' => $this->updated_at->toIso8601String(),
+        ];
+    }
+
+    /**
+     * Build a compact reference to the exam-result row materialised from this attachment (if any).
+     *
+     * @return array{id: int, exam_type: string}|null
+     */
+    private function resolveMaterializedReference(): ?array
+    {
+        $relation = $this->materializedResult();
+
+        if ($relation === null) {
+            return null;
+        }
+
+        $result = $relation->first();
+
+        if ($result === null) {
+            return null;
+        }
+
+        $examType = $this->tipo_anexo->toExamType();
+
+        return [
+            'id' => $result->id,
+            'exam_type' => $examType?->value ?? '',
         ];
     }
 }

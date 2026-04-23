@@ -25,10 +25,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property array<string, mixed>|null $dp
  * @property array<string, mixed>|null $stents
  * @property string|null $observacoes
+ * @property int|null $anexo_id
  * @property \Illuminate\Support\Carbon $created_at
  * @property \Illuminate\Support\Carbon $updated_at
  * @property-read Prontuario $prontuario
  * @property-read Paciente $paciente
+ * @property-read Anexo|null $anexo
  */
 class ResultadoCat extends Model
 {
@@ -51,6 +53,7 @@ class ResultadoCat extends Model
         'dp',
         'stents',
         'observacoes',
+        'anexo_id',
     ];
 
     /**
@@ -87,6 +90,14 @@ class ResultadoCat extends Model
     public function paciente(): BelongsTo
     {
         return $this->belongsTo(Paciente::class);
+    }
+
+    /**
+     * @return BelongsTo<Anexo, $this>
+     */
+    public function anexo(): BelongsTo
+    {
+        return $this->belongsTo(Anexo::class, 'anexo_id');
     }
 
     protected static function newFactory(): \App\Modules\MedicalRecord\Database\Factories\CatResultFactory
