@@ -1,0 +1,5499 @@
+[
+  {
+    "id": "hemograma-completo",
+    "name": "Hemograma Completo",
+    "category": "hematologia",
+    "subsections": [
+      {
+        "label": "Série Vermelha",
+        "analytes": [
+          {
+            "id": "hemo-hemacias",
+            "name": "Hemácias",
+            "unit": "milhões/mm³",
+            "resultType": "numeric",
+            "referenceRange": "4,5-5,9 (H) / 4,0-5,2 (M)"
+          },
+          {
+            "id": "hemo-hemoglobina",
+            "name": "Hemoglobina",
+            "abbreviation": "Hb",
+            "unit": "g/dL",
+            "resultType": "numeric",
+            "referenceRange": "13,5-17,5 (H) / 12,0-16,0 (M)"
+          },
+          {
+            "id": "hemo-hematocrito",
+            "name": "Hematócrito",
+            "abbreviation": "Ht",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "41-53 (H) / 36-46 (M)"
+          },
+          {
+            "id": "hemo-vcm",
+            "name": "VCM",
+            "abbreviation": "VCM",
+            "unit": "fL",
+            "resultType": "numeric",
+            "referenceRange": "80-100"
+          },
+          {
+            "id": "hemo-hcm",
+            "name": "HCM",
+            "abbreviation": "HCM",
+            "unit": "pg",
+            "resultType": "numeric",
+            "referenceRange": "27-33"
+          },
+          {
+            "id": "hemo-chcm",
+            "name": "CHCM",
+            "abbreviation": "CHCM",
+            "unit": "g/dL",
+            "resultType": "numeric",
+            "referenceRange": "32-36"
+          },
+          {
+            "id": "hemo-rdw",
+            "name": "RDW",
+            "abbreviation": "RDW",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "11,5-14,5"
+          }
+        ]
+      },
+      {
+        "label": "Série Branca",
+        "analytes": [
+          {
+            "id": "hemo-leucocitos",
+            "name": "Leucócitos totais",
+            "unit": "/mm³",
+            "resultType": "numeric",
+            "referenceRange": "4.000-10.000"
+          },
+          {
+            "id": "hemo-neutrofilos",
+            "name": "Neutrófilos",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "45-70"
+          },
+          {
+            "id": "hemo-bastonetes",
+            "name": "Bastonetes",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "1-5"
+          },
+          {
+            "id": "hemo-linfocitos",
+            "name": "Linfócitos",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "20-40"
+          },
+          {
+            "id": "hemo-monocitos",
+            "name": "Monócitos",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "2-10"
+          },
+          {
+            "id": "hemo-eosinofilos",
+            "name": "Eosinófilos",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "1-5"
+          },
+          {
+            "id": "hemo-basofilos",
+            "name": "Basófilos",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "0-1"
+          }
+        ]
+      },
+      {
+        "label": "Plaquetas",
+        "analytes": [
+          {
+            "id": "hemo-plaquetas",
+            "name": "Plaquetas",
+            "unit": "mil/mm³",
+            "resultType": "numeric",
+            "referenceRange": "150-400"
+          },
+          {
+            "id": "hemo-vpm",
+            "name": "VPM",
+            "abbreviation": "VPM",
+            "unit": "fL",
+            "resultType": "numeric",
+            "referenceRange": "7,5-12,5"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coagulograma",
+    "name": "Coagulograma",
+    "category": "hematologia",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "coag-tp",
+            "name": "Tempo de Protrombina",
+            "abbreviation": "TP",
+            "unit": "segundos",
+            "resultType": "numeric",
+            "referenceRange": "10,0-14,0"
+          },
+          {
+            "id": "coag-tp-pct",
+            "name": "Atividade de Protrombina",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "70-100"
+          },
+          {
+            "id": "coag-inr",
+            "name": "INR",
+            "abbreviation": "INR",
+            "unit": "-",
+            "resultType": "numeric",
+            "referenceRange": "0,8-1,2"
+          },
+          {
+            "id": "coag-ttpa",
+            "name": "TTPa",
+            "abbreviation": "TTPa",
+            "unit": "segundos",
+            "resultType": "numeric",
+            "referenceRange": "25,0-40,0"
+          },
+          {
+            "id": "coag-ttpa-rel",
+            "name": "Relação TTPa",
+            "unit": "-",
+            "resultType": "numeric",
+            "referenceRange": "0,8-1,2"
+          },
+          {
+            "id": "fibrinogenio",
+            "name": "Fibrinogênio",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "200-400"
+          },
+          {
+            "id": "coag-tt",
+            "name": "Tempo de Trombina",
+            "abbreviation": "TT",
+            "unit": "segundos",
+            "resultType": "numeric",
+            "referenceRange": "14,0-19,0"
+          },
+          {
+            "id": "coag-ts",
+            "name": "Tempo de Sangramento",
+            "abbreviation": "TS",
+            "unit": "minutos",
+            "resultType": "numeric",
+            "referenceRange": "1-9"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vhs",
+    "name": "VHS",
+    "category": "hematologia",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "vhs",
+            "name": "VHS 1ª hora",
+            "abbreviation": "VHS",
+            "unit": "mm/h",
+            "resultType": "numeric",
+            "referenceRange": "≤ 15 (H) / ≤ 20 (M)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "reticulocitos",
+    "name": "Reticulócitos",
+    "category": "hematologia",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "reticulocitos-pct",
+            "name": "Reticulócitos %",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "0,5-1,5"
+          },
+          {
+            "id": "reticulocitos-abs",
+            "name": "Reticulócitos absoluto",
+            "unit": "/mm³",
+            "resultType": "numeric",
+            "referenceRange": "25.000-85.000"
+          },
+          {
+            "id": "reticulocitos-ipr",
+            "name": "IPR",
+            "abbreviation": "IPR",
+            "unit": "-",
+            "resultType": "numeric",
+            "referenceRange": "1,0-2,0"
+          },
+          {
+            "id": "irf",
+            "name": "IRF",
+            "abbreviation": "IRF",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "2-15"
+          },
+          {
+            "id": "reticulocitos-lfr",
+            "name": "LFR",
+            "abbreviation": "LFR",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "80-97"
+          },
+          {
+            "id": "reticulocitos-mfr",
+            "name": "MFR",
+            "abbreviation": "MFR",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "3-17"
+          },
+          {
+            "id": "reticulocitos-hfr",
+            "name": "HFR",
+            "abbreviation": "HFR",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "0-3"
+          },
+          {
+            "id": "ret-he",
+            "name": "RET-HE",
+            "abbreviation": "RET-HE",
+            "unit": "pg",
+            "resultType": "numeric",
+            "referenceRange": "28-35"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "ferrocinetica",
+    "name": "Ferrocinética / Perfil do Ferro",
+    "category": "hematologia",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "ferro-serico",
+            "name": "Ferro sérico",
+            "unit": "µg/dL",
+            "resultType": "numeric",
+            "referenceRange": "65-175 (H) / 50-170 (M)"
+          },
+          {
+            "id": "transferrina",
+            "name": "Transferrina",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "200-360"
+          },
+          {
+            "id": "tibc",
+            "name": "TIBC",
+            "abbreviation": "TIBC",
+            "unit": "µg/dL",
+            "resultType": "numeric",
+            "referenceRange": "250-425"
+          },
+          {
+            "id": "uibc",
+            "name": "UIBC",
+            "abbreviation": "UIBC",
+            "unit": "µg/dL",
+            "resultType": "numeric",
+            "referenceRange": "130-375"
+          },
+          {
+            "id": "ist",
+            "name": "IST",
+            "abbreviation": "IST",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "20-50 (H) / 15-45 (M)"
+          },
+          {
+            "id": "ferritina",
+            "name": "Ferritina",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "30-300 (H) / 13-150 (M)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eletroforese-hemoglobina",
+    "name": "Eletroforese de Hemoglobina",
+    "category": "hematologia",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "eletro-hb-a",
+            "name": "Hemoglobina A",
+            "abbreviation": "HbA",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "95,0-98,5"
+          },
+          {
+            "id": "eletro-hb-a2",
+            "name": "Hemoglobina A2",
+            "abbreviation": "HbA2",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "1,5-3,5"
+          },
+          {
+            "id": "eletro-hb-f",
+            "name": "Hemoglobina Fetal",
+            "abbreviation": "HbF",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "0,0-2,0"
+          },
+          {
+            "id": "eletro-hb-s",
+            "name": "Hemoglobina S",
+            "abbreviation": "HbS",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "Ausente (0%)"
+          },
+          {
+            "id": "eletro-hb-c",
+            "name": "Hemoglobina C",
+            "abbreviation": "HbC",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "Ausente (0%)"
+          },
+          {
+            "id": "eletro-hb-var",
+            "name": "Hemoglobinas variantes",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Ausentes"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eletroforese-proteinas",
+    "name": "Eletroforese de Proteínas",
+    "category": "hematologia",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "eletro-albumina",
+            "name": "Albumina",
+            "unit": "g/dL",
+            "resultType": "numeric",
+            "referenceRange": "3,5-5,5"
+          },
+          {
+            "id": "eletro-alfa1",
+            "name": "Alfa-1 globulina",
+            "unit": "g/dL",
+            "resultType": "numeric",
+            "referenceRange": "0,15-0,41"
+          },
+          {
+            "id": "eletro-alfa2",
+            "name": "Alfa-2 globulina",
+            "unit": "g/dL",
+            "resultType": "numeric",
+            "referenceRange": "0,43-0,92"
+          },
+          {
+            "id": "eletro-beta1",
+            "name": "Beta-1 globulina",
+            "unit": "g/dL",
+            "resultType": "numeric",
+            "referenceRange": "0,30-0,60"
+          },
+          {
+            "id": "eletro-beta2",
+            "name": "Beta-2 globulina",
+            "unit": "g/dL",
+            "resultType": "numeric",
+            "referenceRange": "0,20-0,50"
+          },
+          {
+            "id": "eletro-gama",
+            "name": "Gama globulina",
+            "unit": "g/dL",
+            "resultType": "numeric",
+            "referenceRange": "0,60-1,30"
+          },
+          {
+            "id": "eletro-relacao-ag",
+            "name": "Relação A/G",
+            "unit": "-",
+            "resultType": "numeric",
+            "referenceRange": "1,2-2,2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "d-dimero",
+    "name": "D-Dímero",
+    "category": "hematologia",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "d-dimero",
+            "name": "D-Dímero",
+            "unit": "ng/mL FEU",
+            "resultType": "numeric",
+            "referenceRange": "< 500"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "perfil-lipidico",
+    "name": "Perfil Lipídico",
+    "category": "bioquimica",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "colesterol-total",
+            "name": "Colesterol total",
+            "abbreviation": "CT",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "< 190"
+          },
+          {
+            "id": "hdl",
+            "name": "HDL colesterol",
+            "abbreviation": "HDL",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "> 40 (H) / > 50 (M)"
+          },
+          {
+            "id": "ldl",
+            "name": "LDL colesterol",
+            "abbreviation": "LDL",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "< 130"
+          },
+          {
+            "id": "vldl",
+            "name": "VLDL colesterol",
+            "abbreviation": "VLDL",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "< 30"
+          },
+          {
+            "id": "triglicerideos",
+            "name": "Triglicerídeos",
+            "abbreviation": "TG",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "< 150"
+          },
+          {
+            "id": "colesterol-nao-hdl",
+            "name": "Colesterol não-HDL",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "< 160"
+          },
+          {
+            "id": "apo-a1",
+            "name": "Apolipoproteína A1",
+            "abbreviation": "Apo A1",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "> 120 (H) / > 140 (M)"
+          },
+          {
+            "id": "apo-b",
+            "name": "Apolipoproteína B",
+            "abbreviation": "Apo B",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "< 130"
+          },
+          {
+            "id": "lipoproteina-a",
+            "name": "Lipoproteína(a)",
+            "abbreviation": "Lp(a)",
+            "unit": "nmol/L",
+            "resultType": "numeric",
+            "referenceRange": "< 75"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "perfil-glicemico",
+    "name": "Perfil Glicêmico",
+    "category": "bioquimica",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "glicemia-jejum",
+            "name": "Glicemia de jejum",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "70-99"
+          },
+          {
+            "id": "hba1c",
+            "name": "Hemoglobina glicada",
+            "abbreviation": "HbA1c",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "< 5,7"
+          },
+          {
+            "id": "insulina-basal",
+            "name": "Insulina basal",
+            "unit": "µUI/mL",
+            "resultType": "numeric",
+            "referenceRange": "2,6-24,9"
+          },
+          {
+            "id": "frutosamina",
+            "name": "Frutosamina",
+            "unit": "µmol/L",
+            "resultType": "numeric",
+            "referenceRange": "205-285"
+          },
+          {
+            "id": "peptideo-c",
+            "name": "Peptídeo C",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "1,1-4,4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "funcao-renal",
+    "name": "Função Renal",
+    "category": "bioquimica",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "ureia",
+            "name": "Ureia",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "15-45"
+          },
+          {
+            "id": "creatinina",
+            "name": "Creatinina",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "0,7-1,3 (H) / 0,5-1,1 (M)"
+          },
+          {
+            "id": "acido-urico",
+            "name": "Ácido úrico",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "3,5-7,2 (H) / 2,6-6,0 (M)"
+          },
+          {
+            "id": "cistatina-c",
+            "name": "Cistatina C",
+            "unit": "mg/L",
+            "resultType": "numeric",
+            "referenceRange": "0,56-1,00"
+          },
+          {
+            "id": "tfg-ckdepi",
+            "name": "TFG estimada (CKD-EPI)",
+            "abbreviation": "TFG",
+            "unit": "mL/min/1,73m²",
+            "resultType": "numeric",
+            "referenceRange": "≥ 90"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "funcao-hepatica",
+    "name": "Função Hepática",
+    "category": "bioquimica",
+    "subsections": [
+      {
+        "label": "Enzimas de Citólise",
+        "analytes": [
+          {
+            "id": "tgo",
+            "name": "TGO (AST)",
+            "abbreviation": "TGO",
+            "unit": "U/L",
+            "resultType": "numeric",
+            "referenceRange": "< 40 (H) / < 35 (M)"
+          },
+          {
+            "id": "tgp",
+            "name": "TGP (ALT)",
+            "abbreviation": "TGP",
+            "unit": "U/L",
+            "resultType": "numeric",
+            "referenceRange": "≤ 35 (H) / ≤ 25 (M)"
+          },
+          {
+            "id": "ggt",
+            "name": "GGT",
+            "abbreviation": "GGT",
+            "unit": "U/L",
+            "resultType": "numeric",
+            "referenceRange": "9-48 (H) / 7-32 (M)"
+          }
+        ]
+      },
+      {
+        "label": "Colestase",
+        "analytes": [
+          {
+            "id": "fosfatase-alcalina",
+            "name": "Fosfatase alcalina",
+            "abbreviation": "FA",
+            "unit": "U/L",
+            "resultType": "numeric",
+            "referenceRange": "44-147"
+          }
+        ]
+      },
+      {
+        "label": "Bilirrubinas",
+        "analytes": [
+          {
+            "id": "bilirrubina-total",
+            "name": "Bilirrubina total",
+            "abbreviation": "BT",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "0,3-1,2"
+          },
+          {
+            "id": "bilirrubina-direta",
+            "name": "Bilirrubina direta",
+            "abbreviation": "BD",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "0,1-0,4"
+          },
+          {
+            "id": "bilirrubina-indireta",
+            "name": "Bilirrubina indireta",
+            "abbreviation": "BI",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "0,2-0,8"
+          }
+        ]
+      },
+      {
+        "label": "Proteínas",
+        "analytes": [
+          {
+            "id": "proteinas-totais",
+            "name": "Proteínas totais",
+            "unit": "g/dL",
+            "resultType": "numeric",
+            "referenceRange": "6,0-8,0"
+          },
+          {
+            "id": "proteinas-albumina",
+            "name": "Albumina sérica",
+            "unit": "g/dL",
+            "resultType": "numeric",
+            "referenceRange": "3,5-5,0"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eletrolitos-ionograma",
+    "name": "Eletrólitos / Ionograma",
+    "category": "bioquimica",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "sodio",
+            "name": "Sódio",
+            "abbreviation": "Na⁺",
+            "unit": "mEq/L",
+            "resultType": "numeric",
+            "referenceRange": "135-145"
+          },
+          {
+            "id": "potassio",
+            "name": "Potássio",
+            "abbreviation": "K⁺",
+            "unit": "mEq/L",
+            "resultType": "numeric",
+            "referenceRange": "3,5-5,1"
+          },
+          {
+            "id": "calcio-total",
+            "name": "Cálcio total",
+            "abbreviation": "Ca²⁺",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "8,4-10,2"
+          },
+          {
+            "id": "calcio-ionico",
+            "name": "Cálcio iônico",
+            "abbreviation": "Ca²⁺i",
+            "unit": "mmol/L",
+            "resultType": "numeric",
+            "referenceRange": "1,15-1,35"
+          },
+          {
+            "id": "magnesio",
+            "name": "Magnésio",
+            "abbreviation": "Mg²⁺",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "1,8-2,4"
+          },
+          {
+            "id": "fosforo",
+            "name": "Fósforo",
+            "abbreviation": "P",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "2,5-4,5"
+          },
+          {
+            "id": "cloro",
+            "name": "Cloro",
+            "abbreviation": "Cl⁻",
+            "unit": "mEq/L",
+            "resultType": "numeric",
+            "referenceRange": "98-107"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gasometria-arterial",
+    "name": "Gasometria Arterial",
+    "category": "bioquimica",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "gaso-ph",
+            "name": "pH arterial",
+            "unit": "-",
+            "resultType": "numeric",
+            "referenceRange": "7,35-7,45"
+          },
+          {
+            "id": "gaso-po2",
+            "name": "pO2",
+            "abbreviation": "pO₂",
+            "unit": "mmHg",
+            "resultType": "numeric",
+            "referenceRange": "80-100"
+          },
+          {
+            "id": "gaso-pco2",
+            "name": "pCO2",
+            "abbreviation": "pCO₂",
+            "unit": "mmHg",
+            "resultType": "numeric",
+            "referenceRange": "35-45"
+          },
+          {
+            "id": "gaso-hco3",
+            "name": "HCO3⁻",
+            "abbreviation": "HCO₃⁻",
+            "unit": "mEq/L",
+            "resultType": "numeric",
+            "referenceRange": "22-26"
+          },
+          {
+            "id": "gaso-be",
+            "name": "BE (Excesso de Base)",
+            "abbreviation": "BE",
+            "unit": "mEq/L",
+            "resultType": "numeric",
+            "referenceRange": "-3 a +3"
+          },
+          {
+            "id": "gaso-sato2",
+            "name": "SatO2",
+            "abbreviation": "SatO₂",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "95-100"
+          },
+          {
+            "id": "gaso-lactato",
+            "name": "Lactato arterial",
+            "unit": "mmol/L",
+            "resultType": "numeric",
+            "referenceRange": "0,5-1,6"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "perfil-pancreatico",
+    "name": "Perfil Pancreático",
+    "category": "bioquimica",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "amilase",
+            "name": "Amilase",
+            "unit": "U/L",
+            "resultType": "numeric",
+            "referenceRange": "25-125"
+          },
+          {
+            "id": "amilase-pancreatica",
+            "name": "Amilase pancreática",
+            "unit": "U/L",
+            "resultType": "numeric",
+            "referenceRange": "13-53"
+          },
+          {
+            "id": "lipase",
+            "name": "Lipase",
+            "unit": "U/L",
+            "resultType": "numeric",
+            "referenceRange": "13-60"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "marcadores-inflamacao",
+    "name": "Marcadores de Inflamação",
+    "category": "bioquimica",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "pcr",
+            "name": "PCR quantitativa",
+            "abbreviation": "PCR",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "< 0,5"
+          },
+          {
+            "id": "pcr-us",
+            "name": "PCR ultrassensível",
+            "abbreviation": "PCR-us",
+            "unit": "mg/L",
+            "resultType": "numeric",
+            "referenceRange": "< 1,0"
+          },
+          {
+            "id": "vhs",
+            "name": "VHS",
+            "abbreviation": "VHS",
+            "unit": "mm/h",
+            "resultType": "numeric",
+            "referenceRange": "≤ 15 (H) / ≤ 20 (M)"
+          },
+          {
+            "id": "ferritina",
+            "name": "Ferritina",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "30-400 (H) / 13-150 (M)"
+          },
+          {
+            "id": "procalcitonina",
+            "name": "Procalcitonina",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 0,1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "vitaminas",
+    "name": "Vitaminas",
+    "category": "bioquimica",
+    "subsections": [
+      {
+        "label": "Hidrossolúveis",
+        "analytes": [
+          {
+            "id": "vitamina-b1",
+            "name": "Vitamina B1 (Tiamina)",
+            "unit": "nmol/L",
+            "resultType": "numeric",
+            "referenceRange": "87-280"
+          },
+          {
+            "id": "vitamina-b3",
+            "name": "Vitamina B3 (Niacina)",
+            "unit": "µg/mL",
+            "resultType": "numeric",
+            "referenceRange": "0,5-8,45"
+          },
+          {
+            "id": "vitamina-b6",
+            "name": "Vitamina B6 (Piridoxina)",
+            "unit": "nmol/L",
+            "resultType": "numeric",
+            "referenceRange": "20-121"
+          },
+          {
+            "id": "vitamina-b9",
+            "name": "Ácido fólico (B9)",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "3,0-17,0"
+          },
+          {
+            "id": "vitamina-b12",
+            "name": "Vitamina B12",
+            "unit": "pg/mL",
+            "resultType": "numeric",
+            "referenceRange": "211-911"
+          },
+          {
+            "id": "vitamina-c",
+            "name": "Vitamina C",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "0,4-2,0"
+          }
+        ]
+      },
+      {
+        "label": "Lipossolúveis",
+        "analytes": [
+          {
+            "id": "vitamina-a",
+            "name": "Vitamina A (Retinol)",
+            "unit": "µg/dL",
+            "resultType": "numeric",
+            "referenceRange": "30-65"
+          },
+          {
+            "id": "vitamina-d-25oh",
+            "name": "25-OH-Vitamina D3",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "20-60"
+          },
+          {
+            "id": "vitamina-e",
+            "name": "Vitamina E (Alfa-tocoferol)",
+            "unit": "mg/L",
+            "resultType": "numeric",
+            "referenceRange": "5,0-20,0"
+          },
+          {
+            "id": "vitamina-k",
+            "name": "Vitamina K (Filoquinona)",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "0,2-3,2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "minerais-oligoelementos",
+    "name": "Minerais / Oligoelementos",
+    "category": "bioquimica",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "zinco",
+            "name": "Zinco",
+            "abbreviation": "Zn",
+            "unit": "µg/dL",
+            "resultType": "numeric",
+            "referenceRange": "70-120"
+          },
+          {
+            "id": "cobre",
+            "name": "Cobre",
+            "abbreviation": "Cu",
+            "unit": "µg/dL",
+            "resultType": "numeric",
+            "referenceRange": "70-140 (H) / 80-155 (M)"
+          },
+          {
+            "id": "selenio",
+            "name": "Selênio",
+            "abbreviation": "Se",
+            "unit": "µg/L",
+            "resultType": "numeric",
+            "referenceRange": "46-143"
+          },
+          {
+            "id": "cromo",
+            "name": "Cromo",
+            "abbreviation": "Cr",
+            "unit": "µg/L",
+            "resultType": "numeric",
+            "referenceRange": "0,1-2,1"
+          },
+          {
+            "id": "manganes",
+            "name": "Manganês",
+            "abbreviation": "Mn",
+            "unit": "µg/L",
+            "resultType": "numeric",
+            "referenceRange": "0,4-1,1"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "proteinograma",
+    "name": "Proteinograma",
+    "category": "bioquimica",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "proteinas-totais",
+            "name": "Proteínas totais",
+            "unit": "g/dL",
+            "resultType": "numeric",
+            "referenceRange": "6,0-8,0"
+          },
+          {
+            "id": "proteinas-albumina",
+            "name": "Albumina",
+            "unit": "g/dL",
+            "resultType": "numeric",
+            "referenceRange": "3,5-5,5"
+          },
+          {
+            "id": "proto-alfa1",
+            "name": "Alfa-1 globulina",
+            "unit": "g/dL",
+            "resultType": "numeric",
+            "referenceRange": "0,15-0,41"
+          },
+          {
+            "id": "proto-alfa2",
+            "name": "Alfa-2 globulina",
+            "unit": "g/dL",
+            "resultType": "numeric",
+            "referenceRange": "0,43-0,92"
+          },
+          {
+            "id": "proto-beta",
+            "name": "Beta globulina",
+            "unit": "g/dL",
+            "resultType": "numeric",
+            "referenceRange": "0,50-1,00"
+          },
+          {
+            "id": "proto-gama",
+            "name": "Gama globulina",
+            "unit": "g/dL",
+            "resultType": "numeric",
+            "referenceRange": "0,60-1,30"
+          },
+          {
+            "id": "proteinas-relacao-ag",
+            "name": "Relação A/G",
+            "unit": "-",
+            "resultType": "numeric",
+            "referenceRange": "1,2-2,2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "perfil-osseo",
+    "name": "Perfil Ósseo / Metabolismo Ósseo",
+    "category": "bioquimica",
+    "subsections": [
+      {
+        "label": "Minerais e Regulação",
+        "analytes": [
+          {
+            "id": "calcio-total",
+            "name": "Cálcio total",
+            "abbreviation": "Ca²⁺",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "8,4-10,2"
+          },
+          {
+            "id": "calcio-ionico",
+            "name": "Cálcio iônico",
+            "abbreviation": "Ca²⁺i",
+            "unit": "mmol/L",
+            "resultType": "numeric",
+            "referenceRange": "1,15-1,35"
+          },
+          {
+            "id": "fosforo",
+            "name": "Fósforo",
+            "abbreviation": "P",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "2,5-4,5"
+          },
+          {
+            "id": "pth",
+            "name": "PTH intacto",
+            "abbreviation": "PTH",
+            "unit": "pg/mL",
+            "resultType": "numeric",
+            "referenceRange": "12-72"
+          },
+          {
+            "id": "vitamina-d-25oh",
+            "name": "25-OH-Vitamina D3",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "20-60"
+          }
+        ]
+      },
+      {
+        "label": "Formação Óssea",
+        "analytes": [
+          {
+            "id": "fa-ossea",
+            "name": "Fosfatase alcalina óssea",
+            "abbreviation": "FA óssea",
+            "unit": "µg/L",
+            "resultType": "numeric",
+            "referenceRange": "15-41 (H) / 11-31 (M pré) / 14-50 (M pós)"
+          },
+          {
+            "id": "osteocalcina",
+            "name": "Osteocalcina",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "14-46 (H) / 11-43 (M pré)"
+          },
+          {
+            "id": "p1np",
+            "name": "P1NP",
+            "abbreviation": "P1NP",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "20-76 (H) / 19-84 (M pré)"
+          }
+        ]
+      },
+      {
+        "label": "Reabsorção Óssea",
+        "analytes": [
+          {
+            "id": "ctx",
+            "name": "CTx (Beta-CrossLaps)",
+            "abbreviation": "CTx",
+            "unit": "pg/mL",
+            "resultType": "numeric",
+            "referenceRange": "87-573 (H) / 40-465 (M pré)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "marcadores-cardiacos",
+    "name": "Marcadores Cardíacos",
+    "category": "bioquimica",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "bnp",
+            "name": "BNP / NT-proBNP",
+            "abbreviation": "BNP",
+            "unit": "pg/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 100 (BNP) / < 300 (NT-proBNP)"
+          },
+          {
+            "id": "troponina",
+            "name": "Troponina ultrassensível",
+            "abbreviation": "TnI-us",
+            "unit": "ng/L",
+            "resultType": "numeric",
+            "referenceRange": "< 14 (H) / < 10 (M)"
+          },
+          {
+            "id": "cpk-total",
+            "name": "CPK total",
+            "abbreviation": "CPK",
+            "unit": "U/L",
+            "resultType": "numeric",
+            "referenceRange": "32-294 (H) / 33-211 (M)"
+          },
+          {
+            "id": "cpk-mb",
+            "name": "CPK-MB",
+            "abbreviation": "CK-MB",
+            "unit": "U/L",
+            "resultType": "numeric",
+            "referenceRange": "< 25"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "fibrose-hepatica-elf",
+    "name": "Fibrose Hepática (ELF Score)",
+    "category": "bioquimica",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "acido-hialuronico",
+            "name": "Ácido hialurônico",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 75"
+          },
+          {
+            "id": "piiinp",
+            "name": "PIIINP",
+            "abbreviation": "PIIINP",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "3,0-7,0"
+          },
+          {
+            "id": "timp-1",
+            "name": "TIMP-1",
+            "abbreviation": "TIMP-1",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 250"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "perfil-tireoidiano",
+    "name": "Perfil Tireoidiano",
+    "category": "endocrinologia",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "tsh",
+            "name": "TSH",
+            "abbreviation": "TSH",
+            "unit": "mUI/L",
+            "resultType": "numeric",
+            "referenceRange": "0,40-4,00"
+          },
+          {
+            "id": "t4-livre",
+            "name": "T4 livre",
+            "abbreviation": "T4L",
+            "unit": "ng/dL",
+            "resultType": "numeric",
+            "referenceRange": "0,90-1,80"
+          },
+          {
+            "id": "t3-livre",
+            "name": "T3 livre",
+            "abbreviation": "T3L",
+            "unit": "pg/mL",
+            "resultType": "numeric",
+            "referenceRange": "2,30-4,20"
+          },
+          {
+            "id": "t4-total",
+            "name": "T4 total",
+            "abbreviation": "T4",
+            "unit": "µg/dL",
+            "resultType": "numeric",
+            "referenceRange": "5,0-12,0"
+          },
+          {
+            "id": "t3-total",
+            "name": "T3 total",
+            "abbreviation": "T3",
+            "unit": "ng/dL",
+            "resultType": "numeric",
+            "referenceRange": "80-180"
+          },
+          {
+            "id": "t3-reverso",
+            "name": "T3 reverso",
+            "abbreviation": "rT3",
+            "unit": "ng/dL",
+            "resultType": "numeric",
+            "referenceRange": "10-24"
+          },
+          {
+            "id": "anti-tpo",
+            "name": "Anti-TPO",
+            "abbreviation": "Anti-TPO",
+            "unit": "UI/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 34"
+          },
+          {
+            "id": "anti-tg",
+            "name": "Anti-Tireoglobulina",
+            "abbreviation": "Anti-Tg",
+            "unit": "UI/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 115"
+          },
+          {
+            "id": "tireoglobulina",
+            "name": "Tireoglobulina",
+            "abbreviation": "Tg",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "1,4-78,0"
+          },
+          {
+            "id": "anti-tsh",
+            "name": "TRAb",
+            "abbreviation": "TRAb",
+            "unit": "UI/L",
+            "resultType": "numeric",
+            "referenceRange": "< 1,75"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "perfil-adrenal-cortisol",
+    "name": "Perfil Adrenal / Cortisol",
+    "category": "endocrinologia",
+    "subsections": [
+      {
+        "label": "Cortisol Sérico",
+        "analytes": [
+          {
+            "id": "cortisol-serico-8h",
+            "name": "Cortisol sérico 8h",
+            "unit": "µg/dL",
+            "resultType": "numeric",
+            "referenceRange": "7,0-25,0"
+          },
+          {
+            "id": "cortisol-serico-16h",
+            "name": "Cortisol sérico 16h",
+            "unit": "µg/dL",
+            "resultType": "numeric",
+            "referenceRange": "2,0-14,0"
+          },
+          {
+            "id": "cortisol-serico-23h",
+            "name": "Cortisol sérico 23h",
+            "unit": "µg/dL",
+            "resultType": "numeric",
+            "referenceRange": "< 1,8"
+          }
+        ]
+      },
+      {
+        "label": "Cortisol Salivar",
+        "analytes": [
+          {
+            "id": "cortisol-salivar-8h",
+            "name": "Cortisol salivar 8h",
+            "unit": "µg/dL",
+            "resultType": "numeric",
+            "referenceRange": "0,10-0,74"
+          },
+          {
+            "id": "cortisol-salivar-16h",
+            "name": "Cortisol salivar 16h",
+            "unit": "µg/dL",
+            "resultType": "numeric",
+            "referenceRange": "< 0,21"
+          },
+          {
+            "id": "cortisol-salivar-23h",
+            "name": "Cortisol salivar 23h",
+            "unit": "µg/dL",
+            "resultType": "numeric",
+            "referenceRange": "< 0,09"
+          }
+        ]
+      },
+      {
+        "label": "Cortisol Urinário",
+        "analytes": [
+          {
+            "id": "cortisol-urinario-24h",
+            "name": "Cortisol livre urinário 24h",
+            "unit": "µg/24h",
+            "resultType": "numeric",
+            "referenceRange": "36-137"
+          }
+        ]
+      },
+      {
+        "label": "Eixo HHA",
+        "analytes": [
+          {
+            "id": "acth",
+            "name": "ACTH",
+            "abbreviation": "ACTH",
+            "unit": "pg/mL",
+            "resultType": "numeric",
+            "referenceRange": "7,2-63,3 (8h)"
+          },
+          {
+            "id": "dhea-s",
+            "name": "DHEA-S",
+            "abbreviation": "DHEA-S",
+            "unit": "µg/dL",
+            "resultType": "numeric",
+            "referenceRange": "Variável por idade e sexo"
+          },
+          {
+            "id": "transcortina",
+            "name": "Transcortina (CBG)",
+            "abbreviation": "CBG",
+            "unit": "mg/L",
+            "resultType": "numeric",
+            "referenceRange": "22-55"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "metabolismo-insulina",
+    "name": "Metabolismo da Insulina",
+    "category": "endocrinologia",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "insulina-basal",
+            "name": "Insulina basal",
+            "unit": "µUI/mL",
+            "resultType": "numeric",
+            "referenceRange": "2,6-24,9"
+          },
+          {
+            "id": "peptideo-c",
+            "name": "Peptídeo C",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "1,1-4,4"
+          },
+          {
+            "id": "homa-ir",
+            "name": "HOMA-IR",
+            "abbreviation": "HOMA-IR",
+            "unit": "-",
+            "resultType": "numeric",
+            "referenceRange": "< 2,71"
+          },
+          {
+            "id": "homa-beta",
+            "name": "HOMA-Beta",
+            "abbreviation": "HOMA-β",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "> 100"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "paratormonio-metabolismo-calcio",
+    "name": "Paratormônio e Metabolismo do Cálcio",
+    "category": "endocrinologia",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "pth",
+            "name": "PTH intacto",
+            "abbreviation": "PTH",
+            "unit": "pg/mL",
+            "resultType": "numeric",
+            "referenceRange": "15-65"
+          },
+          {
+            "id": "calcio-total",
+            "name": "Cálcio total",
+            "abbreviation": "Ca²⁺",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "8,6-10,2"
+          },
+          {
+            "id": "calcio-ionico",
+            "name": "Cálcio iônico",
+            "abbreviation": "Ca²⁺i",
+            "unit": "mmol/L",
+            "resultType": "numeric",
+            "referenceRange": "1,15-1,35"
+          },
+          {
+            "id": "fosforo",
+            "name": "Fósforo",
+            "abbreviation": "P",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "2,5-4,5"
+          },
+          {
+            "id": "vitamina-d-25oh",
+            "name": "25-OH-Vitamina D3",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "≥ 20 (geral); 30-60 (risco)"
+          },
+          {
+            "id": "calcitonina",
+            "name": "Calcitonina",
+            "unit": "pg/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 10 (H) / < 5 (M)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "aldosterona-renina",
+    "name": "Aldosterona / Renina",
+    "category": "endocrinologia",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "aldosterona",
+            "name": "Aldosterona plasmática",
+            "unit": "ng/dL",
+            "resultType": "numeric",
+            "referenceRange": "1,8-23,2 (sentado)"
+          },
+          {
+            "id": "aldosterona-urinaria",
+            "name": "Aldosterona urinária 24h",
+            "unit": "µg/24h",
+            "resultType": "numeric",
+            "referenceRange": "< 12"
+          },
+          {
+            "id": "renina-apr",
+            "name": "Atividade plasmática de renina",
+            "abbreviation": "APR",
+            "unit": "ng/mL/h",
+            "resultType": "numeric",
+            "referenceRange": "0,3-5,8 (repouso)"
+          },
+          {
+            "id": "renina-direta",
+            "name": "Renina direta",
+            "unit": "mUI/L",
+            "resultType": "numeric",
+            "referenceRange": "2,8-39,9 (decúbito)"
+          },
+          {
+            "id": "rar",
+            "name": "Relação Aldosterona/Renina",
+            "abbreviation": "RAR",
+            "unit": "ng/dL:ng/mL/h",
+            "resultType": "numeric",
+            "referenceRange": "< 25 (normal)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hormonios-sexuais-masculinos",
+    "name": "Hormônios Sexuais Masculinos",
+    "category": "hormonal",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "testosterona-total",
+            "name": "Testosterona total",
+            "unit": "ng/dL",
+            "resultType": "numeric",
+            "referenceRange": "280-800"
+          },
+          {
+            "id": "testosterona-livre",
+            "name": "Testosterona livre",
+            "unit": "pg/mL",
+            "resultType": "numeric",
+            "referenceRange": "87-251 (20-40a)"
+          },
+          {
+            "id": "testosterona-biodisponivel",
+            "name": "Testosterona biodisponível",
+            "unit": "ng/dL",
+            "resultType": "numeric",
+            "referenceRange": "131-682 (20-40a)"
+          },
+          {
+            "id": "shbg",
+            "name": "SHBG",
+            "abbreviation": "SHBG",
+            "unit": "nmol/L",
+            "resultType": "numeric",
+            "referenceRange": "18-54"
+          },
+          {
+            "id": "dht",
+            "name": "DHT",
+            "abbreviation": "DHT",
+            "unit": "pg/mL",
+            "resultType": "numeric",
+            "referenceRange": "250-990"
+          },
+          {
+            "id": "estradiol",
+            "name": "Estradiol (E2)",
+            "abbreviation": "E2",
+            "unit": "pg/mL",
+            "resultType": "numeric",
+            "referenceRange": "11-43"
+          },
+          {
+            "id": "lh",
+            "name": "LH",
+            "abbreviation": "LH",
+            "unit": "mUI/mL",
+            "resultType": "numeric",
+            "referenceRange": "1,7-8,6"
+          },
+          {
+            "id": "fsh",
+            "name": "FSH",
+            "abbreviation": "FSH",
+            "unit": "mUI/mL",
+            "resultType": "numeric",
+            "referenceRange": "1,5-12,4"
+          },
+          {
+            "id": "prolactina",
+            "name": "Prolactina",
+            "abbreviation": "PRL",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "4,0-15,2"
+          },
+          {
+            "id": "inibina-b",
+            "name": "Inibina B",
+            "unit": "pg/mL",
+            "resultType": "numeric",
+            "referenceRange": "80-550"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hormonios-sexuais-femininos",
+    "name": "Hormônios Sexuais Femininos",
+    "category": "hormonal",
+    "subsections": [
+      {
+        "label": "Estradiol",
+        "analytes": [
+          {
+            "id": "estradiol-foliculo",
+            "name": "Estradiol — folicular",
+            "unit": "pg/mL",
+            "resultType": "numeric",
+            "referenceRange": "12-233"
+          },
+          {
+            "id": "estradiol-pico",
+            "name": "Estradiol — pico ovulatório",
+            "unit": "pg/mL",
+            "resultType": "numeric",
+            "referenceRange": "41-398"
+          },
+          {
+            "id": "estradiol-lutea",
+            "name": "Estradiol — lútea",
+            "unit": "pg/mL",
+            "resultType": "numeric",
+            "referenceRange": "22-341"
+          },
+          {
+            "id": "estradiol-menopausa",
+            "name": "Estradiol — pós-menopausa",
+            "unit": "pg/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 55"
+          }
+        ]
+      },
+      {
+        "label": "Progesterona",
+        "analytes": [
+          {
+            "id": "progesterona-foliculo",
+            "name": "Progesterona — folicular",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 0,89"
+          },
+          {
+            "id": "progesterona-lutea",
+            "name": "Progesterona — lútea",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "1,83-23,90"
+          },
+          {
+            "id": "progesterona-menopausa",
+            "name": "Progesterona — pós-menopausa",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 0,13"
+          }
+        ]
+      },
+      {
+        "label": "Gonadotrofinas",
+        "analytes": [
+          {
+            "id": "lh-foliculo",
+            "name": "LH — folicular",
+            "unit": "mUI/mL",
+            "resultType": "numeric",
+            "referenceRange": "2,4-12,6"
+          },
+          {
+            "id": "lh-pico",
+            "name": "LH — pico ovulatório",
+            "unit": "mUI/mL",
+            "resultType": "numeric",
+            "referenceRange": "14,0-95,6"
+          },
+          {
+            "id": "lh-menopausa",
+            "name": "LH — pós-menopausa",
+            "unit": "mUI/mL",
+            "resultType": "numeric",
+            "referenceRange": "7,7-58,5"
+          },
+          {
+            "id": "fsh-foliculo",
+            "name": "FSH — folicular",
+            "unit": "mUI/mL",
+            "resultType": "numeric",
+            "referenceRange": "2,8-11,3"
+          },
+          {
+            "id": "fsh-menopausa",
+            "name": "FSH — pós-menopausa",
+            "unit": "mUI/mL",
+            "resultType": "numeric",
+            "referenceRange": "21,7-153"
+          }
+        ]
+      },
+      {
+        "label": "Outros",
+        "analytes": [
+          {
+            "id": "prolactina",
+            "name": "Prolactina",
+            "abbreviation": "PRL",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "4,8-23,3 (não gestante)"
+          },
+          {
+            "id": "shbg",
+            "name": "SHBG",
+            "abbreviation": "SHBG",
+            "unit": "nmol/L",
+            "resultType": "numeric",
+            "referenceRange": "26-110"
+          },
+          {
+            "id": "amh",
+            "name": "AMH",
+            "abbreviation": "AMH",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "Variável por idade"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "perfil-crescimento-gh-igf",
+    "name": "Perfil de Crescimento (GH/IGF)",
+    "category": "hormonal",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "gh",
+            "name": "GH basal",
+            "abbreviation": "GH",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 3,0 (H) / < 8,0 (M)"
+          },
+          {
+            "id": "igf1",
+            "name": "IGF-1",
+            "abbreviation": "IGF-1",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "Variável por idade"
+          },
+          {
+            "id": "igfbp3",
+            "name": "IGFBP-3",
+            "abbreviation": "IGFBP-3",
+            "unit": "mg/L",
+            "resultType": "numeric",
+            "referenceRange": "3,4-7,8 (20-60a)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "catecolaminas-metanefrinas",
+    "name": "Catecolaminas e Metanefrinas",
+    "category": "hormonal",
+    "subsections": [
+      {
+        "label": "Metanefrinas Urinárias",
+        "analytes": [
+          {
+            "id": "metanefrina-urinaria",
+            "name": "Metanefrina urinária 24h",
+            "unit": "µg/24h",
+            "resultType": "numeric",
+            "referenceRange": "48-263 (H) / 28-232 (M)"
+          },
+          {
+            "id": "normetanefrina-urinaria",
+            "name": "Normetanefrina urinária 24h",
+            "unit": "µg/24h",
+            "resultType": "numeric",
+            "referenceRange": "85-496 (H) / 70-367 (M)"
+          },
+          {
+            "id": "3-metoxitiramina-urinaria",
+            "name": "3-Metoxitiramina urinária 24h",
+            "unit": "µg/24h",
+            "resultType": "numeric",
+            "referenceRange": "80-699 (H) / 70-583 (M)"
+          }
+        ]
+      },
+      {
+        "label": "Metanefrinas Plasmáticas",
+        "analytes": [
+          {
+            "id": "metanefrina-plasmatica",
+            "name": "Metanefrina plasmática livre",
+            "unit": "pmol/L",
+            "resultType": "numeric",
+            "referenceRange": "< 90"
+          },
+          {
+            "id": "normetanefrina-plasmatica",
+            "name": "Normetanefrina plasmática livre",
+            "unit": "pmol/L",
+            "resultType": "numeric",
+            "referenceRange": "< 200"
+          }
+        ]
+      },
+      {
+        "label": "Catecolaminas",
+        "analytes": [
+          {
+            "id": "adrenalina-urinaria",
+            "name": "Adrenalina urinária 24h",
+            "unit": "µg/24h",
+            "resultType": "numeric",
+            "referenceRange": "< 20"
+          },
+          {
+            "id": "noradrenalina-urinaria",
+            "name": "Noradrenalina urinária 24h",
+            "unit": "µg/24h",
+            "resultType": "numeric",
+            "referenceRange": "< 90"
+          },
+          {
+            "id": "dopamina-urinaria",
+            "name": "Dopamina urinária 24h",
+            "unit": "µg/24h",
+            "resultType": "numeric",
+            "referenceRange": "65-400"
+          },
+          {
+            "id": "vma",
+            "name": "VMA urinário 24h",
+            "abbreviation": "VMA",
+            "unit": "mg/24h",
+            "resultType": "numeric",
+            "referenceRange": "< 8,0"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "perfil-imunologico-basico",
+    "name": "Perfil Imunológico Básico",
+    "category": "imunologia",
+    "subsections": [
+      {
+        "label": "Imunoglobulinas",
+        "analytes": [
+          {
+            "id": "igg",
+            "name": "IgG",
+            "abbreviation": "IgG",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "700-1.600"
+          },
+          {
+            "id": "iga",
+            "name": "IgA",
+            "abbreviation": "IgA",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "70-400"
+          },
+          {
+            "id": "igm",
+            "name": "IgM",
+            "abbreviation": "IgM",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "40-230 (H) / 50-300 (M)"
+          },
+          {
+            "id": "ige-total",
+            "name": "IgE total",
+            "abbreviation": "IgE",
+            "unit": "UI/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 100"
+          }
+        ]
+      },
+      {
+        "label": "Complemento",
+        "analytes": [
+          {
+            "id": "complemento-c3",
+            "name": "Complemento C3",
+            "abbreviation": "C3",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "90-180"
+          },
+          {
+            "id": "complemento-c4",
+            "name": "Complemento C4",
+            "abbreviation": "C4",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "16-47"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "perfil-reumatologico",
+    "name": "Perfil Reumatológico",
+    "category": "imunologia",
+    "subsections": [
+      {
+        "label": "Autoanticorpos",
+        "analytes": [
+          {
+            "id": "fan",
+            "name": "FAN",
+            "abbreviation": "FAN",
+            "unit": "-",
+            "resultType": "titer",
+            "referenceRange": "Não reagente (< 1:80)"
+          },
+          {
+            "id": "fator-reumatoide",
+            "name": "Fator reumatoide",
+            "abbreviation": "FR",
+            "unit": "UI/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 14"
+          },
+          {
+            "id": "anti-ccp",
+            "name": "Anti-CCP",
+            "abbreviation": "Anti-CCP",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 5,0"
+          }
+        ]
+      },
+      {
+        "label": "Inflamação",
+        "analytes": [
+          {
+            "id": "pcr",
+            "name": "PCR",
+            "abbreviation": "PCR",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "< 0,5"
+          },
+          {
+            "id": "vhs",
+            "name": "VHS",
+            "abbreviation": "VHS",
+            "unit": "mm/h",
+            "resultType": "numeric",
+            "referenceRange": "≤ 15 (H) / ≤ 20 (M)"
+          },
+          {
+            "id": "pcr-us",
+            "name": "PCR ultrassensível",
+            "abbreviation": "PCR-us",
+            "unit": "mg/L",
+            "resultType": "numeric",
+            "referenceRange": "< 1,0"
+          }
+        ]
+      },
+      {
+        "label": "Metabólico",
+        "analytes": [
+          {
+            "id": "acido-urico",
+            "name": "Ácido úrico",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "3,5-7,2 (H) / 2,6-6,0 (M)"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "perfil-les-colagenoses",
+    "name": "Perfil LES / Colagenoses",
+    "category": "imunologia",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "anti-dsdna",
+            "name": "Anti-dsDNA",
+            "abbreviation": "Anti-dsDNA",
+            "unit": "UI/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 200"
+          },
+          {
+            "id": "anti-ssa-ro60",
+            "name": "Anti-SSA (Ro60)",
+            "abbreviation": "Anti-SSA",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 20"
+          },
+          {
+            "id": "anti-ssb-la",
+            "name": "Anti-SSB (La)",
+            "abbreviation": "Anti-SSB",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 20"
+          },
+          {
+            "id": "anti-smith",
+            "name": "Anti-Smith (Sm)",
+            "abbreviation": "Anti-Sm",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 20"
+          },
+          {
+            "id": "anti-rnp",
+            "name": "Anti-RNP",
+            "abbreviation": "Anti-RNP",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 20"
+          },
+          {
+            "id": "anti-jo1",
+            "name": "Anti-Jo-1",
+            "abbreviation": "Anti-Jo1",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 20"
+          },
+          {
+            "id": "anti-scl70",
+            "name": "Anti-SCL-70",
+            "abbreviation": "Anti-Scl70",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 20"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "perfil-autoimune-hepatico",
+    "name": "Perfil Autoimune Hepático",
+    "category": "imunologia",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "anti-musculo-liso",
+            "name": "Anti-músculo liso (ASMA)",
+            "abbreviation": "ASMA",
+            "unit": "-",
+            "resultType": "titer",
+            "referenceRange": "Não reagente (< 1:20)"
+          },
+          {
+            "id": "anti-mitocondria",
+            "name": "Anti-mitocôndria (AMA-M2)",
+            "abbreviation": "AMA-M2",
+            "unit": "-",
+            "resultType": "titer",
+            "referenceRange": "Não reagente (< 1:20)"
+          },
+          {
+            "id": "anti-lkm1",
+            "name": "Anti-LKM1",
+            "abbreviation": "Anti-LKM1",
+            "unit": "-",
+            "resultType": "titer",
+            "referenceRange": "Não reagente (< 1:10)"
+          },
+          {
+            "id": "fan",
+            "name": "FAN",
+            "abbreviation": "FAN",
+            "unit": "-",
+            "resultType": "titer",
+            "referenceRange": "Não reagente (< 1:80)"
+          },
+          {
+            "id": "igg",
+            "name": "IgG total",
+            "abbreviation": "IgG",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "700-1.600"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sorologias-infecciosas",
+    "name": "Sorologias Infecciosas",
+    "category": "imunologia",
+    "subsections": [
+      {
+        "label": "HIV",
+        "analytes": [
+          {
+            "id": "hiv-4g",
+            "name": "Anti-HIV 1+2 (4ª geração)",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não reagente"
+          }
+        ]
+      },
+      {
+        "label": "Hepatite B",
+        "analytes": [
+          {
+            "id": "hbsag",
+            "name": "HBsAg",
+            "abbreviation": "HBsAg",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não reagente"
+          },
+          {
+            "id": "anti-hbs",
+            "name": "Anti-HBs",
+            "abbreviation": "Anti-HBs",
+            "unit": "mUI/mL",
+            "resultType": "numeric",
+            "referenceRange": "≥ 10: imune"
+          },
+          {
+            "id": "anti-hbc-total",
+            "name": "Anti-HBc Total",
+            "abbreviation": "Anti-HBc",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não reagente"
+          },
+          {
+            "id": "anti-hbc-igm",
+            "name": "Anti-HBc IgM",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não reagente"
+          },
+          {
+            "id": "hbeag",
+            "name": "HBeAg",
+            "abbreviation": "HBeAg",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não reagente"
+          },
+          {
+            "id": "anti-hbe",
+            "name": "Anti-HBe",
+            "abbreviation": "Anti-HBe",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Variável"
+          }
+        ]
+      },
+      {
+        "label": "Hepatite C",
+        "analytes": [
+          {
+            "id": "anti-hcv",
+            "name": "Anti-HCV",
+            "abbreviation": "Anti-HCV",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não reagente"
+          }
+        ]
+      },
+      {
+        "label": "Sífilis",
+        "analytes": [
+          {
+            "id": "vdrl",
+            "name": "VDRL",
+            "abbreviation": "VDRL",
+            "unit": "título",
+            "resultType": "titer",
+            "referenceRange": "Não reagente"
+          },
+          {
+            "id": "fta-abs",
+            "name": "FTA-Abs",
+            "abbreviation": "FTA-Abs",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não reagente"
+          }
+        ]
+      },
+      {
+        "label": "TORCH",
+        "analytes": [
+          {
+            "id": "toxo-igg",
+            "name": "Toxoplasmose IgG",
+            "unit": "UI/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 3,0: negativo"
+          },
+          {
+            "id": "toxo-igm",
+            "name": "Toxoplasmose IgM",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não reagente"
+          },
+          {
+            "id": "cmv-igg",
+            "name": "CMV IgG",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Negativo/Positivo"
+          },
+          {
+            "id": "cmv-igm",
+            "name": "CMV IgM",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não reagente"
+          },
+          {
+            "id": "rubeola-igg",
+            "name": "Rubéola IgG",
+            "unit": "UI/mL",
+            "resultType": "numeric",
+            "referenceRange": "≥ 10: imune"
+          },
+          {
+            "id": "rubeola-igm",
+            "name": "Rubéola IgM",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não reagente"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "perfil-celiaco",
+    "name": "Perfil Celíaco",
+    "category": "imunologia",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "anti-transglutaminase",
+            "name": "Anti-transglutaminase IgA",
+            "abbreviation": "Anti-tTG IgA",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "anti-transglutaminase-igg",
+            "name": "Anti-transglutaminase IgG",
+            "abbreviation": "Anti-tTG IgG",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "anti-endomisio",
+            "name": "Anti-endomísio IgA",
+            "abbreviation": "EMA",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não reagente"
+          },
+          {
+            "id": "anti-gliadina-iga",
+            "name": "Anti-gliadina desamidada IgA",
+            "abbreviation": "DGP IgA",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "anti-gliadina-igg",
+            "name": "Anti-gliadina desamidada IgG",
+            "abbreviation": "DGP IgG",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "iga",
+            "name": "IgA total",
+            "abbreviation": "IgA",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "70-400"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "autoimunidade-diabetica",
+    "name": "Autoimunidade Diabética",
+    "category": "imunologia",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "anti-gad",
+            "name": "Anti-GAD65",
+            "abbreviation": "Anti-GAD",
+            "unit": "UI/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 5,0"
+          },
+          {
+            "id": "anti-znt8",
+            "name": "Anti-ZnT8",
+            "abbreviation": "Anti-ZnT8",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 15"
+          },
+          {
+            "id": "anti-ia2",
+            "name": "Anti-IA2",
+            "abbreviation": "Anti-IA2",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 7,5"
+          },
+          {
+            "id": "anti-insulina",
+            "name": "Anti-insulina (IAA)",
+            "abbreviation": "IAA",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "anti-ilhotas",
+            "name": "Anti-ilhotas (ICA)",
+            "abbreviation": "ICA",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não reagente"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "alergia-mediadores-inflamatorios",
+    "name": "Alergia e Mediadores Inflamatórios",
+    "category": "imunologia",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "histamina",
+            "name": "Histamina plasmática",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 1,0"
+          },
+          {
+            "id": "dao",
+            "name": "DAO (Diamino oxidase)",
+            "abbreviation": "DAO",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "> 10"
+          },
+          {
+            "id": "triptase",
+            "name": "Triptase sérica",
+            "unit": "µg/L",
+            "resultType": "numeric",
+            "referenceRange": "< 11,4"
+          },
+          {
+            "id": "ige-total",
+            "name": "IgE total",
+            "abbreviation": "IgE",
+            "unit": "UI/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 100"
+          },
+          {
+            "id": "zonulina-serica",
+            "name": "Zonulina sérica",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 48"
+          },
+          {
+            "id": "ige-leite",
+            "name": "IgE específica — leite",
+            "unit": "kU/L",
+            "resultType": "numeric",
+            "referenceRange": "< 0,35"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "marcadores-tumorais-geral",
+    "name": "Marcadores Tumorais Geral",
+    "category": "marcadores_tumorais",
+    "subsections": [
+      {
+        "label": "Digestivo",
+        "analytes": [
+          {
+            "id": "cea",
+            "name": "CEA",
+            "abbreviation": "CEA",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 3,0 (não fumante) / < 5,0 (fumante)"
+          },
+          {
+            "id": "ca-199",
+            "name": "CA 19-9",
+            "abbreviation": "CA 19-9",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 37"
+          },
+          {
+            "id": "ca-724",
+            "name": "CA 72-4",
+            "abbreviation": "CA 72-4",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 6,9"
+          }
+        ]
+      },
+      {
+        "label": "Ginecológico",
+        "analytes": [
+          {
+            "id": "ca-125",
+            "name": "CA 125",
+            "abbreviation": "CA 125",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 35"
+          },
+          {
+            "id": "ca-153",
+            "name": "CA 15-3",
+            "abbreviation": "CA 15-3",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 28"
+          }
+        ]
+      },
+      {
+        "label": "Hepático/Germinal",
+        "analytes": [
+          {
+            "id": "alfa-fetoproteina",
+            "name": "AFP",
+            "abbreviation": "AFP",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "beta-hcg",
+            "name": "Beta-HCG",
+            "abbreviation": "β-HCG",
+            "unit": "mUI/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 5,0 (M não gestante) / < 2,5 (H)"
+          }
+        ]
+      },
+      {
+        "label": "Prostático",
+        "analytes": [
+          {
+            "id": "psa-total",
+            "name": "PSA total",
+            "abbreviation": "PSA",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 4,0 (geral); ajustar por idade"
+          },
+          {
+            "id": "psa-livre",
+            "name": "PSA livre",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "Variável"
+          },
+          {
+            "id": "psa-relacao",
+            "name": "Relação PSA livre/total",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "> 25%: baixo risco"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "marcadores-hematologicos",
+    "name": "Marcadores Hematológicos",
+    "category": "marcadores_tumorais",
+    "subsections": [
+      {
+        "label": "",
+        "analytes": [
+          {
+            "id": "ldh",
+            "name": "LDH",
+            "abbreviation": "LDH",
+            "unit": "U/L",
+            "resultType": "numeric",
+            "referenceRange": "120-246"
+          },
+          {
+            "id": "beta2-microglobulina",
+            "name": "Beta-2 microglobulina",
+            "abbreviation": "β2M",
+            "unit": "mg/L",
+            "resultType": "numeric",
+            "referenceRange": "0,8-2,4"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eas-urina-tipo-i",
+    "name": "EAS / Urina Tipo I",
+    "category": "urinalise",
+    "subsections": [
+      {
+        "label": "Exame Físico-Químico",
+        "analytes": [
+          {
+            "id": "eas-cor",
+            "name": "Cor",
+            "unit": "-",
+            "resultType": "descriptive",
+            "referenceRange": "Amarelo-palha a âmbar"
+          },
+          {
+            "id": "eas-aspecto",
+            "name": "Aspecto",
+            "unit": "-",
+            "resultType": "descriptive",
+            "referenceRange": "Límpido"
+          },
+          {
+            "id": "eas-ph",
+            "name": "pH",
+            "unit": "-",
+            "resultType": "numeric",
+            "referenceRange": "4,5-8,0"
+          },
+          {
+            "id": "eas-densidade",
+            "name": "Densidade",
+            "unit": "-",
+            "resultType": "numeric",
+            "referenceRange": "1.005-1.030"
+          },
+          {
+            "id": "eas-proteinas",
+            "name": "Proteínas",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Negativo"
+          },
+          {
+            "id": "eas-glicose",
+            "name": "Glicose",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Negativo"
+          },
+          {
+            "id": "eas-cetonas",
+            "name": "Cetonas",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Negativo"
+          },
+          {
+            "id": "eas-bilirrubina",
+            "name": "Bilirrubina",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Negativo"
+          },
+          {
+            "id": "eas-urobilinogenio",
+            "name": "Urobilinogênio",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Normal (0,1-1,0 mg/dL)"
+          },
+          {
+            "id": "eas-hemoglobina",
+            "name": "Hemoglobina/Sangue",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Negativo"
+          },
+          {
+            "id": "eas-nitrito",
+            "name": "Nitrito",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Negativo"
+          },
+          {
+            "id": "eas-leucocitos-fita",
+            "name": "Leucócitos (esterase)",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Negativo"
+          }
+        ]
+      },
+      {
+        "label": "Sedimentoscopia",
+        "analytes": [
+          {
+            "id": "eas-leucocitos",
+            "name": "Leucócitos",
+            "unit": "/campo",
+            "resultType": "numeric",
+            "referenceRange": "≤ 5"
+          },
+          {
+            "id": "eas-hemacias",
+            "name": "Hemácias",
+            "unit": "/campo",
+            "resultType": "numeric",
+            "referenceRange": "≤ 3"
+          },
+          {
+            "id": "eas-celulas-epiteliais",
+            "name": "Células epiteliais",
+            "unit": "/campo",
+            "resultType": "descriptive",
+            "referenceRange": "Raras"
+          },
+          {
+            "id": "eas-cilindros-hialinos",
+            "name": "Cilindros hialinos",
+            "unit": "/campo",
+            "resultType": "descriptive",
+            "referenceRange": "Raros (0-2)"
+          },
+          {
+            "id": "eas-cilindros-patologicos",
+            "name": "Cilindros patológicos",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Ausentes"
+          },
+          {
+            "id": "eas-bacterias",
+            "name": "Bactérias",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Ausentes"
+          },
+          {
+            "id": "eas-muco",
+            "name": "Muco",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Ausente ou traço"
+          }
+        ]
+      },
+      {
+        "label": "Cristais",
+        "analytes": [
+          {
+            "id": "eas-cristais",
+            "name": "Cristais",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Ausentes"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "urina-24h-bioquimica",
+    "name": "Urina 24h - Bioquímica",
+    "category": "urinalise",
+    "subsections": [
+      {
+        "label": "Proteinúria",
+        "analytes": [
+          {
+            "id": "u24h-volume",
+            "name": "Volume urinário 24h",
+            "unit": "mL/24h",
+            "resultType": "numeric",
+            "referenceRange": "800-2.000"
+          },
+          {
+            "id": "creatinina-urinaria",
+            "name": "Creatinina urinária 24h",
+            "unit": "mg/24h",
+            "resultType": "numeric",
+            "referenceRange": "1.000-2.000 (H) / 700-1.500 (M)"
+          },
+          {
+            "id": "proteinuria",
+            "name": "Proteinúria total 24h",
+            "unit": "mg/24h",
+            "resultType": "numeric",
+            "referenceRange": "< 150"
+          },
+          {
+            "id": "microalbuminuria",
+            "name": "Microalbuminúria 24h",
+            "unit": "mg/24h",
+            "resultType": "numeric",
+            "referenceRange": "< 30"
+          },
+          {
+            "id": "relacao-albumina-creatinina",
+            "name": "Relação albumina/creatinina",
+            "abbreviation": "RAC",
+            "unit": "mg/g",
+            "resultType": "numeric",
+            "referenceRange": "< 30"
+          },
+          {
+            "id": "clearance-creatinina",
+            "name": "Clearance de creatinina",
+            "abbreviation": "ClCr",
+            "unit": "mL/min",
+            "resultType": "numeric",
+            "referenceRange": "97-137 (H) / 88-128 (M)"
+          }
+        ]
+      },
+      {
+        "label": "Eletrólitos",
+        "analytes": [
+          {
+            "id": "sodio-urinario",
+            "name": "Sódio urinário 24h",
+            "unit": "mEq/24h",
+            "resultType": "numeric",
+            "referenceRange": "40-220"
+          },
+          {
+            "id": "potassio-urinario",
+            "name": "Potássio urinário 24h",
+            "unit": "mEq/24h",
+            "resultType": "numeric",
+            "referenceRange": "25-125"
+          }
+        ]
+      },
+      {
+        "label": "Nefrolitíase",
+        "analytes": [
+          {
+            "id": "calcio-urinario",
+            "name": "Cálcio urinário 24h",
+            "unit": "mg/24h",
+            "resultType": "numeric",
+            "referenceRange": "50-300 (H) / 50-250 (M)"
+          },
+          {
+            "id": "fosforo-urinario",
+            "name": "Fósforo urinário 24h",
+            "unit": "mg/24h",
+            "resultType": "numeric",
+            "referenceRange": "400-1.300"
+          },
+          {
+            "id": "acido-urico-urinario",
+            "name": "Ácido úrico urinário 24h",
+            "unit": "mg/24h",
+            "resultType": "numeric",
+            "referenceRange": "< 800 (H) / < 750 (M)"
+          },
+          {
+            "id": "citrato-urinario",
+            "name": "Citrato urinário 24h",
+            "unit": "mg/24h",
+            "resultType": "numeric",
+            "referenceRange": "300-900 (H) / 400-1.100 (M)"
+          },
+          {
+            "id": "oxalato-urinario",
+            "name": "Oxalato urinário 24h",
+            "unit": "mg/24h",
+            "resultType": "numeric",
+            "referenceRange": "7-44 (H) / 4-31 (M)"
+          }
+        ]
+      },
+      {
+        "label": "Complementar",
+        "analytes": [
+          {
+            "id": "magnesio-urinario",
+            "name": "Magnésio urinário 24h",
+            "unit": "mg/24h",
+            "resultType": "numeric",
+            "referenceRange": "70-120"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "perfil-anemias",
+    "name": "Perfil de Anemias",
+    "category": "especializado",
+    "subsections": [
+      {
+        "label": "Ferro",
+        "analytes": [
+          {
+            "id": "ferro-serico",
+            "name": "Ferro sérico",
+            "unit": "µg/dL",
+            "resultType": "numeric",
+            "referenceRange": "70-180 (H) / 60-160 (M)"
+          },
+          {
+            "id": "ferritina",
+            "name": "Ferritina",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "30-300 (H) / 13-150 (M)"
+          },
+          {
+            "id": "transferrina",
+            "name": "Transferrina",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "200-360"
+          },
+          {
+            "id": "ist",
+            "name": "IST",
+            "abbreviation": "IST",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "20-50 (H) / 15-45 (M)"
+          },
+          {
+            "id": "tibc",
+            "name": "TIBC",
+            "abbreviation": "TIBC",
+            "unit": "µg/dL",
+            "resultType": "numeric",
+            "referenceRange": "250-370"
+          }
+        ]
+      },
+      {
+        "label": "Eritropoese",
+        "analytes": [
+          {
+            "id": "reticulocitos-pct",
+            "name": "Reticulócitos %",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "0,5-2,0"
+          },
+          {
+            "id": "reticulocitos-abs",
+            "name": "Reticulócitos absoluto",
+            "unit": "/mm³",
+            "resultType": "numeric",
+            "referenceRange": "25.000-85.000"
+          }
+        ]
+      },
+      {
+        "label": "Megaloblásticas",
+        "analytes": [
+          {
+            "id": "vitamina-b12",
+            "name": "Vitamina B12",
+            "unit": "pg/mL",
+            "resultType": "numeric",
+            "referenceRange": "200-900"
+          },
+          {
+            "id": "vitamina-b9",
+            "name": "Ácido fólico",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "3,0-17,0"
+          }
+        ]
+      },
+      {
+        "label": "Hemólise",
+        "analytes": [
+          {
+            "id": "haptoglobina",
+            "name": "Haptoglobina",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "30-200"
+          },
+          {
+            "id": "ldh",
+            "name": "LDH",
+            "abbreviation": "LDH",
+            "unit": "U/L",
+            "resultType": "numeric",
+            "referenceRange": "120-246"
+          },
+          {
+            "id": "bilirrubina-indireta",
+            "name": "Bilirrubina indireta",
+            "abbreviation": "BI",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "0,2-0,8"
+          },
+          {
+            "id": "coombs-direto",
+            "name": "Coombs direto",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Negativo"
+          },
+          {
+            "id": "bilirrubina-total",
+            "name": "Bilirrubina total",
+            "abbreviation": "BT",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "0,3-1,2"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "coprologico-funcional",
+    "name": "Coprológico Funcional",
+    "category": "especializado",
+    "subsections": [
+      {
+        "label": "Avaliação Macroscópica",
+        "analytes": [
+          {
+            "id": "fezes-cor",
+            "name": "Cor",
+            "unit": "-",
+            "resultType": "descriptive",
+            "referenceRange": "Marrom"
+          },
+          {
+            "id": "fezes-consistencia",
+            "name": "Consistência",
+            "unit": "-",
+            "resultType": "descriptive",
+            "referenceRange": "Pastosa/Formada"
+          },
+          {
+            "id": "fezes-aspecto",
+            "name": "Aspecto",
+            "unit": "-",
+            "resultType": "descriptive",
+            "referenceRange": "Homogêneo"
+          },
+          {
+            "id": "fezes-odor",
+            "name": "Odor",
+            "unit": "-",
+            "resultType": "descriptive",
+            "referenceRange": "Sui generis"
+          },
+          {
+            "id": "fezes-muco-macro",
+            "name": "Muco (macroscópico)",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Ausente"
+          },
+          {
+            "id": "fezes-sangue-macro",
+            "name": "Sangue (macroscópico)",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Ausente"
+          },
+          {
+            "id": "fezes-pus-macro",
+            "name": "Pus (macroscópico)",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Ausente"
+          }
+        ]
+      },
+      {
+        "label": "Avaliação Microscópica",
+        "analytes": [
+          {
+            "id": "ph-fecal",
+            "name": "pH fecal",
+            "unit": "-",
+            "resultType": "numeric",
+            "referenceRange": "6,0-7,0"
+          },
+          {
+            "id": "fezes-residuos",
+            "name": "Pesquisa de resíduos",
+            "unit": "-",
+            "resultType": "descriptive",
+            "referenceRange": "Ausentes ou raros"
+          },
+          {
+            "id": "fezes-pigmentos-biliares",
+            "name": "Pigmentos biliares",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Presente"
+          },
+          {
+            "id": "fezes-muco-pus",
+            "name": "Muco/Pus",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Ausente"
+          },
+          {
+            "id": "fezes-albuminas",
+            "name": "Albuminas",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Negativo"
+          },
+          {
+            "id": "fezes-albuminosa",
+            "name": "Albuminosa",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Negativo"
+          },
+          {
+            "id": "fezes-mucina",
+            "name": "Mucina",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Presente (pouca)"
+          },
+          {
+            "id": "fezes-fibras-musculares",
+            "name": "Fibras musculares",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Ausentes ou raras"
+          },
+          {
+            "id": "fezes-amido",
+            "name": "Amido",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Ausente"
+          },
+          {
+            "id": "fezes-gorduras",
+            "name": "Gorduras neutras",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Ausentes ou raras"
+          },
+          {
+            "id": "fezes-acidos-graxos",
+            "name": "Ácidos graxos",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Ausentes ou raros"
+          },
+          {
+            "id": "fezes-cristais",
+            "name": "Cristais",
+            "unit": "-",
+            "resultType": "descriptive",
+            "referenceRange": "Ausentes"
+          },
+          {
+            "id": "fezes-leucocitos",
+            "name": "Leucócitos",
+            "unit": "/campo",
+            "resultType": "descriptive",
+            "referenceRange": "Ausentes ou raros"
+          }
+        ]
+      },
+      {
+        "label": "Parasitológico de Fezes",
+        "analytes": [
+          {
+            "id": "epf",
+            "name": "EPF (3 amostras)",
+            "abbreviation": "EPF",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Negativo"
+          },
+          {
+            "id": "giardia-ag",
+            "name": "Pesquisa de Giardia (Ag)",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Negativo"
+          }
+        ]
+      },
+      {
+        "label": "Sangue Oculto",
+        "analytes": [
+          {
+            "id": "sangue-oculto",
+            "name": "Sangue oculto nas fezes (quantitativo)",
+            "abbreviation": "FIT",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 100"
+          }
+        ]
+      },
+      {
+        "label": "Marcadores Fecais - Pâncreas",
+        "analytes": [
+          {
+            "id": "elastase-pancreatica",
+            "name": "Elastase pancreática fecal",
+            "unit": "µg/g",
+            "resultType": "numeric",
+            "referenceRange": "≥ 200"
+          },
+          {
+            "id": "quimiotripsina-fecal",
+            "name": "Quimiotripsina fecal",
+            "unit": "U/g",
+            "resultType": "numeric",
+            "referenceRange": "> 6,0"
+          }
+        ]
+      },
+      {
+        "label": "Marcadores Fecais - Inflamação",
+        "analytes": [
+          {
+            "id": "calprotectina-fecal",
+            "name": "Calprotectina fecal",
+            "unit": "µg/g",
+            "resultType": "numeric",
+            "referenceRange": "< 50"
+          },
+          {
+            "id": "lactoferrina-fecal",
+            "name": "Lactoferrina fecal",
+            "unit": "µg/g",
+            "resultType": "numeric",
+            "referenceRange": "< 7,25"
+          },
+          {
+            "id": "lisozima-fecal",
+            "name": "Lisozima fecal",
+            "unit": "µg/g",
+            "resultType": "numeric",
+            "referenceRange": "< 600"
+          },
+          {
+            "id": "alfa1-antitripsina-fecal",
+            "name": "Alfa-1-antitripsina fecal",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "< 27"
+          },
+          {
+            "id": "epx-fecal",
+            "name": "Proteína eosinofílica (EPX)",
+            "abbreviation": "EPX",
+            "unit": "µg/g",
+            "resultType": "numeric",
+            "referenceRange": "< 3,0"
+          },
+          {
+            "id": "ecp-fecal",
+            "name": "Proteína catiônica do eosinófilo (ECP)",
+            "abbreviation": "ECP",
+            "unit": "µg/L",
+            "resultType": "numeric",
+            "referenceRange": "< 13,3"
+          }
+        ]
+      },
+      {
+        "label": "Marcadores Fecais - Imunidade e Permeabilidade",
+        "analytes": [
+          {
+            "id": "iga-secretora-fecal",
+            "name": "IgA secretora (IgA-S)",
+            "abbreviation": "IgA-S",
+            "unit": "µg/g",
+            "resultType": "numeric",
+            "referenceRange": "510-2.040"
+          },
+          {
+            "id": "zonulina-fecal",
+            "name": "Zonulina fecal",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 107"
+          },
+          {
+            "id": "histamina-fecal",
+            "name": "Histamina fecal",
+            "unit": "ng/g",
+            "resultType": "numeric",
+            "referenceRange": "< 600"
+          }
+        ]
+      },
+      {
+        "label": "Marcadores Fecais - Metabolismo",
+        "analytes": [
+          {
+            "id": "gordura-fecal",
+            "name": "Gordura fecal",
+            "unit": "g/24h",
+            "resultType": "numeric",
+            "referenceRange": "< 7"
+          },
+          {
+            "id": "m2pk-fecal",
+            "name": "M2-PK (piruvato quinase isoenzima dimérica)",
+            "abbreviation": "M2-PK",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 4,0"
+          },
+          {
+            "id": "agcc-fecal",
+            "name": "Ácidos graxos de cadeia curta (AGCC)",
+            "abbreviation": "AGCC",
+            "unit": "µmol/g",
+            "resultType": "numeric",
+            "referenceRange": "70-130"
+          },
+          {
+            "id": "beta-glicuronidase-fecal",
+            "name": "Beta-glicuronidase fecal",
+            "unit": "U/g",
+            "resultType": "numeric",
+            "referenceRange": "Variável"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "microbioma-intestinal",
+    "name": "Microbioma Intestinal",
+    "category": "especializado",
+    "subsections": [
+      {
+        "label": "Ácidos Graxos de Cadeia Curta (AGCC)",
+        "analytes": [
+          {
+            "id": "agcc-acetato",
+            "name": "Acetato (C2)",
+            "unit": "µmol/g",
+            "resultType": "numeric",
+            "referenceRange": "50-90"
+          },
+          {
+            "id": "agcc-propionato",
+            "name": "Propionato (C3)",
+            "unit": "µmol/g",
+            "resultType": "numeric",
+            "referenceRange": "15-30"
+          },
+          {
+            "id": "agcc-butirato",
+            "name": "Butirato (C4)",
+            "unit": "µmol/g",
+            "resultType": "numeric",
+            "referenceRange": "10-25"
+          },
+          {
+            "id": "agcc-valerato",
+            "name": "Valerato (C5)",
+            "unit": "µmol/g",
+            "resultType": "numeric",
+            "referenceRange": "1-5"
+          },
+          {
+            "id": "agcc-isobutirato",
+            "name": "Isobutirato",
+            "unit": "µmol/g",
+            "resultType": "numeric",
+            "referenceRange": "1-5"
+          },
+          {
+            "id": "agcc-isovalerato",
+            "name": "Isovalerato",
+            "unit": "µmol/g",
+            "resultType": "numeric",
+            "referenceRange": "1-5"
+          },
+          {
+            "id": "agcc-total",
+            "name": "AGCC totais",
+            "abbreviation": "AGCC",
+            "unit": "µmol/g",
+            "resultType": "numeric",
+            "referenceRange": "80-150"
+          }
+        ]
+      },
+      {
+        "label": "Marcadores de Disbiose",
+        "analytes": [
+          {
+            "id": "indice-disbiose",
+            "name": "Índice de disbiose",
+            "unit": "escala 1-5",
+            "resultType": "numeric",
+            "referenceRange": "1-2"
+          },
+          {
+            "id": "razao-firmicutes-bacteroidetes",
+            "name": "Razão Firmicutes/Bacteroidetes",
+            "abbreviation": "F/B",
+            "unit": "razão",
+            "resultType": "numeric",
+            "referenceRange": "1-3"
+          },
+          {
+            "id": "diversidade-alfa",
+            "name": "Diversidade alfa (Shannon Index)",
+            "unit": "índice",
+            "resultType": "numeric",
+            "referenceRange": "> 3,0"
+          },
+          {
+            "id": "indican-urinario",
+            "name": "Indican urinário",
+            "unit": "mg/L",
+            "resultType": "numeric",
+            "referenceRange": "< 20"
+          }
+        ]
+      },
+      {
+        "label": "Permeabilidade Intestinal",
+        "analytes": [
+          {
+            "id": "mb-zonulina-fecal",
+            "name": "Zonulina fecal",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 107"
+          },
+          {
+            "id": "mb-alfa1-antitripsina-fecal",
+            "name": "Alfa-1-antitripsina fecal",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "< 27"
+          },
+          {
+            "id": "mb-lactulose-manitol",
+            "name": "Teste lactulose/manitol (razão L/M)",
+            "abbreviation": "L/M",
+            "unit": "razão",
+            "resultType": "numeric",
+            "referenceRange": "< 0,03"
+          },
+          {
+            "id": "mb-d-lactato",
+            "name": "D-lactato sérico",
+            "unit": "mmol/L",
+            "resultType": "numeric",
+            "referenceRange": "< 0,22"
+          },
+          {
+            "id": "mb-lps",
+            "name": "LPS / Endotoxina sérica",
+            "abbreviation": "LPS",
+            "unit": "EU/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 0,1"
+          }
+        ]
+      },
+      {
+        "label": "Inflamação Intestinal",
+        "analytes": [
+          {
+            "id": "mb-calprotectina",
+            "name": "Calprotectina fecal",
+            "unit": "µg/g",
+            "resultType": "numeric",
+            "referenceRange": "< 50"
+          },
+          {
+            "id": "mb-lactoferrina",
+            "name": "Lactoferrina fecal",
+            "unit": "µg/g",
+            "resultType": "numeric",
+            "referenceRange": "< 7,25"
+          },
+          {
+            "id": "mb-lisozima",
+            "name": "Lisozima fecal",
+            "unit": "µg/g",
+            "resultType": "numeric",
+            "referenceRange": "< 600"
+          },
+          {
+            "id": "mb-beta-defensina-2",
+            "name": "Beta-defensina 2",
+            "unit": "ng/g",
+            "resultType": "numeric",
+            "referenceRange": "30-70"
+          },
+          {
+            "id": "mb-mieloperoxidase",
+            "name": "Mieloperoxidase fecal (MPO)",
+            "abbreviation": "MPO",
+            "unit": "ng/g",
+            "resultType": "numeric",
+            "referenceRange": "Variável"
+          }
+        ]
+      },
+      {
+        "label": "Imunidade da Mucosa",
+        "analytes": [
+          {
+            "id": "mb-iga-secretora",
+            "name": "IgA secretória fecal (sIgA)",
+            "abbreviation": "sIgA",
+            "unit": "µg/mL",
+            "resultType": "numeric",
+            "referenceRange": "510-2.040"
+          },
+          {
+            "id": "mb-histamina",
+            "name": "Histamina fecal",
+            "unit": "ng/g",
+            "resultType": "numeric",
+            "referenceRange": "< 600"
+          },
+          {
+            "id": "mb-ecp",
+            "name": "Proteína catiônica do eosinófilo (ECP)",
+            "abbreviation": "ECP",
+            "unit": "µg/L",
+            "resultType": "numeric",
+            "referenceRange": "< 13,3"
+          },
+          {
+            "id": "mb-epx",
+            "name": "Proteína eosinofílica (EPX)",
+            "abbreviation": "EPX",
+            "unit": "µg/g",
+            "resultType": "numeric",
+            "referenceRange": "< 3,0"
+          }
+        ]
+      },
+      {
+        "label": "Metabólitos Bacterianos",
+        "analytes": [
+          {
+            "id": "mb-beta-glicuronidase",
+            "name": "Beta-glicuronidase fecal",
+            "unit": "U/g",
+            "resultType": "numeric",
+            "referenceRange": "< 2.908"
+          },
+          {
+            "id": "mb-tmao",
+            "name": "TMAO sérico",
+            "abbreviation": "TMAO",
+            "unit": "µmol/L",
+            "resultType": "numeric",
+            "referenceRange": "< 6,2"
+          },
+          {
+            "id": "mb-acidos-biliares-primarios",
+            "name": "Ácidos biliares primários fecais",
+            "unit": "µmol/g",
+            "resultType": "numeric",
+            "referenceRange": "Variável"
+          },
+          {
+            "id": "mb-acidos-biliares-secundarios",
+            "name": "Ácidos biliares secundários fecais",
+            "unit": "µmol/g",
+            "resultType": "numeric",
+            "referenceRange": "Variável"
+          },
+          {
+            "id": "mb-amonia-fecal",
+            "name": "Amônia fecal",
+            "unit": "µmol/g",
+            "resultType": "numeric",
+            "referenceRange": "Variável"
+          },
+          {
+            "id": "mb-metano-exalado",
+            "name": "Metano exalado",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "mb-h2s-exalado",
+            "name": "Hidrogênio sulfetado exalado (H₂S)",
+            "abbreviation": "H₂S",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 3"
+          }
+        ]
+      },
+      {
+        "label": "Flora Benéfica (qPCR)",
+        "analytes": [
+          {
+            "id": "mb-lactobacillus",
+            "name": "Lactobacillus spp.",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "≥ 1,0 × 10⁶"
+          },
+          {
+            "id": "mb-bifidobacterium",
+            "name": "Bifidobacterium spp.",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "≥ 1,0 × 10⁶"
+          },
+          {
+            "id": "mb-faecalibacterium",
+            "name": "Faecalibacterium prausnitzii",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "≥ 6,1 × 10⁵"
+          },
+          {
+            "id": "mb-akkermansia",
+            "name": "Akkermansia muciniphila",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "≥ 2,8 × 10⁴"
+          },
+          {
+            "id": "mb-roseburia",
+            "name": "Roseburia spp.",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "Detectável"
+          },
+          {
+            "id": "mb-eubacterium",
+            "name": "Eubacterium rectale",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "Detectável"
+          },
+          {
+            "id": "mb-bacteroides",
+            "name": "Bacteroides spp.",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "Predominante"
+          },
+          {
+            "id": "mb-prevotella",
+            "name": "Prevotella spp.",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "Variável"
+          }
+        ]
+      },
+      {
+        "label": "Flora Patogênica / Oportunista (qPCR)",
+        "analytes": [
+          {
+            "id": "mb-c-difficile",
+            "name": "Clostridioides difficile (toxinas A/B)",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado"
+          },
+          {
+            "id": "mb-h-pylori-ag-fecal",
+            "name": "Helicobacter pylori (Ag fecal)",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado"
+          },
+          {
+            "id": "mb-klebsiella",
+            "name": "Klebsiella spp.",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "Baixo/Ausente"
+          },
+          {
+            "id": "mb-citrobacter",
+            "name": "Citrobacter spp.",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "Baixo/Ausente"
+          },
+          {
+            "id": "mb-pseudomonas",
+            "name": "Pseudomonas aeruginosa",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado"
+          },
+          {
+            "id": "mb-staph-aureus",
+            "name": "Staphylococcus aureus",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado"
+          },
+          {
+            "id": "mb-ecoli-patogenica",
+            "name": "E. coli enteropatogênica",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado"
+          }
+        ]
+      },
+      {
+        "label": "Fungos",
+        "analytes": [
+          {
+            "id": "mb-candida",
+            "name": "Candida spp.",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "< 10⁴"
+          },
+          {
+            "id": "mb-geotrichum",
+            "name": "Geotrichum spp.",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "< 10⁴"
+          },
+          {
+            "id": "mb-rhodotorula",
+            "name": "Rhodotorula spp.",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "< 10⁴"
+          }
+        ]
+      },
+      {
+        "label": "Parasitas",
+        "analytes": [
+          {
+            "id": "mb-giardia",
+            "name": "Giardia lamblia",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado"
+          },
+          {
+            "id": "mb-entamoeba",
+            "name": "Entamoeba histolytica",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado"
+          },
+          {
+            "id": "mb-cryptosporidium",
+            "name": "Cryptosporidium spp.",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado"
+          },
+          {
+            "id": "mb-blastocystis",
+            "name": "Blastocystis hominis",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Variável"
+          },
+          {
+            "id": "mb-dientamoeba",
+            "name": "Dientamoeba fragilis",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Variável"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "gi-map",
+    "name": "GI-MAP (Microbioma por qPCR)",
+    "category": "especializado",
+    "subsections": [
+      {
+        "label": "Patógenos Bacterianos",
+        "analytes": [
+          {
+            "id": "gimap-c-difficile-toxA",
+            "name": "Clostridioides difficile Toxina A",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Causa colite pseudomembranosa; associada a uso de antibióticos. Toxina A é enterotóxica — causa inflamação e secreção de fluidos na mucosa intestinal."
+          },
+          {
+            "id": "gimap-c-difficile-toxB",
+            "name": "Clostridioides difficile Toxina B",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Toxina B é citotóxica — destrói células epiteliais. Mais virulenta que Toxina A. Detecção de ambas confirma infecção ativa."
+          },
+          {
+            "id": "gimap-campylobacter",
+            "name": "Campylobacter spp.",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Causa comum de gastroenterite bacteriana aguda. Transmissão por alimentos contaminados (aves). Associada a síndrome de Guillain-Barré pós-infecção."
+          },
+          {
+            "id": "gimap-salmonella",
+            "name": "Salmonella spp.",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Gastroenterite aguda com diarreia, febre e cólicas. Transmissão por alimentos contaminados (ovos, aves). Pode causar bacteremia em imunossuprimidos."
+          },
+          {
+            "id": "gimap-shigella-eiec",
+            "name": "Shigella / E. coli enteroinvasiva",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Causa disenteria bacilar com invasão da mucosa colônica. Diarreia sanguinolenta, febre e cólicas intensas. Alta virulência com baixa dose infectante."
+          },
+          {
+            "id": "gimap-ecoli-o157",
+            "name": "E. coli O157 (EHEC)",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "E. coli êntero-hemorrágica produtora de toxina Shiga. Causa colite hemorrágica e pode evoluir para síndrome hemolítico-urêmica (SHU), especialmente em crianças."
+          },
+          {
+            "id": "gimap-yersinia",
+            "name": "Yersinia enterocolitica",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Causa enterocolite e linfadenite mesentérica. Pode mimetizar apendicite aguda. Associada a artrite reativa pós-infecciosa."
+          },
+          {
+            "id": "gimap-vibrio",
+            "name": "Vibrio cholerae",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Agente da cólera — diarreia aquosa profusa (\"água de arroz\"). Pode causar desidratação grave e choque hipovolêmico rapidamente."
+          },
+          {
+            "id": "gimap-h-pylori",
+            "name": "Helicobacter pylori",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Coloniza mucosa gástrica. Causa gastrite crônica, úlcera péptica e é fator de risco para câncer gástrico e linfoma MALT. Detecção fecal é alternativa não invasiva."
+          },
+          {
+            "id": "gimap-h-pylori-vir",
+            "name": "H. pylori - fator de virulência (VacA/CagA)",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "CagA e VacA são fatores de virulência que aumentam risco de câncer gástrico e úlcera. Cepas CagA+ são mais agressivas e associadas a maior inflamação."
+          }
+        ]
+      },
+      {
+        "label": "Parasitas",
+        "analytes": [
+          {
+            "id": "gimap-giardia",
+            "name": "Giardia lamblia",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Protozoário que causa giardíase — diarreia crônica, má absorção de gorduras, distensão abdominal. Transmissão fecal-oral (água contaminada)."
+          },
+          {
+            "id": "gimap-cryptosporidium",
+            "name": "Cryptosporidium spp.",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Causa diarreia aquosa autolimitada em imunocompetentes, mas potencialmente fatal em imunossuprimidos (HIV/AIDS). Resistente à cloração convencional."
+          },
+          {
+            "id": "gimap-entamoeba",
+            "name": "Entamoeba histolytica",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Causa amebíase intestinal (disenteria amebiana) e pode formar abscessos hepáticos. Diferenciação de E. dispar (não patogênica) é essencial."
+          },
+          {
+            "id": "gimap-blastocystis",
+            "name": "Blastocystis hominis",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Patogenicidade controversa — alguns subtipos associados a sintomas GI (diarreia, dor abdominal). Muito prevalente no Brasil. Subtipo 1-4 mais sintomáticos."
+          },
+          {
+            "id": "gimap-dientamoeba",
+            "name": "Dientamoeba fragilis",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Protozoário associado a dor abdominal crônica e diarreia, especialmente em crianças. Patogenicidade debatida — tratamento quando sintomático."
+          },
+          {
+            "id": "gimap-cyclospora",
+            "name": "Cyclospora cayetanensis",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Causa diarreia aquosa prolongada (semanas), fadiga e perda de peso. Transmissão por alimentos contaminados (frutas, vegetais). Endêmica em regiões tropicais."
+          },
+          {
+            "id": "gimap-enterobius",
+            "name": "Enterobius vermicularis",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Oxiúro — causa prurido anal intenso (especialmente noturno). Muito comum em crianças. Pode causar insônia e irritabilidade."
+          }
+        ]
+      },
+      {
+        "label": "Vírus Entéricos",
+        "analytes": [
+          {
+            "id": "gimap-norovirus-gi",
+            "name": "Norovírus GI",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Causa mais comum de gastroenterite viral aguda em adultos. Surtos em ambientes fechados (cruzeiros, hospitais). Vômitos proeminentes, autolimitado (1-3 dias)."
+          },
+          {
+            "id": "gimap-norovirus-gii",
+            "name": "Norovírus GII",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Genogrupo mais prevalente de norovírus. Responsável pela maioria dos surtos de gastroenterite viral. Alta transmissibilidade e resistência ambiental."
+          },
+          {
+            "id": "gimap-rotavirus",
+            "name": "Rotavírus A",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Principal causa de gastroenterite grave em crianças < 5 anos. Diarreia aquosa, vômitos e febre. Vacinação disponível (VORH no calendário brasileiro)."
+          },
+          {
+            "id": "gimap-adenovirus",
+            "name": "Adenovírus 40/41",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Sorotipos entéricos que causam gastroenterite em crianças. Diarreia mais prolongada que rotavírus (5-12 dias). Pode ser assintomático em adultos."
+          }
+        ]
+      },
+      {
+        "label": "Fungos",
+        "analytes": [
+          {
+            "id": "gimap-candida-albicans",
+            "name": "Candida albicans",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Fungo comensal que pode causar supercrescimento em disbiose, uso de antibióticos ou imunossupressão. Associado a sintomas GI, fadiga e \"brain fog\"."
+          },
+          {
+            "id": "gimap-candida-spp",
+            "name": "Candida spp. (outras)",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Inclui C. tropicalis, C. glabrata, C. krusei. Espécies não-albicans podem ser mais resistentes a antifúngicos azólicos. Relevantes em imunossuprimidos."
+          },
+          {
+            "id": "gimap-microsporidium",
+            "name": "Microsporidium spp.",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Parasita intracelular obrigatório. Causa diarreia crônica grave em imunossuprimidos (HIV com CD4 < 100). Pode afetar olhos, músculos e rins."
+          },
+          {
+            "id": "gimap-geotrichum",
+            "name": "Geotrichum spp.",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Não detectado",
+            "description": "Fungo oportunista encontrado em supercrescimento fúngico intestinal. Supercrescimento indica disbiose e desequilíbrio da flora."
+          }
+        ]
+      },
+      {
+        "label": "Bactérias Oportunistas",
+        "analytes": [
+          {
+            "id": "gimap-klebsiella",
+            "name": "Klebsiella pneumoniae",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "< 1,0 × 10⁵",
+            "description": "Gram-negativa oportunista. Supercrescimento associado a espondilite anquilosante, inflamação intestinal e translocação bacteriana. Pode carregar genes de resistência (KPC)."
+          },
+          {
+            "id": "gimap-citrobacter",
+            "name": "Citrobacter spp.",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "< 1,0 × 10⁵",
+            "description": "Enterobactéria oportunista. Pode causar diarreia e infecção urinária em imunossuprimidos. Supercrescimento indica desequilíbrio da flora comensal."
+          },
+          {
+            "id": "gimap-pseudomonas",
+            "name": "Pseudomonas aeruginosa",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "< 1,0 × 10⁴",
+            "description": "Patógeno oportunista com alta resistência a antibióticos. Forma biofilmes. Relevante em imunossuprimidos e pacientes hospitalizados."
+          },
+          {
+            "id": "gimap-proteus",
+            "name": "Proteus spp.",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "< 1,0 × 10⁵",
+            "description": "Enterobactéria oportunista produtora de urease. Supercrescimento intestinal pode contribuir para infecções urinárias recorrentes e inflamação da mucosa."
+          },
+          {
+            "id": "gimap-staph-aureus",
+            "name": "Staphylococcus aureus",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "< 1,0 × 10⁴",
+            "description": "Causa intoxicação alimentar (toxina pré-formada). Colonização intestinal pode ser reservatório para infecções sistêmicas. MRSA é particularmente preocupante."
+          },
+          {
+            "id": "gimap-strep-b",
+            "name": "Streptococcus agalactiae",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "< 1,0 × 10⁴",
+            "description": "Estreptococo do grupo B. Colonização intestinal é reservatório para colonização vaginal (risco neonatal). Relevante em gestantes e imunossuprimidos."
+          },
+          {
+            "id": "gimap-enterobacter",
+            "name": "Enterobacter spp.",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "< 1,0 × 10⁵",
+            "description": "Gram-negativa oportunista frequente em infecções hospitalares. Pode desenvolver resistência a cefalosporinas (AmpC). Supercrescimento indica disbiose."
+          },
+          {
+            "id": "gimap-morganella",
+            "name": "Morganella morganii",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "< 1,0 × 10⁴",
+            "description": "Produtora de histamina a partir de histidina. Supercrescimento pode contribuir para sintomas de intolerância à histamina e reações pseudoalérgicas."
+          },
+          {
+            "id": "gimap-hafnia",
+            "name": "Hafnia alvei",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "< 1,0 × 10⁵",
+            "description": "Enterobactéria oportunista que produz proteína ClpB (mimética do hormônio alfa-MSH). Pesquisada como probiótico para controle de apetite e peso."
+          }
+        ]
+      },
+      {
+        "label": "Bactérias Associadas a Autoimunidade",
+        "analytes": [
+          {
+            "id": "gimap-prevotella-copri",
+            "name": "Prevotella copri",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "Nível normal",
+            "description": "Associada a artrite reumatoide de início recente. Abundante em dietas ricas em fibras. Pode ativar respostas autoimunes via mimetismo molecular com antígenos articulares."
+          },
+          {
+            "id": "gimap-fusobacterium",
+            "name": "Fusobacterium nucleatum",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "< 1,0 × 10⁴",
+            "description": "Fortemente associado a câncer colorretal — promove tumorigênese via adesina FadA. Também ligado a DII e complicações na gravidez. Marcador de risco oncológico."
+          },
+          {
+            "id": "gimap-methanobrevibacter",
+            "name": "Methanobrevibacter smithii",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "Nível normal",
+            "description": "Archaea metanogênica dominante no intestino humano. Produz metano (CH₄) que reduz motilidade intestinal. Elevação associada a constipação e IMO (supercrescimento de metanogênicos)."
+          }
+        ]
+      },
+      {
+        "label": "Flora Comensal Normal (qPCR quantitativo)",
+        "analytes": [
+          {
+            "id": "gimap-bacteroides-fragilis",
+            "name": "Bacteroides fragilis",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "≥ 3,2 × 10¹⁰",
+            "description": "Anaeróbio dominante no cólon. Degrada polissacarídeos complexos da dieta. Produz polissacarídeo A (PSA) com papel imunomodulador anti-inflamatório."
+          },
+          {
+            "id": "gimap-bifidobacterium",
+            "name": "Bifidobacterium spp.",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "≥ 1,3 × 10⁴",
+            "description": "Colonizadores primários desde o nascimento. Fermentam oligossacarídeos do leite materno, produzem AGCC e vitaminas B. Fortalecem barreira intestinal e modulam imunidade."
+          },
+          {
+            "id": "gimap-lactobacillus",
+            "name": "Lactobacillus spp.",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "≥ 2,2 × 10⁴",
+            "description": "Produtores de ácido láctico. Proteção contra patógenos por exclusão competitiva e produção de bacteriocinas. Modulam imunidade e produzem vitaminas B."
+          },
+          {
+            "id": "gimap-ecoli-comensal",
+            "name": "Escherichia coli (comensal)",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "≥ 9,3 × 10⁵",
+            "description": "Comensal normal em quantidades moderadas. Produz vitamina K2 e compete com patógenos. Supercrescimento indica disbiose; redução pode indicar flora empobrecida."
+          },
+          {
+            "id": "gimap-enterococcus",
+            "name": "Enterococcus spp.",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "≥ 7,5 × 10⁴",
+            "description": "Comensal do trato GI. Supercrescimento pode indicar uso recente de antibióticos ou disbiose. Algumas cepas possuem propriedades probióticas (E. faecium)."
+          },
+          {
+            "id": "gimap-faecalibacterium",
+            "name": "Faecalibacterium prausnitzii",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "≥ 6,1 × 10⁵",
+            "description": "Principal produtor de butirato no cólon. Potente anti-inflamatório — reduz NF-κB e IL-8. Consistentemente reduzido em doença de Crohn e disbiose severa."
+          },
+          {
+            "id": "gimap-akkermansia",
+            "name": "Akkermansia muciniphila",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "≥ 2,8 × 10⁴",
+            "description": "Degrada mucina e estimula renovação da camada mucosa. Fortalece barreira intestinal. Reduzida em obesidade, diabetes tipo 2 e síndrome metabólica."
+          },
+          {
+            "id": "gimap-roseburia",
+            "name": "Roseburia spp.",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "Detectável",
+            "description": "Produtora de butirato do filo Firmicutes. Associada a proteção contra DII e síndrome metabólica. Sensível a dietas pobres em fibras."
+          },
+          {
+            "id": "gimap-eubacterium",
+            "name": "Eubacterium rectale",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "Detectável",
+            "description": "Produtor de butirato do core microbiome saudável. Fermenta amido resistente e fibras. Reduzido em DII e dietas ocidentais ultraprocessadas."
+          },
+          {
+            "id": "gimap-clostridium-spp",
+            "name": "Clostridium spp. (comensais)",
+            "unit": "UFC/g",
+            "resultType": "descriptive",
+            "referenceRange": "Nível normal",
+            "description": "Clusters IV e XIVa são comensais produtores de butirato (distintos de C. difficile). Participam da conversão de ácidos biliares primários em secundários."
+          }
+        ]
+      },
+      {
+        "label": "Índices de Diversidade e Disbiose",
+        "analytes": [
+          {
+            "id": "gimap-indice-disbiose",
+            "name": "Índice de disbiose",
+            "unit": "escala 1-5",
+            "resultType": "numeric",
+            "referenceRange": "1-2",
+            "description": "Score composto baseado na razão entre bactérias benéficas e patogênicas. 1-2: normobiose; 3: disbiose leve; 4-5: disbiose significativa com necessidade de intervenção."
+          },
+          {
+            "id": "gimap-diversidade-shannon",
+            "name": "Diversidade alfa (Shannon)",
+            "unit": "índice",
+            "resultType": "numeric",
+            "referenceRange": "> 3,0",
+            "description": "Mede riqueza (quantas espécies) e uniformidade (quão equilibrada é a distribuição). Quanto maior, mais saudável. Baixa diversidade é marcador central de disbiose."
+          },
+          {
+            "id": "gimap-diversidade-simpson",
+            "name": "Diversidade alfa (Simpson)",
+            "unit": "índice (0-1)",
+            "resultType": "numeric",
+            "referenceRange": "> 0,9",
+            "description": "Probabilidade de dois organismos aleatórios serem de espécies diferentes. Valor 1 = diversidade máxima. Mais sensível à dominância de poucas espécies que Shannon."
+          },
+          {
+            "id": "gimap-riqueza-chao1",
+            "name": "Riqueza de espécies (Chao1)",
+            "unit": "estimativa",
+            "resultType": "numeric",
+            "referenceRange": "Variável",
+            "description": "Estima o número total de espécies na amostra, incluindo espécies raras não detectadas. Valores maiores indicam ecossistema mais rico e resiliente."
+          },
+          {
+            "id": "gimap-equitabilidade",
+            "name": "Equitabilidade (Pielou)",
+            "unit": "índice (0-1)",
+            "resultType": "numeric",
+            "referenceRange": "> 0,7",
+            "description": "Quão uniforme é a distribuição entre espécies. Valor 1 = todas espécies igualmente abundantes. Baixa equitabilidade indica dominância de poucas espécies."
+          },
+          {
+            "id": "gimap-fb-ratio",
+            "name": "Razão Firmicutes/Bacteroidetes",
+            "abbreviation": "F/B",
+            "unit": "razão",
+            "resultType": "numeric",
+            "referenceRange": "1-3",
+            "description": "Os dois filos dominantes (~90% da microbiota). F/B elevada associada a obesidade e síndrome metabólica. F/B reduzida associada a DII e inflamação crônica."
+          },
+          {
+            "id": "gimap-pb-ratio",
+            "name": "Razão Prevotella/Bacteroides",
+            "abbreviation": "P/B",
+            "unit": "razão",
+            "resultType": "numeric",
+            "referenceRange": "Variável (enterotipo)",
+            "description": "Define o enterotipo do paciente. Prevotella-dominante: dieta rica em fibras e carboidratos. Bacteroides-dominante: dieta ocidental rica em proteína e gordura animal."
+          }
+        ]
+      },
+      {
+        "label": "Marcadores Intestinais - Digestão",
+        "analytes": [
+          {
+            "id": "gimap-elastase",
+            "name": "Elastase pancreática fecal",
+            "unit": "µg/g",
+            "resultType": "numeric",
+            "referenceRange": "≥ 200",
+            "description": "Padrão-ouro não invasivo para função pancreática exócrina. Não degradada no trânsito intestinal. < 100: insuficiência severa; 100-200: leve-moderada."
+          },
+          {
+            "id": "gimap-gordura-fecal",
+            "name": "Gordura fecal (esteatócrito)",
+            "unit": "g/24h",
+            "resultType": "numeric",
+            "referenceRange": "< 7",
+            "description": "Avalia má absorção de gorduras (esteatorreia). Elevada em insuficiência pancreática, doença celíaca, SIBO e ressecção ileal."
+          }
+        ]
+      },
+      {
+        "label": "Marcadores Intestinais - Inflamação e Imunidade",
+        "analytes": [
+          {
+            "id": "gimap-calprotectina",
+            "name": "Calprotectina fecal",
+            "unit": "µg/g",
+            "resultType": "numeric",
+            "referenceRange": "< 50",
+            "description": "Proteína neutrofílica — marcador primário de inflamação intestinal ativa. < 50: normal; 50-200: zona cinza; > 200: inflamação significativa (DII, infecção, neoplasia)."
+          },
+          {
+            "id": "gimap-lactoferrina",
+            "name": "Lactoferrina fecal",
+            "unit": "µg/g",
+            "resultType": "numeric",
+            "referenceRange": "< 7,25",
+            "description": "Glicoproteína dos neutrófilos. Diferencia DII (elevada) de síndrome do intestino irritável (normal). Mais específica que calprotectina para inflamação ativa."
+          },
+          {
+            "id": "gimap-siga",
+            "name": "IgA secretória fecal (sIgA)",
+            "abbreviation": "sIgA",
+            "unit": "µg/mL",
+            "resultType": "numeric",
+            "referenceRange": "510-2.040",
+            "description": "Principal imunoglobulina da mucosa intestinal — primeira linha de defesa. Baixa: imunossupressão da mucosa, estresse crônico. Elevada: resposta imune ativa (infecção, alergia)."
+          },
+          {
+            "id": "gimap-ecp",
+            "name": "Proteína catiônica do eosinófilo (ECP)",
+            "abbreviation": "ECP",
+            "unit": "µg/L",
+            "resultType": "numeric",
+            "referenceRange": "< 13,3",
+            "description": "Marcador de inflamação eosinofílica intestinal. Elevada em alergias alimentares, esofagite eosinofílica, gastroenterite eosinofílica e parasitoses."
+          },
+          {
+            "id": "gimap-beta-defensina",
+            "name": "Beta-defensina 2",
+            "unit": "ng/g",
+            "resultType": "numeric",
+            "referenceRange": "30-70",
+            "description": "Peptídeo antimicrobiano produzido pelo epitélio intestinal em resposta a patógenos. Reflete ativação da imunidade inata da mucosa. Elevada em infecções ativas."
+          }
+        ]
+      },
+      {
+        "label": "Marcadores Intestinais - Permeabilidade",
+        "analytes": [
+          {
+            "id": "gimap-zonulina",
+            "name": "Zonulina fecal",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 107",
+            "description": "Proteína que modula as junções tight (zônulas de oclusão) entre enterócitos. Elevação indica aumento da permeabilidade intestinal (\"leaky gut\"). Associada a autoimunidade e doença celíaca."
+          },
+          {
+            "id": "gimap-a1at",
+            "name": "Alfa-1-antitripsina fecal",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "< 27",
+            "description": "Proteína sérica resistente à proteólise intestinal. Presença nas fezes indica perda proteica entérica e comprometimento da barreira mucosa."
+          }
+        ]
+      },
+      {
+        "label": "Marcadores Intestinais - Metabolismo",
+        "analytes": [
+          {
+            "id": "gimap-beta-glicuronidase",
+            "name": "Beta-glicuronidase fecal",
+            "unit": "U/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 2.908",
+            "description": "Enzima bacteriana que desconjuga compostos glucuronidados no cólon. Elevação promove recirculação de estrogênios e toxinas. Associada ao \"estroboloma\" e risco de câncer hormônio-dependente."
+          },
+          {
+            "id": "gimap-sangue-oculto",
+            "name": "Sangue oculto (FIT)",
+            "abbreviation": "FIT",
+            "unit": "ng/mL",
+            "resultType": "numeric",
+            "referenceRange": "< 100",
+            "description": "Teste imunoquímico fecal para hemoglobina humana. Detecta sangramento GI oculto. Rastreamento de câncer colorretal e lesões hemorrágicas da mucosa."
+          }
+        ]
+      },
+      {
+        "label": "Índices Funcionais (Metagenômica)",
+        "analytes": [
+          {
+            "id": "gimap-potencial-butirato",
+            "name": "Potencial produtor de butirato",
+            "unit": "índice",
+            "resultType": "descriptive",
+            "referenceRange": "Normal/Adequado",
+            "description": "Abundância relativa de genes envolvidos na via do butirato. Butirato é a principal fonte de energia dos colonócitos, anti-inflamatório e fortalece a barreira intestinal."
+          },
+          {
+            "id": "gimap-potencial-vitaminas",
+            "name": "Potencial produtor de vitaminas (B/K)",
+            "unit": "índice",
+            "resultType": "descriptive",
+            "referenceRange": "Normal/Adequado",
+            "description": "Capacidade da microbiota de sintetizar vitaminas do complexo B (B1, B2, B6, B9, B12) e vitamina K2. Redução indica empobrecimento funcional da microbiota."
+          },
+          {
+            "id": "gimap-indice-resistoma",
+            "name": "Índice de resistoma (genes AR)",
+            "abbreviation": "AR",
+            "unit": "índice",
+            "resultType": "descriptive",
+            "referenceRange": "Baixo",
+            "description": "Quantidade e diversidade de genes de resistência a antibióticos na microbiota. Índice elevado indica maior potencial de transferência horizontal de resistência a patógenos."
+          },
+          {
+            "id": "gimap-proteolitico-sacarolitico",
+            "name": "Razão proteolítico/sacarolítico",
+            "unit": "razão",
+            "resultType": "descriptive",
+            "referenceRange": "Sacarolítico predominante",
+            "description": "Equilíbrio entre fermentação de proteínas (produz amônia, fenóis, toxinas) e carboidratos (produz AGCC benéficos). Predomínio proteolítico indica dieta pobre em fibras e risco de inflamação."
+          },
+          {
+            "id": "gimap-capacidade-metabolica",
+            "name": "Capacidade metabólica global",
+            "unit": "índice",
+            "resultType": "descriptive",
+            "referenceRange": "Normal/Diversa",
+            "description": "Diversidade de vias metabólicas ativas — metabolismo de xenobióticos, ácidos biliares, aminoácidos, etc. Reflete resiliência funcional do ecossistema intestinal."
+          },
+          {
+            "id": "gimap-estroboloma",
+            "name": "Estroboloma (atividade estrogênica)",
+            "unit": "índice",
+            "resultType": "descriptive",
+            "referenceRange": "Normal",
+            "description": "Conjunto de bactérias que metabolizam estrogênio via beta-glicuronidase. Disbiose altera metabolismo estrogênico — associada a câncer de mama, endometriose e SOP."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "teste-expirado-hidrogenio",
+    "name": "Teste Expirado de Hidrogênio",
+    "category": "especializado",
+    "subsections": [
+      {
+        "label": "Basal",
+        "analytes": [
+          {
+            "id": "h2-basal",
+            "name": "H₂ basal",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "ch4-basal-h2",
+            "name": "CH₄ basal",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          }
+        ]
+      },
+      {
+        "label": "Lactulose (SIBO)",
+        "analytes": [
+          {
+            "id": "h2-lact-15",
+            "name": "H₂ 15 min (lactulose)",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 20 acima do basal"
+          },
+          {
+            "id": "h2-lact-30",
+            "name": "H₂ 30 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 20 acima do basal"
+          },
+          {
+            "id": "h2-lact-45",
+            "name": "H₂ 45 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 20 acima do basal"
+          },
+          {
+            "id": "h2-lact-60",
+            "name": "H₂ 60 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 20 acima do basal"
+          },
+          {
+            "id": "h2-lact-90",
+            "name": "H₂ 90 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 20 acima do basal"
+          },
+          {
+            "id": "h2-lact-120",
+            "name": "H₂ 120 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 20 acima do basal"
+          }
+        ]
+      },
+      {
+        "label": "Glicose (SIBO)",
+        "analytes": [
+          {
+            "id": "h2-glic-15",
+            "name": "H₂ 15 min (glicose)",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 12 acima do basal"
+          },
+          {
+            "id": "h2-glic-30",
+            "name": "H₂ 30 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 12 acima do basal"
+          },
+          {
+            "id": "h2-glic-45",
+            "name": "H₂ 45 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 12 acima do basal"
+          },
+          {
+            "id": "h2-glic-60",
+            "name": "H₂ 60 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 12 acima do basal"
+          },
+          {
+            "id": "h2-glic-90",
+            "name": "H₂ 90 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 12 acima do basal"
+          },
+          {
+            "id": "h2-glic-120",
+            "name": "H₂ 120 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 12 acima do basal"
+          }
+        ]
+      },
+      {
+        "label": "Lactose (Intolerância)",
+        "analytes": [
+          {
+            "id": "h2-lactose-0",
+            "name": "H₂ basal (lactose)",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "h2-lactose-30",
+            "name": "H₂ 30 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 20 acima do basal"
+          },
+          {
+            "id": "h2-lactose-60",
+            "name": "H₂ 60 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 20 acima do basal"
+          },
+          {
+            "id": "h2-lactose-90",
+            "name": "H₂ 90 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 20 acima do basal"
+          },
+          {
+            "id": "h2-lactose-120",
+            "name": "H₂ 120 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 20 acima do basal"
+          },
+          {
+            "id": "h2-lactose-150",
+            "name": "H₂ 150 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 20 acima do basal"
+          },
+          {
+            "id": "h2-lactose-180",
+            "name": "H₂ 180 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 20 acima do basal"
+          }
+        ]
+      },
+      {
+        "label": "Frutose (Má Absorção)",
+        "analytes": [
+          {
+            "id": "h2-frutose-0",
+            "name": "H₂ basal (frutose)",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "h2-frutose-30",
+            "name": "H₂ 30 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 20 acima do basal"
+          },
+          {
+            "id": "h2-frutose-60",
+            "name": "H₂ 60 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 20 acima do basal"
+          },
+          {
+            "id": "h2-frutose-90",
+            "name": "H₂ 90 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 20 acima do basal"
+          },
+          {
+            "id": "h2-frutose-120",
+            "name": "H₂ 120 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 20 acima do basal"
+          },
+          {
+            "id": "h2-frutose-150",
+            "name": "H₂ 150 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 20 acima do basal"
+          },
+          {
+            "id": "h2-frutose-180",
+            "name": "H₂ 180 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 20 acima do basal"
+          }
+        ]
+      },
+      {
+        "label": "Interpretação",
+        "analytes": [
+          {
+            "id": "h2-pico-precoce",
+            "name": "Pico precoce (< 90 min)",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Ausente"
+          },
+          {
+            "id": "h2-resultado-sibo",
+            "name": "Resultado SIBO",
+            "unit": "-",
+            "resultType": "descriptive",
+            "referenceRange": "Negativo"
+          },
+          {
+            "id": "h2-resultado-intolerancia",
+            "name": "Resultado intolerância",
+            "unit": "-",
+            "resultType": "descriptive",
+            "referenceRange": "Negativo"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "teste-expirado-metano",
+    "name": "Teste Expirado de Metano (IMO)",
+    "category": "especializado",
+    "subsections": [
+      {
+        "label": "Basal",
+        "analytes": [
+          {
+            "id": "ch4-basal",
+            "name": "CH₄ basal",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "h2-basal-ch4",
+            "name": "H₂ basal",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          }
+        ]
+      },
+      {
+        "label": "Lactulose (IMO)",
+        "analytes": [
+          {
+            "id": "ch4-lact-15",
+            "name": "CH₄ 15 min (lactulose)",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "ch4-lact-30",
+            "name": "CH₄ 30 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "ch4-lact-45",
+            "name": "CH₄ 45 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "ch4-lact-60",
+            "name": "CH₄ 60 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "ch4-lact-90",
+            "name": "CH₄ 90 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "ch4-lact-120",
+            "name": "CH₄ 120 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          }
+        ]
+      },
+      {
+        "label": "Glicose (IMO)",
+        "analytes": [
+          {
+            "id": "ch4-glic-15",
+            "name": "CH₄ 15 min (glicose)",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "ch4-glic-30",
+            "name": "CH₄ 30 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "ch4-glic-45",
+            "name": "CH₄ 45 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "ch4-glic-60",
+            "name": "CH₄ 60 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "ch4-glic-90",
+            "name": "CH₄ 90 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          },
+          {
+            "id": "ch4-glic-120",
+            "name": "CH₄ 120 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 10"
+          }
+        ]
+      },
+      {
+        "label": "Trio-Smart (H₂ + CH₄ + H₂S)",
+        "analytes": [
+          {
+            "id": "h2s-basal",
+            "name": "H₂S basal",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 3"
+          },
+          {
+            "id": "h2s-90",
+            "name": "H₂S 90 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 3"
+          },
+          {
+            "id": "h2s-120",
+            "name": "H₂S 120 min",
+            "unit": "ppm",
+            "resultType": "numeric",
+            "referenceRange": "< 3"
+          }
+        ]
+      },
+      {
+        "label": "Interpretação",
+        "analytes": [
+          {
+            "id": "ch4-pico",
+            "name": "CH₄ ≥ 10 ppm em qualquer ponto",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Ausente"
+          },
+          {
+            "id": "ch4-resultado-imo",
+            "name": "Resultado IMO",
+            "unit": "-",
+            "resultType": "descriptive",
+            "referenceRange": "Negativo"
+          },
+          {
+            "id": "ch4-resultado-h2s",
+            "name": "Resultado H₂S-SIBO",
+            "unit": "-",
+            "resultType": "descriptive",
+            "referenceRange": "Negativo"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "teste-indican-urina",
+    "name": "Teste de Indican Urinário",
+    "category": "especializado",
+    "subsections": [
+      {
+        "label": "Indican",
+        "analytes": [
+          {
+            "id": "indican-qualitativo",
+            "name": "Indican urinário (qualitativo)",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Negativo"
+          },
+          {
+            "id": "indican-quantitativo",
+            "name": "Indican urinário (quantitativo)",
+            "unit": "mg/L",
+            "resultType": "numeric",
+            "referenceRange": "< 20"
+          }
+        ]
+      },
+      {
+        "label": "Metabólitos Complementares",
+        "analytes": [
+          {
+            "id": "skatol-urinario",
+            "name": "Escatol urinário (3-metilindol)",
+            "abbreviation": "Escatol",
+            "unit": "µg/L",
+            "resultType": "numeric",
+            "referenceRange": "Variável"
+          },
+          {
+            "id": "indoxil-sulfato-urinario",
+            "name": "Indoxil sulfato urinário",
+            "unit": "mg/L",
+            "resultType": "numeric",
+            "referenceRange": "Variável"
+          },
+          {
+            "id": "p-cresol-urinario",
+            "name": "p-Cresol sulfato urinário",
+            "unit": "mg/L",
+            "resultType": "numeric",
+            "referenceRange": "Variável"
+          }
+        ]
+      },
+      {
+        "label": "Contexto Clínico",
+        "analytes": [
+          {
+            "id": "indican-creatinina-urinaria",
+            "name": "Creatinina urinária (correção)",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "20-300"
+          },
+          {
+            "id": "indican-ph-urina",
+            "name": "pH urinário",
+            "unit": "-",
+            "resultType": "numeric",
+            "referenceRange": "5,0-8,0"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "analise-liquor",
+    "name": "Análise do Líquor",
+    "category": "especializado",
+    "subsections": [
+      {
+        "label": "Exame Físico",
+        "analytes": [
+          {
+            "id": "liquor-aspecto",
+            "name": "Aspecto/Cor",
+            "unit": "-",
+            "resultType": "descriptive",
+            "referenceRange": "Límpido, incolor"
+          },
+          {
+            "id": "liquor-pressao",
+            "name": "Pressão de abertura",
+            "unit": "cmH₂O",
+            "resultType": "numeric",
+            "referenceRange": "7-18"
+          }
+        ]
+      },
+      {
+        "label": "Citologia",
+        "analytes": [
+          {
+            "id": "liquor-celulas",
+            "name": "Celularidade total",
+            "unit": "células/mm³",
+            "resultType": "numeric",
+            "referenceRange": "0-4"
+          },
+          {
+            "id": "liquor-diferencial",
+            "name": "Diferencial",
+            "unit": "%",
+            "resultType": "descriptive",
+            "referenceRange": "60-80% linfócitos"
+          },
+          {
+            "id": "liquor-hemacias",
+            "name": "Hemácias",
+            "unit": "/mm³",
+            "resultType": "numeric",
+            "referenceRange": "Ausentes"
+          }
+        ]
+      },
+      {
+        "label": "Bioquímica",
+        "analytes": [
+          {
+            "id": "liquor-proteinas",
+            "name": "Proteínas totais",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "15-45"
+          },
+          {
+            "id": "liquor-glicose",
+            "name": "Glicose (glicorraquia)",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "45-80"
+          },
+          {
+            "id": "liquor-cloreto",
+            "name": "Cloreto",
+            "unit": "mEq/L",
+            "resultType": "numeric",
+            "referenceRange": "116-130"
+          },
+          {
+            "id": "liquor-ldh",
+            "name": "LDH",
+            "abbreviation": "LDH",
+            "unit": "U/L",
+            "resultType": "numeric",
+            "referenceRange": "< 35"
+          },
+          {
+            "id": "liquor-ada",
+            "name": "ADA",
+            "abbreviation": "ADA",
+            "unit": "U/L",
+            "resultType": "numeric",
+            "referenceRange": "< 9,0"
+          },
+          {
+            "id": "liquor-lactato",
+            "name": "Lactato",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "9-16"
+          }
+        ]
+      },
+      {
+        "label": "Microbiológico",
+        "analytes": [
+          {
+            "id": "liquor-gram",
+            "name": "Gram",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Negativo"
+          },
+          {
+            "id": "liquor-cultura",
+            "name": "Cultura",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Sem crescimento"
+          },
+          {
+            "id": "liquor-tinta-china",
+            "name": "Tinta da China",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Negativo"
+          },
+          {
+            "id": "liquor-cryptococcus",
+            "name": "Ag Cryptococcus",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Negativo"
+          },
+          {
+            "id": "liquor-baar",
+            "name": "BAAR",
+            "abbreviation": "BAAR",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Negativo"
+          },
+          {
+            "id": "liquor-bandas",
+            "name": "Bandas oligoclonais",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Ausentes"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eletroforese-lipoproteinas-agarose",
+    "name": "Eletroforese de Lipoproteínas (Gel de Agarose)",
+    "category": "especializado",
+    "subsections": [
+      {
+        "label": "Frações Lipoproteicas",
+        "analytes": [
+          {
+            "id": "elipo-alfa",
+            "name": "Alfa (HDL)",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "22,3 – 53,3",
+            "description": "Fração alfa-lipoproteína. Migra com as alfa-1-globulinas. Corresponde ao HDL colesterol — fração protetora contra aterosclerose."
+          },
+          {
+            "id": "elipo-pre-beta",
+            "name": "Pré-Beta (VLDL)",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "4,4 – 23,1",
+            "description": "Fração pré-beta-lipoproteína. Migra com as alfa-2-globulinas. Corresponde ao VLDL — elevação associada a hipertrigliceridemia."
+          },
+          {
+            "id": "elipo-beta",
+            "name": "Beta (LDL)",
+            "unit": "%",
+            "resultType": "numeric",
+            "referenceRange": "38,6 – 69,4",
+            "description": "Fração beta-lipoproteína. Migra com as beta-globulinas. Corresponde ao LDL colesterol — fator de risco para aterosclerose quando elevado."
+          },
+          {
+            "id": "elipo-quilomicrons",
+            "name": "Quilomícrons",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Ausente em jejum",
+            "description": "Partículas de grande tamanho ricas em triglicerídeos de origem alimentar. Devem estar ausentes após jejum de 12 horas. Presença em jejum indica hiperquilomicronemia (Fredrickson tipo I ou V)."
+          }
+        ]
+      },
+      {
+        "label": "Classificação",
+        "analytes": [
+          {
+            "id": "elipo-fredrickson",
+            "name": "Fenótipo de Fredrickson",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "-",
+            "description": "Classificação fenotípica das dislipidemias: Tipo I (hiperquilomicronemia), IIa (hipercolesterolemia pura), IIb (hiperlipidemia combinada), III (disbetalipoproteinemia), IV (hipertrigliceridemia endógena), V (hiperlipidemia mista com quilomícrons)."
+          },
+          {
+            "id": "elipo-observacoes",
+            "name": "Observações",
+            "unit": "-",
+            "resultType": "descriptive",
+            "referenceRange": "-",
+            "description": "Comentários adicionais sobre o perfil eletroforético, aspecto do soro ou achados relevantes."
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eletroforese-lipoproteinas-elgp",
+    "name": "Eletroforese de Lipoproteínas (ELGP - Gel de Poliacrilamida)",
+    "category": "especializado",
+    "subsections": [
+      {
+        "label": "VLDL",
+        "analytes": [
+          {
+            "id": "elgp-vldl",
+            "name": "VLDL",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "≤ 22",
+            "description": "Lipoproteína de muito baixa densidade. Níveis elevados indicam hipertrigliceridemia e maior risco cardiovascular."
+          }
+        ]
+      },
+      {
+        "label": "IDL — Midbands (Lipoproteínas de Densidade Intermediária)",
+        "analytes": [
+          {
+            "id": "elgp-mid-c",
+            "name": "Midband C",
+            "abbreviation": "MID-C",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "≤ 25",
+            "description": "Fração aterogênica — remanescentes de VLDL ricos em triglicerídeos. Níveis elevados associados a aumento do risco cardiovascular."
+          },
+          {
+            "id": "elgp-mid-b",
+            "name": "Midband B",
+            "abbreviation": "MID-B",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "≤ 25",
+            "description": "Fração aterogênica — inclui IDL e remanescentes de VLDL. Correlação positiva com VLDL e risco cardiovascular."
+          },
+          {
+            "id": "elgp-mid-a",
+            "name": "Midband A",
+            "abbreviation": "MID-A",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "≤ 15",
+            "description": "Fração não aterogênica — partículas IDL maiores, ricas em colesterol. Pode conter Lp(a) quando valores de IDL-A excedem a referência."
+          }
+        ]
+      },
+      {
+        "label": "LDL — Subfrações Grandes (Não Aterogênicas)",
+        "analytes": [
+          {
+            "id": "elgp-ldl-1",
+            "name": "LDL 1",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "-",
+            "description": "Subfração de LDL grande e flutuante — partículas de maior diâmetro, consideradas não aterogênicas. Perfil favorável quando predominam sobre sdLDL."
+          },
+          {
+            "id": "elgp-ldl-2",
+            "name": "LDL 2",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "-",
+            "description": "Subfração de LDL grande e flutuante — junto com LDL 1, compõe a fração de LDL de baixo risco aterogênico."
+          }
+        ]
+      },
+      {
+        "label": "LDL — Subfrações Pequenas e Densas (Aterogênicas)",
+        "analytes": [
+          {
+            "id": "elgp-ldl-3",
+            "name": "LDL 3",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "-",
+            "description": "Subfração de LDL pequena e densa — facilmente oxidada, penetra na parede arterial e promove aterosclerose. Risco cardiovascular 3x maior."
+          },
+          {
+            "id": "elgp-ldl-4",
+            "name": "LDL 4",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "-",
+            "description": "Subfração de LDL pequena e densa — altamente aterogênica. Associada a síndrome metabólica e resistência insulínica."
+          },
+          {
+            "id": "elgp-ldl-5",
+            "name": "LDL 5",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "-",
+            "description": "Subfração de LDL pequena e densa — partículas muito pequenas com alto potencial aterogênico."
+          },
+          {
+            "id": "elgp-ldl-6",
+            "name": "LDL 6",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "-",
+            "description": "Subfração de LDL pequena e densa — diâmetro muito reduzido, altamente suscetível à oxidação."
+          },
+          {
+            "id": "elgp-ldl-7",
+            "name": "LDL 7",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "-",
+            "description": "Subfração de LDL pequena e densa — menor partícula de LDL identificável por ELGP, máximo potencial aterogênico."
+          }
+        ]
+      },
+      {
+        "label": "HDL",
+        "analytes": [
+          {
+            "id": "elgp-hdl",
+            "name": "HDL",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "> 40 (H) / > 50 (M)",
+            "description": "Lipoproteína de alta densidade — fração protetora. Níveis baixos aumentam o risco de doença coronariana."
+          }
+        ]
+      },
+      {
+        "label": "Resumo e Classificação",
+        "analytes": [
+          {
+            "id": "elgp-ldl-total",
+            "name": "LDL colesterol total",
+            "abbreviation": "LDL-C",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "< 130",
+            "description": "Soma de todas as subfrações de LDL (1 a 7). Valor total de colesterol nas partículas de LDL."
+          },
+          {
+            "id": "elgp-sdldl-total",
+            "name": "sdLDL total (LDL 3–7)",
+            "abbreviation": "sdLDL",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "< 6",
+            "description": "Soma das subfrações de LDL pequena e densa (3 a 7). Valores ≥ 6 mg/dL indicam perfil aterogênico com risco cardiovascular 3 vezes maior."
+          },
+          {
+            "id": "elgp-tamanho-medio-ldl",
+            "name": "Tamanho médio das partículas de LDL",
+            "unit": "Å",
+            "resultType": "numeric",
+            "referenceRange": "> 262",
+            "description": "Diâmetro médio das partículas de LDL em Ångströms. Partículas > 262 Å = Padrão A (grandes, baixo risco). Partículas < 257 Å = Padrão B (pequenas e densas, alto risco). Entre 257–262 Å = Padrão intermediário."
+          },
+          {
+            "id": "elgp-fenotipo-ldl",
+            "name": "Fenótipo LDL",
+            "unit": "-",
+            "resultType": "qualitative",
+            "referenceRange": "Padrão A",
+            "description": "Classificação do perfil de partículas LDL: Padrão A — predomínio de LDL grandes (> 262 Å), baixo risco. Padrão B — predomínio de LDL pequenas e densas (< 257 Å), alto risco cardiovascular. Intermediário — perfil misto (257–262 Å)."
+          },
+          {
+            "id": "elgp-idl-total",
+            "name": "IDL colesterol total",
+            "abbreviation": "IDL-C",
+            "unit": "mg/dL",
+            "resultType": "numeric",
+            "referenceRange": "0 – 20",
+            "description": "Soma das midbands (MID-A + MID-B + MID-C). Valores elevados podem indicar presença de Lp(a) ou remanescentes aterogênicos."
+          }
+        ]
+      }
+    ]
+  }
+]

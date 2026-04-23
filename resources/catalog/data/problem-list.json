@@ -1,0 +1,320 @@
+[
+  {
+    "id": "inflammaging",
+    "category": "inflammatory",
+    "label": "Inflammaging"
+  },
+  {
+    "id": "inflammation_grade",
+    "category": "inflammatory",
+    "label": "Inflamacao",
+    "variation": {
+      "id": "grade",
+      "label": "Grau",
+      "options": [
+        "grade_1",
+        "grade_2",
+        "grade_3"
+      ]
+    }
+  },
+  {
+    "id": "anemia",
+    "category": "hematologic",
+    "label": "Anemia",
+    "variation": {
+      "id": "target",
+      "label": "Alvo",
+      "options": [
+        "within_target",
+        "out_of_target"
+      ]
+    }
+  },
+  {
+    "id": "ferropenia",
+    "category": "hematologic",
+    "label": "Ferropenia",
+    "variation": {
+      "id": "target",
+      "label": "Alvo",
+      "options": [
+        "within_target",
+        "out_of_target"
+      ]
+    }
+  },
+  {
+    "id": "polycythemia",
+    "category": "hematologic",
+    "label": "Policitemia"
+  },
+  {
+    "id": "leukocytosis",
+    "category": "hematologic",
+    "label": "Leucocitose"
+  },
+  {
+    "id": "leukopenia",
+    "category": "hematologic",
+    "label": "Leucopenia"
+  },
+  {
+    "id": "thrombocytopenia",
+    "category": "hematologic",
+    "label": "Trombocitopenia"
+  },
+  {
+    "id": "thrombocytosis",
+    "category": "hematologic",
+    "label": "Trombocitose"
+  },
+  {
+    "id": "dm2",
+    "category": "metabolic",
+    "label": "DM2",
+    "variation": {
+      "id": "target",
+      "label": "Alvo",
+      "options": [
+        "within_target",
+        "out_of_target"
+      ]
+    }
+  },
+  {
+    "id": "insulin_resistance",
+    "category": "metabolic",
+    "label": "Resistencia insulinica"
+  },
+  {
+    "id": "metabolic_syndrome",
+    "category": "metabolic",
+    "label": "Sindrome metabolica"
+  },
+  {
+    "id": "dyslipidemia",
+    "category": "metabolic",
+    "label": "Dislipidemia",
+    "variation": {
+      "id": "target",
+      "label": "Alvo",
+      "options": [
+        "within_target",
+        "out_of_target"
+      ]
+    }
+  },
+  {
+    "id": "hypertriglyceridemia",
+    "category": "metabolic",
+    "label": "Hipertrigliceridemia",
+    "variation": {
+      "id": "target",
+      "label": "Alvo",
+      "options": [
+        "within_target",
+        "out_of_target"
+      ]
+    }
+  },
+  {
+    "id": "hyperuricemia",
+    "category": "metabolic",
+    "label": "Hiperuricemia",
+    "variation": {
+      "id": "target",
+      "label": "Alvo",
+      "options": [
+        "within_target",
+        "out_of_target"
+      ]
+    }
+  },
+  {
+    "id": "hyperhomocysteinemia",
+    "category": "metabolic",
+    "label": "Hiperhomocisteinemia"
+  },
+  {
+    "id": "has",
+    "category": "metabolic",
+    "label": "HAS",
+    "variation": {
+      "id": "target",
+      "label": "Alvo",
+      "options": [
+        "within_target",
+        "out_of_target"
+      ]
+    }
+  },
+  {
+    "id": "obesity",
+    "category": "metabolic",
+    "label": "Obesidade",
+    "variation": {
+      "id": "grade",
+      "label": "Grau",
+      "options": [
+        "grade_1",
+        "grade_2",
+        "grade_3"
+      ]
+    }
+  },
+  {
+    "id": "overweight",
+    "category": "metabolic",
+    "label": "Sobrepeso"
+  },
+  {
+    "id": "hepatic_steatosis",
+    "category": "metabolic",
+    "label": "Esteatose hepatica",
+    "variation": {
+      "id": "grade",
+      "label": "Grau",
+      "options": [
+        "grade_1",
+        "grade_2",
+        "grade_3"
+      ]
+    }
+  },
+  {
+    "id": "vitamin_d_deficiency",
+    "category": "metabolic",
+    "label": "Hipovitaminose D"
+  },
+  {
+    "id": "vitamin_b12_deficiency",
+    "category": "metabolic",
+    "label": "Hipovitaminose B12"
+  },
+  {
+    "id": "intestinal_dysbiosis",
+    "category": "gastrointestinal",
+    "label": "Disbiose intestinal"
+  },
+  {
+    "id": "intestinal_hyperpermeability",
+    "category": "gastrointestinal",
+    "label": "Hiperpermeabilidade intestinal"
+  },
+  {
+    "id": "gerd",
+    "category": "gastrointestinal",
+    "label": "DRGE"
+  },
+  {
+    "id": "gastritis",
+    "category": "gastrointestinal",
+    "label": "Gastrite"
+  },
+  {
+    "id": "ibs",
+    "category": "gastrointestinal",
+    "label": "Sindrome do intestino irritavel"
+  },
+  {
+    "id": "sibo",
+    "category": "gastrointestinal",
+    "label": "SIBO"
+  },
+  {
+    "id": "food_intolerance",
+    "category": "gastrointestinal",
+    "label": "Intolerancia alimentar"
+  },
+  {
+    "id": "histamine_intolerance",
+    "category": "gastrointestinal",
+    "label": "Intolerancia histaminica"
+  },
+  {
+    "id": "hypothyroidism",
+    "category": "endocrine",
+    "label": "Hipotireoidismo",
+    "variation": {
+      "id": "target",
+      "label": "Alvo",
+      "options": [
+        "within_target",
+        "out_of_target"
+      ]
+    }
+  },
+  {
+    "id": "hyperthyroidism",
+    "category": "endocrine",
+    "label": "Hipertireoidismo"
+  },
+  {
+    "id": "hypogonadism",
+    "category": "endocrine",
+    "label": "Hipogonadismo"
+  },
+  {
+    "id": "hypercortisolism",
+    "category": "endocrine",
+    "label": "Hipercortisolismo"
+  },
+  {
+    "id": "hypocortisolism",
+    "category": "endocrine",
+    "label": "Hipocortisolismo"
+  },
+  {
+    "id": "adrenal_fatigue",
+    "category": "endocrine",
+    "label": "Fadiga adrenal"
+  },
+  {
+    "id": "ckd",
+    "category": "renal",
+    "label": "Doenca renal cronica",
+    "variation": {
+      "id": "stage",
+      "label": "Estagio",
+      "options": [
+        "G1",
+        "G2",
+        "G3a",
+        "G3b",
+        "G4",
+        "G5"
+      ]
+    }
+  },
+  {
+    "id": "nephrolithiasis",
+    "category": "renal",
+    "label": "Nefrolitiase"
+  },
+  {
+    "id": "osteoporosis",
+    "category": "musculoskeletal",
+    "label": "Osteoporose"
+  },
+  {
+    "id": "osteopenia",
+    "category": "musculoskeletal",
+    "label": "Osteopenia"
+  },
+  {
+    "id": "sarcopenia",
+    "category": "musculoskeletal",
+    "label": "Sarcopenia"
+  },
+  {
+    "id": "fibromyalgia",
+    "category": "musculoskeletal",
+    "label": "Fibromialgia"
+  },
+  {
+    "id": "arthrosis",
+    "category": "musculoskeletal",
+    "label": "Artrose"
+  }
+]
