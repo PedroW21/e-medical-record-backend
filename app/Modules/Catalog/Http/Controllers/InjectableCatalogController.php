@@ -23,6 +23,9 @@ final class InjectableCatalogController
      * @queryParam search string Search the injectable name. Example: magnesio
      * @queryParam per_page int Items per page (1-100). Example: 50
      *
+     * @responseHeader ETag Weak validator hash of the response body. Example: W/"a1b2c3d4e5f67890abcdef1234567890"
+     * @responseHeader Cache-Control Example: private, must-revalidate
+     *
      * @response 200 scenario="Success" {
      *   "data": [
      *     {
@@ -39,6 +42,7 @@ final class InjectableCatalogController
      *   ],
      *   "meta": {"current_page": 1, "per_page": 50, "total": 569}
      * }
+     * @response 304 scenario="Not Modified — cached payload still valid" {}
      * @response 401 scenario="Unauthenticated" {"message": "Unauthenticated."}
      */
     public function index(Request $request): AnonymousResourceCollection
@@ -74,6 +78,9 @@ final class InjectableCatalogController
      *
      * @urlParam id string required The injectable id. Example: victa-magnesio
      *
+     * @responseHeader ETag Weak validator hash of the response body. Example: W/"a1b2c3d4e5f67890abcdef1234567890"
+     * @responseHeader Cache-Control Example: private, must-revalidate
+     *
      * @response 200 scenario="Success" {
      *   "data": {
      *     "id": "victa-magnesio",
@@ -87,6 +94,7 @@ final class InjectableCatalogController
      *     "allowed_routes": ["im", "ev"]
      *   }
      * }
+     * @response 304 scenario="Not Modified — cached payload still valid" {}
      * @response 401 scenario="Unauthenticated" {"message": "Unauthenticated."}
      * @response 404 scenario="Not found" {"message": "Injetável não encontrado."}
      */

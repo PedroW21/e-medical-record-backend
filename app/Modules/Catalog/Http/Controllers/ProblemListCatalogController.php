@@ -21,12 +21,16 @@ final class ProblemListCatalogController
      *
      * @queryParam category string Filter by category. Example: metabolic
      *
+     * @responseHeader ETag Weak validator hash of the response body. Example: W/"a1b2c3d4e5f67890abcdef1234567890"
+     * @responseHeader Cache-Control Example: private, must-revalidate
+     *
      * @response 200 scenario="Success" {
      *   "data": [
      *     {"id": "anemia", "category": "hematologic", "label": "Anemia", "variation": {"id": "target", "label": "Alvo", "options": ["within_target", "out_of_target"]}},
      *     {"id": "dm2", "category": "metabolic", "label": "DM2", "variation": {"id": "target", "label": "Alvo", "options": ["within_target", "out_of_target"]}}
      *   ]
      * }
+     * @response 304 scenario="Not Modified — cached payload still valid" {}
      * @response 401 scenario="Unauthenticated" {"message": "Unauthenticated."}
      */
     public function index(Request $request): AnonymousResourceCollection
