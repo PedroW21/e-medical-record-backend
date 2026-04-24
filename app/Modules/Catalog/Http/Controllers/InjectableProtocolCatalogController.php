@@ -26,6 +26,9 @@ final class InjectableProtocolCatalogController
      * @queryParam search string Search by protocol name. Example: antioxidante
      * @queryParam per_page int Items per page (1-100). Example: 25
      *
+     * @responseHeader ETag Weak validator hash of the response body. Example: W/"a1b2c3d4e5f67890abcdef1234567890"
+     * @responseHeader Cache-Control Example: private, must-revalidate
+     *
      * @response 200 scenario="Success" {
      *   "data": [
      *     {
@@ -39,6 +42,7 @@ final class InjectableProtocolCatalogController
      *   ],
      *   "meta": {"current_page": 1, "per_page": 25, "total": 300}
      * }
+     * @response 304 scenario="Not Modified — cached payload still valid" {}
      * @response 401 scenario="Unauthenticated" {"message": "Unauthenticated."}
      */
     public function index(Request $request): AnonymousResourceCollection
@@ -84,6 +88,9 @@ final class InjectableProtocolCatalogController
      *
      * @urlParam id string required The protocol id. Example: victa-proto-ev-antioxidante-1
      *
+     * @responseHeader ETag Weak validator hash of the response body. Example: W/"a1b2c3d4e5f67890abcdef1234567890"
+     * @responseHeader Cache-Control Example: private, must-revalidate
+     *
      * @response 200 scenario="Success" {
      *   "data": {
      *     "id": "victa-proto-ev-antioxidante-1",
@@ -97,6 +104,7 @@ final class InjectableProtocolCatalogController
      *     ]
      *   }
      * }
+     * @response 304 scenario="Not Modified — cached payload still valid" {}
      * @response 401 scenario="Unauthenticated" {"message": "Unauthenticated."}
      * @response 404 scenario="Not found" {"message": "Protocolo injetável não encontrado."}
      */

@@ -17,6 +17,9 @@ final class PharmacyCatalogController
      *
      * @group Catalog
      *
+     * @responseHeader ETag Weak validator hash of the response body. Example: W/"a1b2c3d4e5f67890abcdef1234567890"
+     * @responseHeader Cache-Control Example: private, must-revalidate
+     *
      * @response 200 scenario="Success" {
      *   "data": [
      *     {"id": "victa", "name": "Victa", "color": "#3B82F6"},
@@ -24,6 +27,7 @@ final class PharmacyCatalogController
      *     {"id": "healthtech", "name": "Health Tech", "color": "#F59E0B"}
      *   ]
      * }
+     * @response 304 scenario="Not Modified — cached payload still valid" {}
      * @response 401 scenario="Unauthenticated" {"message": "Unauthenticated."}
      */
     public function index(): AnonymousResourceCollection

@@ -23,11 +23,15 @@ final class MagistralCatalogController
      *
      * @queryParam type string Filter by type (`farmaco` or `alvo`). Example: farmaco
      *
+     * @responseHeader ETag Weak validator hash of the response body. Example: W/"a1b2c3d4e5f67890abcdef1234567890"
+     * @responseHeader Cache-Control Example: private, must-revalidate
+     *
      * @response 200 scenario="Success" {
      *   "data": [
      *     {"id": "farmaco_melatonina", "type": "farmaco", "label": "Melatonina", "icon": "moon"}
      *   ]
      * }
+     * @response 304 scenario="Not Modified — cached payload still valid" {}
      * @response 401 scenario="Unauthenticated" {"message": "Unauthenticated."}
      * @response 422 scenario="Invalid type" {"message": "The selected type is invalid."}
      */
@@ -57,6 +61,9 @@ final class MagistralCatalogController
      * @queryParam search string Search the formula name (case-insensitive substring). Example: melatonin
      * @queryParam per_page int Items per page (1-100). Example: 20
      *
+     * @responseHeader ETag Weak validator hash of the response body. Example: W/"a1b2c3d4e5f67890abcdef1234567890"
+     * @responseHeader Cache-Control Example: private, must-revalidate
+     *
      * @response 200 scenario="Success" {
      *   "data": [
      *     {
@@ -74,6 +81,7 @@ final class MagistralCatalogController
      *   ],
      *   "meta": {"current_page": 1, "per_page": 20, "total": 263}
      * }
+     * @response 304 scenario="Not Modified — cached payload still valid" {}
      * @response 401 scenario="Unauthenticated" {"message": "Unauthenticated."}
      */
     public function formulas(Request $request): AnonymousResourceCollection
