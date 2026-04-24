@@ -20,7 +20,13 @@ final class UpdateExamResultRequest extends FormRequest
      */
     public function rules(): array
     {
-        $examType = ExamType::from($this->route('examType'));
+        $examTypeValue = $this->route('examType');
+
+        if ($examTypeValue === null) {
+            return [];
+        }
+
+        $examType = ExamType::from($examTypeValue);
         $storeRules = $this->storeRulesFor($examType);
 
         $rules = collect($storeRules)
@@ -30,16 +36,21 @@ final class UpdateExamResultRequest extends FormRequest
                 ->all())
             ->all();
 
-        $rules['anexo_id'] = [
-            'nullable',
-            'integer',
-            new AttachmentLinkable(
-                prontuarioId: (int) $this->route('medicalRecordId'),
-                doctorUserId: (int) $this->user()->id,
+        $user = $this->user();
+        $medicalRecordId = $this->route('medicalRecordId');
+
+        $anexoRules = ['nullable', 'integer'];
+
+        if ($user !== null && $medicalRecordId !== null) {
+            $anexoRules[] = new AttachmentLinkable(
+                prontuarioId: (int) $medicalRecordId,
+                doctorUserId: (int) $user->id,
                 ignoreResultId: $this->resolveIgnoreResultId(),
                 resultModelClass: $this->resolveExamTypeModelClass(),
-            ),
-        ];
+            );
+        }
+
+        $rules['anexo_id'] = $anexoRules;
 
         return $rules;
     }

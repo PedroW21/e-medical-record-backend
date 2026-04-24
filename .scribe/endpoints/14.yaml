@@ -1,0 +1,522 @@
+name: 'Exam Results'
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/medical-records/{medicalRecordId}/exam-results/{examType}'
+    metadata:
+      custom: []
+      groupName: 'Exam Results'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List all exam results of a given type for a medical record.'
+      description: 'Returns all results for the specified exam type, ordered by date descending.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      medicalRecordId:
+        custom: []
+        name: medicalRecordId
+        description: 'The medical record ID.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      examType:
+        custom: []
+        name: examType
+        description: 'The exam type slug.'
+        required: true
+        example: ecg
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      medicalRecordId: 1
+      examType: ecg
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 1,
+                "medical_record_id": 1,
+                "date": "2026-03-10",
+                "rhythm": "sinusal",
+                "heart_rate": 72,
+                "pr_interval": 160,
+                "qrs_duration": 90,
+                "qt_interval": 400,
+                "qtc_interval": 420,
+                "axis": "normal",
+                "interpretation": "Ritmo sinusal normal.",
+                "created_at": "2026-03-10T10:00:00.000000Z",
+                "updated_at": "2026-03-10T10:00:00.000000Z"
+              }
+            ]
+          }
+        headers: []
+        description: Success
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Token inválido."}'
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "Esta ação não é autorizada."}'
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: '{"message": "Prontuário não encontrado."}'
+        headers: []
+        description: 'Not Found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/medical-records/{medicalRecordId}/exam-results/{examType}'
+    metadata:
+      custom: []
+      groupName: 'Exam Results'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Store a new exam result of a given type for a medical record.'
+      description: 'Creates a new structured exam result record. The required fields depend on the exam type.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      medicalRecordId:
+        custom: []
+        name: medicalRecordId
+        description: 'The medical record ID.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      examType:
+        custom: []
+        name: examType
+        description: 'The exam type slug.'
+        required: true
+        example: ecg
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      medicalRecordId: 1
+      examType: ecg
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      date:
+        custom: []
+        name: date
+        description: 'The exam date (YYYY-MM-DD).'
+        required: true
+        example: '2026-03-10'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      rhythm:
+        custom: []
+        name: rhythm
+        description: 'nullable ECG-specific: cardiac rhythm.'
+        required: false
+        example: sinusal
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      heart_rate:
+        custom: []
+        name: heart_rate
+        description: 'nullable ECG-specific: heart rate in bpm.'
+        required: false
+        example: 72
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      interpretation:
+        custom: []
+        name: interpretation
+        description: 'nullable Free interpretation text.'
+        required: false
+        example: 'Ritmo sinusal normal.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      date: '2026-03-10'
+      rhythm: sinusal
+      heart_rate: 72
+      interpretation: 'Ritmo sinusal normal.'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: |-
+          {
+            "data": {
+              "id": 1,
+              "medical_record_id": 1,
+              "date": "2026-03-10",
+              "rhythm": "sinusal",
+              "heart_rate": 72,
+              "pr_interval": 160,
+              "qrs_duration": 90,
+              "qt_interval": 400,
+              "qtc_interval": 420,
+              "axis": "normal",
+              "interpretation": "Ritmo sinusal normal.",
+              "created_at": "2026-03-10T10:00:00.000000Z",
+              "updated_at": "2026-03-10T10:00:00.000000Z"
+            }
+          }
+        headers: []
+        description: Created
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Token inválido."}'
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "Esta ação não é autorizada."}'
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: '{"message": "Prontuário não encontrado."}'
+        headers: []
+        description: 'Not Found'
+      -
+        custom: []
+        status: 409
+        content: '{"message": "Não é possível modificar resultados de um prontuário finalizado."}'
+        headers: []
+        description: Conflict
+      -
+        custom: []
+        status: 422
+        content: '{"message": "O campo data é obrigatório.", "errors": {"date": ["O campo data é obrigatório."]}}'
+        headers: []
+        description: 'Validation Error'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/medical-records/{medicalRecordId}/exam-results/{examType}/{id}'
+    metadata:
+      custom: []
+      groupName: 'Exam Results'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update an existing exam result of a given type.'
+      description: 'Partially updates an exam result. All fields are optional; only provided fields are updated.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      medicalRecordId:
+        custom: []
+        name: medicalRecordId
+        description: 'The medical record ID.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      examType:
+        custom: []
+        name: examType
+        description: 'The exam type slug.'
+        required: true
+        example: ecg
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      id:
+        custom: []
+        name: id
+        description: 'The exam result ID.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      medicalRecordId: 1
+      examType: ecg
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      date:
+        custom: []
+        name: date
+        description: 'nullable The exam date (YYYY-MM-DD).'
+        required: false
+        example: '2026-03-11'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      rhythm:
+        custom: []
+        name: rhythm
+        description: 'nullable ECG-specific: cardiac rhythm.'
+        required: false
+        example: sinusal
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      heart_rate:
+        custom: []
+        name: heart_rate
+        description: 'nullable ECG-specific: heart rate in bpm.'
+        required: false
+        example: 75
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      interpretation:
+        custom: []
+        name: interpretation
+        description: 'nullable Free interpretation text.'
+        required: false
+        example: 'Ritmo sinusal com frequência limítrofe.'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      date: '2026-03-11'
+      rhythm: sinusal
+      heart_rate: 75
+      interpretation: 'Ritmo sinusal com frequência limítrofe.'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": {
+              "id": 1,
+              "medical_record_id": 1,
+              "date": "2026-03-11",
+              "rhythm": "sinusal",
+              "heart_rate": 75,
+              "pr_interval": 160,
+              "qrs_duration": 90,
+              "qt_interval": 400,
+              "qtc_interval": 420,
+              "axis": "normal",
+              "interpretation": "Ritmo sinusal com frequência limítrofe.",
+              "created_at": "2026-03-10T10:00:00.000000Z",
+              "updated_at": "2026-03-11T09:15:00.000000Z"
+            }
+          }
+        headers: []
+        description: Success
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Token inválido."}'
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "Esta ação não é autorizada."}'
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: '{"message": "Resultado de exame não encontrado."}'
+        headers: []
+        description: 'Not Found'
+      -
+        custom: []
+        status: 409
+        content: '{"message": "Não é possível modificar resultados de um prontuário finalizado."}'
+        headers: []
+        description: Conflict
+      -
+        custom: []
+        status: 422
+        content: '{"message": "O campo data deve ser uma data válida.", "errors": {"date": ["O campo data deve ser uma data válida."]}}'
+        headers: []
+        description: 'Validation Error'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/medical-records/{medicalRecordId}/exam-results/{examType}/{id}'
+    metadata:
+      custom: []
+      groupName: 'Exam Results'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete an exam result of a given type.'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      medicalRecordId:
+        custom: []
+        name: medicalRecordId
+        description: 'The medical record ID.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      examType:
+        custom: []
+        name: examType
+        description: 'The exam type slug.'
+        required: true
+        example: ecg
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      id:
+        custom: []
+        name: id
+        description: 'The exam result ID.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      medicalRecordId: 1
+      examType: ecg
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"message": "Resultado de ECG excluído com sucesso."}'
+        headers: []
+        description: Success
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Token inválido."}'
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "Esta ação não é autorizada."}'
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: '{"message": "Resultado de exame não encontrado."}'
+        headers: []
+        description: 'Not Found'
+      -
+        custom: []
+        status: 409
+        content: '{"message": "Não é possível modificar resultados de um prontuário finalizado."}'
+        headers: []
+        description: Conflict
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

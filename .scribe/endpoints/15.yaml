@@ -1,0 +1,686 @@
+name: Attachments
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/medical-records/{medicalRecordId}/attachments'
+    metadata:
+      custom: []
+      groupName: Attachments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List attachments of a medical record.'
+      description: 'Retrieve all attachments for a given medical record. Results are ordered by creation date (most recent first).'
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      medicalRecordId:
+        custom: []
+        name: medicalRecordId
+        description: 'The medical record ID.'
+        required: true
+        example: 42
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      medicalRecordId: 42
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "id": 301,
+                "medical_record_id": 42,
+                "patient_id": 18,
+                "attachment_type": "ecg",
+                "name": "Laudo ECG — Maria Silva.pdf",
+                "file_type": "pdf",
+                "file_url": "http://localhost:8000/api/attachments/301/download?expires=1776272400&signature=f1a9c5b7e2d84a1f9c0e6b2d4a8c0f1e2b4c6d8a0e1f2a3b4c5d6e7f8a9b0c1d",
+                "file_size": 248153,
+                "processing_status": "completed",
+                "extracted_data": {"date": "2026-04-22", "pattern": "normal"},
+                "processing_error": null,
+                "processed_at": "2026-04-22T14:05:12+00:00",
+                "confirmed_at": null,
+                "created_at": "2026-04-22T14:04:50+00:00",
+                "updated_at": "2026-04-22T14:05:12+00:00"
+              },
+              {
+                "id": 302,
+                "medical_record_id": 42,
+                "patient_id": 18,
+                "attachment_type": "documento",
+                "name": "Atestado.pdf",
+                "file_type": "pdf",
+                "file_url": "http://localhost:8000/api/attachments/302/download?expires=1776272400&signature=b7e2d84a1f9c0e6b2d4a8c0f1e2b4c6d8a0e1f2a3b4c5d6e7f8a9b0c1df1a9c5",
+                "file_size": 95321,
+                "processing_status": null,
+                "extracted_data": null,
+                "processing_error": null,
+                "processed_at": null,
+                "confirmed_at": null,
+                "created_at": "2026-04-22T09:30:00+00:00",
+                "updated_at": "2026-04-22T09:30:00+00:00"
+              }
+            ]
+          }
+        headers: []
+        description: Success
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Não autenticado."}'
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "This action is unauthorized."}'
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: '{"message": "Prontuário não encontrado."}'
+        headers: []
+        description: 'Medical record not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/medical-records/{medicalRecordId}/attachments'
+    metadata:
+      custom: []
+      groupName: Attachments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Upload a file as an attachment for a medical record.'
+      description: |-
+        Upload a file (PDF or image) as an attachment for a medical record. The file is stored locally. Parseable types
+        (lab, ecg, rx, eco, etc.) are queued for AI parsing; `documento` and `outro` are stored as-is.
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: multipart/form-data
+      Accept: application/json
+    urlParameters:
+      medicalRecordId:
+        custom: []
+        name: medicalRecordId
+        description: 'The medical record ID.'
+        required: true
+        example: 42
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      medicalRecordId: 42
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      tipo_anexo:
+        custom: []
+        name: tipo_anexo
+        description: 'Attachment type. One of: lab, ecg, rx, eco, mapa, mrpa, dexa, teste_ergometrico, ecodoppler_carotidas, elastografia_hepatica, cat, cintilografia, pe_diabetico, holter, polissonografia, documento, outro.'
+        required: true
+        example: ecg
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      file:
+        custom: []
+        name: file
+        description: 'The file to upload. Accepted types: pdf, jpg, jpeg, png, gif. Max size: 10 MB.'
+        required: true
+        example: null
+        type: file
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      nome:
+        custom: []
+        name: nome
+        description: "optional Custom display name. Defaults to the uploaded file's original name."
+        required: false
+        example: 'Laudo ECG — Maria Silva'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      tipo_anexo: ecg
+      nome: 'Laudo ECG — Maria Silva'
+    fileParameters:
+      file: null
+    responses:
+      -
+        custom: []
+        status: 201
+        content: |-
+          {
+            "data": {
+              "id": 303,
+              "medical_record_id": 42,
+              "patient_id": 18,
+              "attachment_type": "ecg",
+              "name": "Laudo ECG — Maria Silva.pdf",
+              "file_type": "pdf",
+              "file_url": "http://localhost:8000/api/attachments/303/download?expires=1776272400&signature=a1f9c5b7e2d84a1f9c0e6b2d4a8c0f1e2b4c6d8a0e1f2a3b4c5d6e7f8a9b0c1d",
+              "file_size": 248153,
+              "processing_status": "pending",
+              "extracted_data": null,
+              "processing_error": null,
+              "processed_at": null,
+              "confirmed_at": null,
+              "created_at": "2026-04-22T14:04:50+00:00",
+              "updated_at": "2026-04-22T14:04:50+00:00"
+            }
+          }
+        headers: []
+        description: Created
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Não autenticado."}'
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "This action is unauthorized."}'
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: '{"message": "Prontuário não encontrado."}'
+        headers: []
+        description: 'Medical record not found'
+      -
+        custom: []
+        status: 409
+        content: '{"message": "Não é possível anexar arquivos a um prontuário finalizado."}'
+        headers: []
+        description: 'Finalized medical record'
+      -
+        custom: []
+        status: 422
+        content: '{"message": "O arquivo deve ser PDF, JPG, JPEG, PNG ou GIF.", "errors": {"file": ["O arquivo deve ser PDF, JPG, JPEG, PNG ou GIF."], "tipo_anexo": ["O tipo de anexo informado é inválido."]}}'
+        headers: []
+        description: 'Validation error'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/attachments/{id}'
+    metadata:
+      custom: []
+      groupName: Attachments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Show a single attachment with its current processing state.'
+      description: 'Return a single attachment with its current processing state.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The attachment ID.'
+        required: true
+        example: 301
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 301
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": {
+              "id": 301,
+              "medical_record_id": 42,
+              "patient_id": 18,
+              "attachment_type": "ecg",
+              "name": "Laudo ECG — Maria Silva.pdf",
+              "file_type": "pdf",
+              "file_url": "http://localhost:8000/api/attachments/301/download?expires=1776272400&signature=f1a9c5b7e2d84a1f9c0e6b2d4a8c0f1e2b4c6d8a0e1f2a3b4c5d6e7f8a9b0c1d",
+              "file_size": 248153,
+              "processing_status": "completed",
+              "extracted_data": {"date": "2026-04-22", "pattern": "normal"},
+              "processing_error": null,
+              "processed_at": "2026-04-22T14:05:12+00:00",
+              "confirmed_at": null,
+              "created_at": "2026-04-22T14:04:50+00:00",
+              "updated_at": "2026-04-22T14:05:12+00:00"
+            }
+          }
+        headers: []
+        description: Success
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Não autenticado."}'
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "This action is unauthorized."}'
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: '{"message": "Anexo não encontrado."}'
+        headers: []
+        description: 'Not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/attachments/{id}/download'
+    metadata:
+      custom: []
+      groupName: Attachments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Download the raw file.'
+      description: |-
+        Stream the underlying file as a download. Intended to be hit through a signed URL produced by the `file_url`
+        field on the attachment resource (signed for 30 minutes). Direct authenticated access is also supported for
+        same-origin clients.
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The attachment ID.'
+        required: true
+        example: 301
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 301
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '[Binary file content — Content-Type inferred from file_type, Content-Disposition: attachment; filename="Laudo ECG — Maria Silva.pdf"]'
+        headers: []
+        description: 'File download'
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Não autenticado."}'
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "This action is unauthorized."}'
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: '{"message": "Anexo não encontrado."}'
+        headers: []
+        description: 'Not found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/attachments/{id}/retry'
+    metadata:
+      custom: []
+      groupName: Attachments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Retry AI parsing for a failed or completed attachment.'
+      description: |-
+        Resets a completed or failed attachment back to `pending` and re-queues the parse job. Not allowed for
+        `documento` or `outro` types.
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The attachment ID.'
+        required: true
+        example: 301
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 301
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": {
+              "id": 301,
+              "medical_record_id": 42,
+              "patient_id": 18,
+              "attachment_type": "ecg",
+              "name": "Laudo ECG — Maria Silva.pdf",
+              "file_type": "pdf",
+              "file_url": "http://localhost:8000/api/attachments/301/download?expires=1776272400&signature=f1a9c5b7e2d84a1f9c0e6b2d4a8c0f1e2b4c6d8a0e1f2a3b4c5d6e7f8a9b0c1d",
+              "file_size": 248153,
+              "processing_status": "pending",
+              "extracted_data": null,
+              "processing_error": null,
+              "processed_at": null,
+              "confirmed_at": null,
+              "created_at": "2026-04-22T14:04:50+00:00",
+              "updated_at": "2026-04-22T14:20:00+00:00"
+            }
+          }
+        headers: []
+        description: Success
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Não autenticado."}'
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "This action is unauthorized."}'
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: '{"message": "Anexo não encontrado."}'
+        headers: []
+        description: 'Not found'
+      -
+        custom: []
+        status: 409
+        content: '{"message": "Este tipo de anexo não é processável por IA."}'
+        headers: []
+        description: 'Not parseable'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/attachments/{id}/confirm'
+    metadata:
+      custom: []
+      groupName: Attachments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Confirm the doctor-reviewed extracted data for an attachment.'
+      description: |-
+        Persists the doctor-reviewed exam data extracted from the attachment. Replaces `extracted_data` with the posted
+        payload, transitions status to `confirmed`, stamps `confirmed_at`, and broadcasts `attachment.confirmed`. Only
+        allowed when the current status is `completed`.
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The attachment ID.'
+        required: true
+        example: 304
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 304
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      exam_data:
+        custom: []
+        name: exam_data
+        description: 'The doctor-validated exam data payload. The shape depends on the `attachment_type`.'
+        required: true
+        example:
+          date: '2026-04-22'
+          pattern: normal
+        type: object
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      exam_data:
+        date: '2026-04-22'
+        pattern: normal
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": {
+              "id": 304,
+              "medical_record_id": 42,
+              "patient_id": 18,
+              "attachment_type": "ecg",
+              "name": "Laudo ECG — Maria Silva.pdf",
+              "file_type": "pdf",
+              "file_url": "http://localhost:8000/api/attachments/304/download?expires=1776272400&signature=e2d84a1f9c0e6b2d4a8c0f1e2b4c6d8a0e1f2a3b4c5d6e7f8a9b0c1df1a9c5b7",
+              "file_size": 248153,
+              "processing_status": "confirmed",
+              "extracted_data": {"date": "2026-04-22", "pattern": "normal"},
+              "processing_error": null,
+              "processed_at": "2026-04-22T14:05:12+00:00",
+              "confirmed_at": "2026-04-22T14:30:00+00:00",
+              "created_at": "2026-04-22T14:04:50+00:00",
+              "updated_at": "2026-04-22T14:30:00+00:00"
+            }
+          }
+        headers: []
+        description: Success
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Não autenticado."}'
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "This action is unauthorized."}'
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: '{"message": "Anexo não encontrado."}'
+        headers: []
+        description: 'Not found'
+      -
+        custom: []
+        status: 409
+        content: '{"message": "Somente anexos com processamento concluído podem ser confirmados."}'
+        headers: []
+        description: 'Not confirmable'
+      -
+        custom: []
+        status: 422
+        content: '{"message": "Os dados do exame são obrigatórios.", "errors": {"exam_data": ["Os dados do exame são obrigatórios."]}}'
+        headers: []
+        description: 'Validation error'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/attachments/{id}'
+    metadata:
+      custom: []
+      groupName: Attachments
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete an attachment (not allowed after confirmation).'
+      description: |-
+        Removes the attachment and its underlying file from storage. Forbidden for attachments already confirmed by the
+        doctor.
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        custom: []
+        name: id
+        description: 'The attachment ID.'
+        required: true
+        example: 301
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      id: 301
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 204
+        content: '{}'
+        headers: []
+        description: Deleted
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Não autenticado."}'
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "This action is unauthorized."}'
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: '{"message": "Anexo não encontrado."}'
+        headers: []
+        description: 'Not found'
+      -
+        custom: []
+        status: 409
+        content: '{"message": "Não é possível remover um anexo já confirmado."}'
+        headers: []
+        description: 'Confirmed attachment'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

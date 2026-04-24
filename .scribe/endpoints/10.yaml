@@ -1,0 +1,636 @@
+name: 'Lab Results'
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: 'api/medical-records/{medicalRecordId}/lab-results'
+    metadata:
+      custom: []
+      groupName: 'Lab Results'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List all lab results for a medical record (v2 grouped format).'
+      description: 'Returns lab values grouped by collection date, then split into panels and loose entries.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      medicalRecordId:
+        custom: []
+        name: medicalRecordId
+        description: 'The medical record ID.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      medicalRecordId: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": [
+              {
+                "date": "2026-03-10",
+                "panels": [
+                  {
+                    "panel_id": "hemograma-completo",
+                    "panel_name": "Hemograma Completo",
+                    "is_custom": false,
+                    "values": [
+                      {"id": 1, "analyte_id": "hemo-hemoglobina", "value": "14.5"}
+                    ]
+                  }
+                ],
+                "loose": [
+                  {
+                    "id": 2,
+                    "name": "Exame especial XYZ",
+                    "value": "Negativo",
+                    "unit": null,
+                    "reference_range": null
+                  }
+                ]
+              }
+            ]
+          }
+        headers: []
+        description: Success
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Token inválido."}'
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "Esta ação não é autorizada."}'
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: '{"message": "Prontuário não encontrado."}'
+        headers: []
+        description: 'Not Found'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: 'api/medical-records/{medicalRecordId}/lab-results'
+    metadata:
+      custom: []
+      groupName: 'Lab Results'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Store lab results for a medical record in v2 panel format.'
+      description: |-
+        Accepts a batch of panel-based and loose lab entries for a single collection date.
+        Panel entries are expanded into individual analyte rows linked to the catalog.
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      medicalRecordId:
+        custom: []
+        name: medicalRecordId
+        description: 'The medical record ID.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      medicalRecordId: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      date:
+        custom: []
+        name: date
+        description: 'The collection date (YYYY-MM-DD).'
+        required: true
+        example: '2026-03-10'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      anexo_id:
+        custom: []
+        name: anexo_id
+        description: ''
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      panels:
+        custom: []
+        name: panels
+        description: 'nullable List of panel entries.'
+        required: false
+        example:
+          -
+            panel_id: hemograma-completo
+            values:
+              -
+                analyte_id: hemo-hemoglobina
+                value: '14.5'
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      loose:
+        custom: []
+        name: loose
+        description: 'nullable List of loose (free-form) lab entries.'
+        required: false
+        example:
+          -
+            name: 'Exame especial XYZ'
+            value: Negativo
+            unit: null
+            reference_range: null
+        type: 'string[]'
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      'panels[].panel_id':
+        custom: []
+        name: 'panels[].panel_id'
+        description: 'The <code>id</code> of an existing record in the paineis_laboratoriais table.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'panels[].panel_name':
+        custom: []
+        name: 'panels[].panel_name'
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'panels[].is_custom':
+        custom: []
+        name: 'panels[].is_custom'
+        description: ''
+        required: false
+        example: true
+        type: boolean
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+      'panels[].values':
+        custom: []
+        name: 'panels[].values'
+        description: 'Must have at least 1 items.'
+        required: true
+        example:
+          - []
+        type: 'object[]'
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'panels[].values[].analyte_id':
+        custom: []
+        name: 'panels[].values[].analyte_id'
+        description: 'The <code>id</code> of an existing record in the catalogo_exames_laboratoriais table.'
+        required: true
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'panels[].values[].value':
+        custom: []
+        name: 'panels[].values[].value'
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: 'n'
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'loose[].name':
+        custom: []
+        name: 'loose[].name'
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: g
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'loose[].value':
+        custom: []
+        name: 'loose[].value'
+        description: 'Must not be greater than 255 characters.'
+        required: true
+        example: z
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'loose[].unit':
+        custom: []
+        name: 'loose[].unit'
+        description: 'Must not be greater than 50 characters.'
+        required: true
+        example: m
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+      'loose[].reference_range':
+        custom: []
+        name: 'loose[].reference_range'
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: i
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      date: '2026-03-10'
+      anexo_id: 16
+      panels:
+        -
+          values:
+            -
+              analyte_id: architecto
+              value: 'n'
+      loose:
+        -
+          name: 'Exame especial XYZ'
+          value: Negativo
+          unit: null
+          reference_range: null
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: |-
+          {
+            "data": [
+              {
+                "date": "2026-03-10",
+                "panels": [
+                  {
+                    "panel_id": "hemograma-completo",
+                    "panel_name": "Hemograma Completo",
+                    "is_custom": false,
+                    "values": [
+                      {"id": 1, "analyte_id": "hemo-hemoglobina", "value": "14.5"}
+                    ]
+                  }
+                ],
+                "loose": [
+                  {
+                    "id": 2,
+                    "name": "Exame especial XYZ",
+                    "value": "Negativo",
+                    "unit": null,
+                    "reference_range": null
+                  }
+                ]
+              }
+            ]
+          }
+        headers: []
+        description: Created
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Token inválido."}'
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "Esta ação não é autorizada."}'
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: '{"message": "Prontuário não encontrado."}'
+        headers: []
+        description: 'Not Found'
+      -
+        custom: []
+        status: 409
+        content: '{"message": "Não é possível modificar resultados laboratoriais de um prontuário finalizado."}'
+        headers: []
+        description: Conflict
+      -
+        custom: []
+        status: 422
+        content: '{"message": "O campo data é obrigatório.", "errors": {"date": ["O campo data é obrigatório."]}}'
+        headers: []
+        description: 'Validation Error'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PUT
+    uri: 'api/medical-records/{medicalRecordId}/lab-results/{id}'
+    metadata:
+      custom: []
+      groupName: 'Lab Results'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Update a single lab value.'
+      description: 'Updates an existing lab value entry. Only value, unit, reference range, and collection date may be changed.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      medicalRecordId:
+        custom: []
+        name: medicalRecordId
+        description: 'The medical record ID.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      id:
+        custom: []
+        name: id
+        description: 'The lab value ID.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      medicalRecordId: 1
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      value:
+        custom: []
+        name: value
+        description: 'nullable The updated result value.'
+        required: false
+        example: '15.0'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      unit:
+        custom: []
+        name: unit
+        description: 'nullable The updated measurement unit.'
+        required: false
+        example: g/dL
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      reference_range:
+        custom: []
+        name: reference_range
+        description: 'nullable The updated reference range.'
+        required: false
+        example: '12.0 - 17.5'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: true
+        deprecated: false
+      collection_date:
+        custom: []
+        name: collection_date
+        description: 'nullable The updated collection date (YYYY-MM-DD).'
+        required: false
+        example: '2026-03-10'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      anexo_id:
+        custom: []
+        name: anexo_id
+        description: ''
+        required: false
+        example: 16
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      value: '15.0'
+      unit: g/dL
+      reference_range: '12.0 - 17.5'
+      collection_date: '2026-03-10'
+      anexo_id: 16
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": {
+              "id": 1,
+              "medical_record_id": 1,
+              "patient_id": 5,
+              "analyte_id": "hemo-hemoglobina",
+              "analyte_name": "Hemoglobina",
+              "loose_name": null,
+              "value": "15.0",
+              "unit": "g/dL",
+              "reference_range": "12.0 - 17.5",
+              "collection_date": "2026-03-10",
+              "panel_id": "hemograma-completo",
+              "created_at": "2026-03-10T10:00:00.000000Z",
+              "updated_at": "2026-03-10T10:30:00.000000Z"
+            }
+          }
+        headers: []
+        description: Success
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Token inválido."}'
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "Esta ação não é autorizada."}'
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: '{"message": "Valor laboratorial não encontrado."}'
+        headers: []
+        description: 'Not Found'
+      -
+        custom: []
+        status: 409
+        content: '{"message": "Não é possível modificar resultados laboratoriais de um prontuário finalizado."}'
+        headers: []
+        description: Conflict
+      -
+        custom: []
+        status: 422
+        content: '{"message": "O campo valor deve ser uma string.", "errors": {"value": ["O campo valor deve ser uma string."]}}'
+        headers: []
+        description: 'Validation Error'
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - DELETE
+    uri: 'api/medical-records/{medicalRecordId}/lab-results/{id}'
+    metadata:
+      custom: []
+      groupName: 'Lab Results'
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete a lab value.'
+      description: ''
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      medicalRecordId:
+        custom: []
+        name: medicalRecordId
+        description: 'The medical record ID.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      id:
+        custom: []
+        name: id
+        description: 'The lab value ID.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      medicalRecordId: 1
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"message": "Resultado laboratorial excluído com sucesso."}'
+        headers: []
+        description: Success
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Token inválido."}'
+        headers: []
+        description: Unauthenticated
+      -
+        custom: []
+        status: 403
+        content: '{"message": "Esta ação não é autorizada."}'
+        headers: []
+        description: Forbidden
+      -
+        custom: []
+        status: 404
+        content: '{"message": "Valor laboratorial não encontrado."}'
+        headers: []
+        description: 'Not Found'
+      -
+        custom: []
+        status: 409
+        content: '{"message": "Não é possível modificar resultados laboratoriais de um prontuário finalizado."}'
+        headers: []
+        description: Conflict
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

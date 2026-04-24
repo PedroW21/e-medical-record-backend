@@ -14,20 +14,25 @@ final class UpdateLabValueRequest extends FormRequest
      */
     public function rules(): array
     {
+        $user = $this->user();
+        $medicalRecordId = $this->route('medicalRecordId');
+
+        $anexoRules = ['nullable', 'integer'];
+
+        if ($user !== null && $medicalRecordId !== null) {
+            $anexoRules[] = new AttachmentLinkable(
+                prontuarioId: (int) $medicalRecordId,
+                doctorUserId: (int) $user->id,
+                allowMultipleLinks: true,
+            );
+        }
+
         return [
             'value' => ['sometimes', 'string', 'max:255'],
             'unit' => ['sometimes', 'string', 'max:50'],
             'reference_range' => ['nullable', 'string', 'max:255'],
             'collection_date' => ['sometimes', 'date', 'before_or_equal:today'],
-            'anexo_id' => [
-                'nullable',
-                'integer',
-                new AttachmentLinkable(
-                    prontuarioId: (int) $this->route('medicalRecordId'),
-                    doctorUserId: (int) $this->user()->id,
-                    allowMultipleLinks: true,
-                ),
-            ],
+            'anexo_id' => $anexoRules,
         ];
     }
 
