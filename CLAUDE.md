@@ -376,7 +376,9 @@ final readonly class CreatePacienteDTO
 - Must use conventional commits (e.g., `feat:`, `fix:`, `refactor:`, `chore:`, `docs:`, `test:`)
 - Do NOT mention Claude Code in commit messages
 - Do NOT add "Co-Authored-By: Claude" or similar
-- **NEVER commit AI-generated files** (plans, design docs, memory files, etc.) — these live locally only and are already in `.gitignore` (`docs/`, `.serena/`, `.claude/`). Never use `git add -f` to bypass this
+- **Versionamento de artefatos de IA/sessão**:
+  - `/.serena` — NUNCA committar (cache de sessão do Serena MCP). Já no `.gitignore`.
+  - `docs/`, `.claude/`, `.scribe/` — versionados. Planos, settings do Claude e cache do Scribe ficam no repositório para o time compartilhar.
 
 ## Pull Request Guidelines
 
@@ -631,7 +633,6 @@ protected function isAccessible(User $user, ?string $path = null): bool
 # Test Enforcement
 
 - Every change must be programmatically tested. Write a new test or update an existing test, then run the affected tests to make sure they pass.
-- Any feature change must have its tests reviewed to ensure accuracy and quality, avoiding false positives and regressions.
 - Run the minimum number of tests needed to ensure code quality and speed. Use `php artisan test --compact` with a specific filename or filter.
 
 === laravel/core rules ===
