@@ -31,21 +31,17 @@ it('omits internal catalogoExameId from payload', function (): void {
     }
 });
 
-it('groups categories in the documented display order', function (): void {
+it('groups categories contiguously in the documented display order', function (): void {
     $user = User::factory()->doctor()->create();
 
     $response = $this->actingAs($user)->getJson('/api/metrics/definitions');
 
-    $categoriesInOrder = array_values(array_unique(
-        array_column($response->json('data'), 'category')
-    ));
-
-    expect($categoriesInOrder)->toBe([
-        'hemogram',
-        'biochemistry',
-        'lipid_profile',
-        'liver_function',
-        'thyroid',
+    expect(array_column($response->json('data'), 'category'))->toBe([
+        'hemogram', 'hemogram', 'hemogram', 'hemogram',
+        'biochemistry', 'biochemistry', 'biochemistry', 'biochemistry',
+        'lipid_profile', 'lipid_profile', 'lipid_profile', 'lipid_profile',
+        'liver_function', 'liver_function', 'liver_function', 'liver_function',
+        'thyroid', 'thyroid', 'thyroid',
         'renal_function',
     ]);
 });
@@ -77,7 +73,7 @@ it('returns the same ETag on idempotent GET', function (): void {
     expect($first->headers->get('ETag'))->toBe($second->headers->get('ETag'));
 });
 
-it('returns 304 when If-None-Match matches', function (): void {
+it('returns 304 with revalidated headers when If-None-Match matches', function (): void {
     $user = User::factory()->doctor()->create();
 
     $first = $this->actingAs($user)->getJson('/api/metrics/definitions');
@@ -88,7 +84,11 @@ it('returns 304 when If-None-Match matches', function (): void {
         ->getJson('/api/metrics/definitions');
 
     $second->assertStatus(304);
-    expect($second->getContent())->toBe('');
+    expect($second->getContent())->toBe('')
+        ->and($second->headers->get('ETag'))->toBe($etag);
+
+    $cacheControl = (string) $second->headers->get('Cache-Control');
+    expect($cacheControl)->toContain('private')->toContain('must-revalidate');
 });
 
 it('returns 200 with new ETag when If-None-Match does not match', function (): void {

@@ -1,6 +1,6 @@
 # Metrics Definitions Endpoint Implementation Plan
 
-> **For Claude:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
+> Implementação deve seguir cada task em ordem, com checkpoint de revisão entre commits.
 
 **Goal:** Expor `GET /api/metrics/definitions` retornando 20 metric definitions (Phase 7 MVP) com `EtagMiddleware` aplicado, eliminando a duplicação entre frontend `metricsConfig.ts` e backend `MetricRegistry.php`.
 

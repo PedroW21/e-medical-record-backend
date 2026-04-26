@@ -4,12 +4,11 @@ declare(strict_types=1);
 
 namespace App\Modules\Metrics\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Modules\Metrics\Http\Resources\MetricDefinitionResource;
 use App\Modules\Metrics\Registry\MetricRegistry;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
-final class MetricDefinitionsController extends Controller
+final class MetricDefinitionsController
 {
     /**
      * List all metric definitions exposed to the frontend evolution charts.
@@ -29,7 +28,7 @@ final class MetricDefinitionsController extends Controller
      *     {"id":"tsh","category":"thyroid","name":"TSH","unit":"mUI/L","ref_min":0.4,"ref_max":4.0,"color":"#6366F1"}
      *   ]
      * }
-     * @response 401 scenario="Unauthenticated" {"message": "Token inválido."}
+     * @response 401 scenario="Unauthenticated" {"message": "Unauthenticated."}
      */
     public function __invoke(): AnonymousResourceCollection
     {
