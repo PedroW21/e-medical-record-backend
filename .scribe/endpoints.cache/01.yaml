@@ -118,7 +118,7 @@ endpoints:
         name: 'blocks[].start_time'
         description: 'Must be a valid date in the format <code>H:i</code>.'
         required: true
-        example: '21:39'
+        example: '01:47'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -129,7 +129,7 @@ endpoints:
         name: 'blocks[].end_time'
         description: 'Must be a valid date in the format <code>H:i</code>. Must be a date after <code>blocks.*.start_time</code>.'
         required: true
-        example: '2052-05-17'
+        example: '2052-05-19'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -140,8 +140,8 @@ endpoints:
       blocks:
         -
           day_of_week: 1
-          start_time: '21:39'
-          end_time: '2052-05-17'
+          start_time: '01:47'
+          end_time: '2052-05-19'
     fileParameters: []
     responses: []
     responseFields: []

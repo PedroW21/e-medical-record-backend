@@ -233,7 +233,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: active
+        example: inactive
         type: string
         enumValues:
           - active
@@ -245,7 +245,7 @@ endpoints:
       page: 16
       per_page: 22
       search: g
-      status: active
+      status: inactive
     fileParameters: []
     responses:
       -
@@ -336,7 +336,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date. Must be a date before <code>today</code>.'
         required: true
-        example: '2022-05-19'
+        example: '2022-05-20'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -360,7 +360,7 @@ endpoints:
         name: blood_type
         description: ''
         required: false
-        example: B+
+        example: AB+
         type: string
         enumValues:
           - A+
@@ -427,7 +427,7 @@ endpoints:
         name: medical_history.smoking
         description: ''
         required: false
-        example: light
+        example: none
         type: string
         enumValues:
           - none
@@ -442,7 +442,7 @@ endpoints:
         name: medical_history.alcohol
         description: ''
         required: false
-        example: none
+        example: light
         type: string
         enumValues:
           - none
@@ -545,17 +545,17 @@ endpoints:
       cpf: ngzmiyvdljnikh
       phone: waykcmyuwpwlvqwr
       email: ferne52@example.com
-      birth_date: '2022-05-19'
+      birth_date: '2022-05-20'
       gender: male
-      blood_type: B+
+      blood_type: AB+
       status: inactive
       allergies:
         - 'n'
       chronic_conditions:
         - g
       medical_history:
-        smoking: light
-        alcohol: none
+        smoking: none
+        alcohol: light
       address:
         cep: zmiyvd
         street: l
@@ -709,7 +709,7 @@ endpoints:
         name: birth_date
         description: 'Must be a valid date. Must be a date before <code>today</code>.'
         required: true
-        example: '2022-05-19'
+        example: '2022-05-20'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -720,7 +720,7 @@ endpoints:
         name: gender
         description: ''
         required: true
-        example: male
+        example: female
         type: string
         enumValues:
           - male
@@ -733,7 +733,7 @@ endpoints:
         name: blood_type
         description: ''
         required: false
-        example: O+
+        example: B+
         type: string
         enumValues:
           - A+
@@ -752,7 +752,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: active
+        example: inactive
         type: string
         enumValues:
           - active
@@ -800,7 +800,7 @@ endpoints:
         name: medical_history.smoking
         description: ''
         required: false
-        example: none
+        example: moderate
         type: string
         enumValues:
           - none
@@ -918,16 +918,16 @@ endpoints:
       cpf: ngzmiyvdljnikh
       phone: waykcmyuwpwlvqwr
       email: ferne52@example.com
-      birth_date: '2022-05-19'
-      gender: male
-      blood_type: O+
-      status: active
+      birth_date: '2022-05-20'
+      gender: female
+      blood_type: B+
+      status: inactive
       allergies:
         - 'n'
       chronic_conditions:
         - g
       medical_history:
-        smoking: none
+        smoking: moderate
         alcohol: none
       address:
         cep: zmiyvd

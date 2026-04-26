@@ -78,7 +78,7 @@ endpoints:
         name: category
         description: ''
         required: false
-        example: hormonal
+        example: bioquimica
         type: string
         enumValues:
           - hematologia
@@ -109,7 +109,7 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       search: b
-      category: hormonal
+      category: bioquimica
       per_page: 22
     fileParameters: []
     responses:
@@ -294,7 +294,7 @@ endpoints:
         name: category
         description: ''
         required: false
-        example: bioquimica
+        example: hematologia
         type: string
         enumValues:
           - hematologia
@@ -325,7 +325,7 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       search: b
-      category: bioquimica
+      category: hematologia
       per_page: 22
     fileParameters: []
     responses:

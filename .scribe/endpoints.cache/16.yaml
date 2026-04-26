@@ -176,3 +176,56 @@ endpoints:
     controller: null
     method: null
     route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/metrics/definitions
+    metadata:
+      custom: []
+      groupName: Metrics
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'List all metric definitions exposed to the frontend evolution charts.'
+      description: |-
+        Returns the full set of MVP metrics (Phase 7) grouped by category in
+        stable display order. The response is cached via ETag — clients can
+        revalidate with `If-None-Match` and receive a 304 when nothing changed.
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "data": [
+              {"id":"hemoglobin","category":"hemogram","name":"Hemoglobina","unit":"g/dL","ref_min":12.0,"ref_max":17.5,"color":"#DC2626"},
+              {"id":"glucose","category":"biochemistry","name":"Glicemia","unit":"mg/dL","ref_min":70.0,"ref_max":99.0,"color":"#059669"},
+              {"id":"tsh","category":"thyroid","name":"TSH","unit":"mUI/L","ref_min":0.4,"ref_max":4.0,"color":"#6366F1"}
+            ]
+          }
+        headers: []
+        description: Success
+      -
+        custom: []
+        status: 401
+        content: '{"message": "Unauthenticated."}'
+        headers: []
+        description: Unauthenticated
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

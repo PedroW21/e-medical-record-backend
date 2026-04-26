@@ -356,6 +356,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="metrics-GETapi-patients--id--metrics--metricId--history">
                                 <a href="#metrics-GETapi-patients--id--metrics--metricId--history">Retrieve the history for a single metric of a patient.</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="metrics-GETapi-metrics-definitions">
+                                <a href="#metrics-GETapi-metrics-definitions">List all metric definitions exposed to the frontend evolution charts.</a>
+                            </li>
                                                                         </ul>
                             </ul>
                     <ul id="tocify-header-notification-preferences" class="tocify-header">
@@ -466,7 +469,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: April 24, 2026</li>
+        <li>Last updated: April 26, 2026</li>
     </ul>
 </div>
 
@@ -507,8 +510,8 @@ You can switch the language used with the tabs at the top right (or from the nav
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"start_date\": \"2026-04-24T21:39:22\",
-    \"end_date\": \"2052-05-17\",
+    \"start_date\": \"2026-04-26T01:47:46\",
+    \"end_date\": \"2052-05-19\",
     \"doctor_id\": 16
 }"
 </code></pre></div>
@@ -533,8 +536,8 @@ const headers = {
 };
 
 let body = {
-    "start_date": "2026-04-24T21:39:22",
-    "end_date": "2052-05-17",
+    "start_date": "2026-04-26T01:47:46",
+    "end_date": "2052-05-19",
     "doctor_id": 16
 };
 
@@ -682,10 +685,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="start_date"                data-endpoint="GETapi-appointments"
-               value="2026-04-24T21:39:22"
+               value="2026-04-26T01:47:46"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-04-24T21:39:22</code></p>
+<p>Must be a valid date. Example: <code>2026-04-26T01:47:46</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>end_date</code></b>&nbsp;&nbsp;
@@ -694,10 +697,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="end_date"                data-endpoint="GETapi-appointments"
-               value="2052-05-17"
+               value="2052-05-19"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>start_date</code>. Example: <code>2052-05-17</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>start_date</code>. Example: <code>2052-05-19</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>doctor_id</code></b>&nbsp;&nbsp;
@@ -862,9 +865,9 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"patient_id\": 16,
-    \"date\": \"2052-05-17\",
+    \"date\": \"2052-05-19\",
     \"time\": \"64:25\",
-    \"type\": \"exams\",
+    \"type\": \"consultation\",
     \"notes\": \"d\",
     \"doctor_id\": 16
 }"
@@ -883,9 +886,9 @@ const headers = {
 
 let body = {
     "patient_id": 16,
-    "date": "2052-05-17",
+    "date": "2052-05-19",
     "time": "64:25",
-    "type": "exams",
+    "type": "consultation",
     "notes": "d",
     "doctor_id": 16
 };
@@ -991,10 +994,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="POSTapi-appointments"
-               value="2052-05-17"
+               value="2052-05-19"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>today</code>. Example: <code>2052-05-17</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>today</code>. Example: <code>2052-05-19</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>time</code></b>&nbsp;&nbsp;
@@ -1015,10 +1018,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="type"                data-endpoint="POSTapi-appointments"
-               value="exams"
+               value="consultation"
                data-component="body">
     <br>
-<p>Example: <code>exams</code></p>
+<p>Example: <code>consultation</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>consultation</code></li> <li><code>follow_up</code></li> <li><code>exams</code></li> <li><code>first_consultation</code></li></ul>
         </div>
@@ -1210,7 +1213,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"patient_id\": 16,
-    \"date\": \"2052-05-17\",
+    \"date\": \"2052-05-19\",
     \"time\": \"64:25\",
     \"type\": \"first_consultation\",
     \"notes\": \"d\"
@@ -1230,7 +1233,7 @@ const headers = {
 
 let body = {
     "patient_id": 16,
-    "date": "2052-05-17",
+    "date": "2052-05-19",
     "time": "64:25",
     "type": "first_consultation",
     "notes": "d"
@@ -1350,10 +1353,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="date"                data-endpoint="PUTapi-appointments--id-"
-               value="2052-05-17"
+               value="2052-05-19"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>today</code>. Example: <code>2052-05-17</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>today</code>. Example: <code>2052-05-19</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>time</code></b>&nbsp;&nbsp;
@@ -1413,7 +1416,7 @@ Must be one of:
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"status\": \"cancelled\"
+    \"status\": \"requested\"
 }"
 </code></pre></div>
 
@@ -1429,7 +1432,7 @@ const headers = {
 };
 
 let body = {
-    "status": "cancelled"
+    "status": "requested"
 };
 
 fetch(url, {
@@ -1534,10 +1537,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PATCHapi-appointments--id--status"
-               value="cancelled"
+               value="requested"
                data-component="body">
     <br>
-<p>Example: <code>cancelled</code></p>
+<p>Example: <code>requested</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>requested</code></li> <li><code>pending</code></li> <li><code>confirmed</code></li> <li><code>in_progress</code></li> <li><code>completed</code></li> <li><code>cancelled</code></li></ul>
         </div>
@@ -1891,7 +1894,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --form "tipo_anexo=ecg"\
     --form "nome=Laudo ECG — Maria Silva"\
-    --form "file=@/tmp/phpr9jgasmh1ldr6fndnAA" </code></pre></div>
+    --form "file=@/tmp/php0rf12evd01dh0BNaecM" </code></pre></div>
 
 
 <div class="javascript-example">
@@ -5831,7 +5834,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"page\": 16,
     \"per_page\": 22,
     \"search\": \"g\",
-    \"status\": \"active\"
+    \"status\": \"inactive\"
 }"
 </code></pre></div>
 
@@ -5850,7 +5853,7 @@ let body = {
     "page": 16,
     "per_page": 22,
     "search": "g",
-    "status": "active"
+    "status": "inactive"
 };
 
 fetch(url, {
@@ -5996,10 +5999,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="GETapi-patients"
-               value="active"
+               value="inactive"
                data-component="body">
     <br>
-<p>Example: <code>active</code></p>
+<p>Example: <code>inactive</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>active</code></li> <li><code>inactive</code></li></ul>
         </div>
@@ -6026,9 +6029,9 @@ Must be one of:
     \"cpf\": \"ngzmiyvdljnikh\",
     \"phone\": \"waykcmyuwpwlvqwr\",
     \"email\": \"ferne52@example.com\",
-    \"birth_date\": \"2022-05-19\",
+    \"birth_date\": \"2022-05-20\",
     \"gender\": \"male\",
-    \"blood_type\": \"B+\",
+    \"blood_type\": \"AB+\",
     \"status\": \"inactive\",
     \"allergies\": [
         \"n\"
@@ -6037,8 +6040,8 @@ Must be one of:
         \"g\"
     ],
     \"medical_history\": {
-        \"smoking\": \"light\",
-        \"alcohol\": \"none\"
+        \"smoking\": \"none\",
+        \"alcohol\": \"light\"
     },
     \"address\": {
         \"cep\": \"zmiyvd\",
@@ -6068,9 +6071,9 @@ let body = {
     "cpf": "ngzmiyvdljnikh",
     "phone": "waykcmyuwpwlvqwr",
     "email": "ferne52@example.com",
-    "birth_date": "2022-05-19",
+    "birth_date": "2022-05-20",
     "gender": "male",
-    "blood_type": "B+",
+    "blood_type": "AB+",
     "status": "inactive",
     "allergies": [
         "n"
@@ -6079,8 +6082,8 @@ let body = {
         "g"
     ],
     "medical_history": {
-        "smoking": "light",
-        "alcohol": "none"
+        "smoking": "none",
+        "alcohol": "light"
     },
     "address": {
         "cep": "zmiyvd",
@@ -6230,10 +6233,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="POSTapi-patients"
-               value="2022-05-19"
+               value="2022-05-20"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date before <code>today</code>. Example: <code>2022-05-19</code></p>
+<p>Must be a valid date. Must be a date before <code>today</code>. Example: <code>2022-05-20</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -6256,10 +6259,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="blood_type"                data-endpoint="POSTapi-patients"
-               value="B+"
+               value="AB+"
                data-component="body">
     <br>
-<p>Example: <code>B+</code></p>
+<p>Example: <code>AB+</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>A+</code></li> <li><code>A-</code></li> <li><code>B+</code></li> <li><code>B-</code></li> <li><code>AB+</code></li> <li><code>AB-</code></li> <li><code>O+</code></li> <li><code>O-</code></li></ul>
         </div>
@@ -6322,10 +6325,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="medical_history.smoking"                data-endpoint="POSTapi-patients"
-               value="light"
+               value="none"
                data-component="body">
     <br>
-<p>Example: <code>light</code></p>
+<p>Example: <code>none</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>none</code></li> <li><code>light</code></li> <li><code>moderate</code></li> <li><code>intense</code></li></ul>
                     </div>
@@ -6336,10 +6339,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="medical_history.alcohol"                data-endpoint="POSTapi-patients"
-               value="none"
+               value="light"
                data-component="body">
     <br>
-<p>Example: <code>none</code></p>
+<p>Example: <code>light</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>none</code></li> <li><code>light</code></li> <li><code>moderate</code></li> <li><code>intense</code></li></ul>
                     </div>
@@ -6606,10 +6609,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"cpf\": \"ngzmiyvdljnikh\",
     \"phone\": \"waykcmyuwpwlvqwr\",
     \"email\": \"ferne52@example.com\",
-    \"birth_date\": \"2022-05-19\",
-    \"gender\": \"male\",
-    \"blood_type\": \"O+\",
-    \"status\": \"active\",
+    \"birth_date\": \"2022-05-20\",
+    \"gender\": \"female\",
+    \"blood_type\": \"B+\",
+    \"status\": \"inactive\",
     \"allergies\": [
         \"n\"
     ],
@@ -6617,7 +6620,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         \"g\"
     ],
     \"medical_history\": {
-        \"smoking\": \"none\",
+        \"smoking\": \"moderate\",
         \"alcohol\": \"none\"
     },
     \"address\": {
@@ -6648,10 +6651,10 @@ let body = {
     "cpf": "ngzmiyvdljnikh",
     "phone": "waykcmyuwpwlvqwr",
     "email": "ferne52@example.com",
-    "birth_date": "2022-05-19",
-    "gender": "male",
-    "blood_type": "O+",
-    "status": "active",
+    "birth_date": "2022-05-20",
+    "gender": "female",
+    "blood_type": "B+",
+    "status": "inactive",
     "allergies": [
         "n"
     ],
@@ -6659,7 +6662,7 @@ let body = {
         "g"
     ],
     "medical_history": {
-        "smoking": "none",
+        "smoking": "moderate",
         "alcohol": "none"
     },
     "address": {
@@ -6823,10 +6826,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="birth_date"                data-endpoint="PUTapi-patients--id-"
-               value="2022-05-19"
+               value="2022-05-20"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date before <code>today</code>. Example: <code>2022-05-19</code></p>
+<p>Must be a valid date. Must be a date before <code>today</code>. Example: <code>2022-05-20</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>gender</code></b>&nbsp;&nbsp;
@@ -6835,10 +6838,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="gender"                data-endpoint="PUTapi-patients--id-"
-               value="male"
+               value="female"
                data-component="body">
     <br>
-<p>Example: <code>male</code></p>
+<p>Example: <code>female</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>male</code></li> <li><code>female</code></li></ul>
         </div>
@@ -6849,10 +6852,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="blood_type"                data-endpoint="PUTapi-patients--id-"
-               value="O+"
+               value="B+"
                data-component="body">
     <br>
-<p>Example: <code>O+</code></p>
+<p>Example: <code>B+</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>A+</code></li> <li><code>A-</code></li> <li><code>B+</code></li> <li><code>B-</code></li> <li><code>AB+</code></li> <li><code>AB-</code></li> <li><code>O+</code></li> <li><code>O-</code></li></ul>
         </div>
@@ -6863,10 +6866,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PUTapi-patients--id-"
-               value="active"
+               value="inactive"
                data-component="body">
     <br>
-<p>Example: <code>active</code></p>
+<p>Example: <code>inactive</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>active</code></li> <li><code>inactive</code></li></ul>
         </div>
@@ -6915,10 +6918,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="medical_history.smoking"                data-endpoint="PUTapi-patients--id-"
-               value="none"
+               value="moderate"
                data-component="body">
     <br>
-<p>Example: <code>none</code></p>
+<p>Example: <code>moderate</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>none</code></li> <li><code>light</code></li> <li><code>moderate</code></li> <li><code>intense</code></li></ul>
                     </div>
@@ -9291,7 +9294,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>This field is required when <code>items</code> is present. Example: <code>true</code></p>
+<p>This field is required when <code>items</code> is present. Example: <code>false</code></p>
                     </div>
                                     </details>
         </div>
@@ -10698,7 +10701,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"search\": \"b\",
-    \"category\": \"hormonal\",
+    \"category\": \"bioquimica\",
     \"per_page\": 22
 }"
 </code></pre></div>
@@ -10724,7 +10727,7 @@ const headers = {
 
 let body = {
     "search": "b",
-    "category": "hormonal",
+    "category": "bioquimica",
     "per_page": 22
 };
 
@@ -10920,10 +10923,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="category"                data-endpoint="GETapi-lab-catalog"
-               value="hormonal"
+               value="bioquimica"
                data-component="body">
     <br>
-<p>Example: <code>hormonal</code></p>
+<p>Example: <code>bioquimica</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>hematologia</code></li> <li><code>bioquimica</code></li> <li><code>endocrinologia</code></li> <li><code>hormonal</code></li> <li><code>imunologia</code></li> <li><code>coprologia</code></li> <li><code>microbiologia</code></li> <li><code>liquidos</code></li> <li><code>marcadores_tumorais</code></li> <li><code>outros</code></li> <li><code>urinalise</code></li> <li><code>especializado</code></li></ul>
         </div>
@@ -11118,7 +11121,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"search\": \"b\",
-    \"category\": \"bioquimica\",
+    \"category\": \"hematologia\",
     \"per_page\": 22
 }"
 </code></pre></div>
@@ -11144,7 +11147,7 @@ const headers = {
 
 let body = {
     "search": "b",
-    "category": "bioquimica",
+    "category": "hematologia",
     "per_page": 22
 };
 
@@ -11338,10 +11341,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="category"                data-endpoint="GETapi-lab-panels"
-               value="bioquimica"
+               value="hematologia"
                data-component="body">
     <br>
-<p>Example: <code>bioquimica</code></p>
+<p>Example: <code>hematologia</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>hematologia</code></li> <li><code>bioquimica</code></li> <li><code>endocrinologia</code></li> <li><code>hormonal</code></li> <li><code>imunologia</code></li> <li><code>coprologia</code></li> <li><code>microbiologia</code></li> <li><code>liquidos</code></li> <li><code>marcadores_tumorais</code></li> <li><code>outros</code></li> <li><code>urinalise</code></li> <li><code>especializado</code></li></ul>
         </div>
@@ -12056,7 +12059,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
                     </div>
                                                                 <div style=" margin-left: 14px; clear: unset;">
         <details>
@@ -14134,6 +14137,166 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                     </form>
 
+                    <h2 id="metrics-GETapi-metrics-definitions">List all metric definitions exposed to the frontend evolution charts.</h2>
+
+<p>
+<small class="badge badge-darkred">requires authentication</small>
+</p>
+
+<p>Returns the full set of MVP metrics (Phase 7) grouped by category in
+stable display order. The response is cached via ETag — clients can
+revalidate with <code>If-None-Match</code> and receive a 304 when nothing changed.</p>
+
+<span id="example-requests-GETapi-metrics-definitions">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost:8000/api/metrics/definitions" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost:8000/api/metrics/definitions"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-metrics-definitions">
+            <blockquote>
+            <p>Example response (200, Success):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: &quot;hemoglobin&quot;,
+            &quot;category&quot;: &quot;hemogram&quot;,
+            &quot;name&quot;: &quot;Hemoglobina&quot;,
+            &quot;unit&quot;: &quot;g/dL&quot;,
+            &quot;ref_min&quot;: 12,
+            &quot;ref_max&quot;: 17.5,
+            &quot;color&quot;: &quot;#DC2626&quot;
+        },
+        {
+            &quot;id&quot;: &quot;glucose&quot;,
+            &quot;category&quot;: &quot;biochemistry&quot;,
+            &quot;name&quot;: &quot;Glicemia&quot;,
+            &quot;unit&quot;: &quot;mg/dL&quot;,
+            &quot;ref_min&quot;: 70,
+            &quot;ref_max&quot;: 99,
+            &quot;color&quot;: &quot;#059669&quot;
+        },
+        {
+            &quot;id&quot;: &quot;tsh&quot;,
+            &quot;category&quot;: &quot;thyroid&quot;,
+            &quot;name&quot;: &quot;TSH&quot;,
+            &quot;unit&quot;: &quot;mUI/L&quot;,
+            &quot;ref_min&quot;: 0.4,
+            &quot;ref_max&quot;: 4,
+            &quot;color&quot;: &quot;#6366F1&quot;
+        }
+    ]
+}</code>
+ </pre>
+            <blockquote>
+            <p>Example response (401, Unauthenticated):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;message&quot;: &quot;Token inv&aacute;lido.&quot;
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-metrics-definitions" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-metrics-definitions"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-metrics-definitions"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-metrics-definitions" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-metrics-definitions">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-GETapi-metrics-definitions" data-method="GET"
+      data-path="api/metrics/definitions"
+      data-authed="1"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-metrics-definitions', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-metrics-definitions"
+                    onclick="tryItOut('GETapi-metrics-definitions');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-metrics-definitions"
+                    onclick="cancelTryOut('GETapi-metrics-definitions');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-metrics-definitions"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/metrics/definitions</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="GETapi-metrics-definitions"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="GETapi-metrics-definitions"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        </form>
+
                 <h1 id="notification-preferences">Notification Preferences</h1>
 
     
@@ -14289,7 +14452,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"preferences\": [
         {
             \"type\": \"b\",
-            \"channel\": \"whatsapp\",
+            \"channel\": \"broadcast\",
             \"enabled\": true
         }
     ]
@@ -14311,7 +14474,7 @@ let body = {
     "preferences": [
         {
             "type": "b",
-            "channel": "whatsapp",
+            "channel": "broadcast",
             "enabled": true
         }
     ]
@@ -14428,10 +14591,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="preferences.0.channel"                data-endpoint="PUTapi-notifications-preferences"
-               value="whatsapp"
+               value="broadcast"
                data-component="body">
     <br>
-<p>Example: <code>whatsapp</code></p>
+<p>Example: <code>broadcast</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>mail</code></li> <li><code>broadcast</code></li> <li><code>sms</code></li> <li><code>whatsapp</code></li></ul>
                     </div>
@@ -14485,8 +14648,8 @@ Must be one of:
     --data "{
     \"status\": \"read\",
     \"type\": \"b\",
-    \"from\": \"2026-04-24T21:39:22\",
-    \"to\": \"2052-05-17\",
+    \"from\": \"2026-04-26T01:47:47\",
+    \"to\": \"2052-05-19\",
     \"per_page\": 22
 }"
 </code></pre></div>
@@ -14515,8 +14678,8 @@ const headers = {
 let body = {
     "status": "read",
     "type": "b",
-    "from": "2026-04-24T21:39:22",
-    "to": "2052-05-17",
+    "from": "2026-04-26T01:47:47",
+    "to": "2052-05-19",
     "per_page": 22
 };
 
@@ -14714,10 +14877,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="from"                data-endpoint="GETapi-notifications"
-               value="2026-04-24T21:39:22"
+               value="2026-04-26T01:47:47"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2026-04-24T21:39:22</code></p>
+<p>Must be a valid date. Example: <code>2026-04-26T01:47:47</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>to</code></b>&nbsp;&nbsp;
@@ -14726,10 +14889,10 @@ Must be one of:
  &nbsp;
                 <input type="text" style="display: none"
                               name="to"                data-endpoint="GETapi-notifications"
-               value="2052-05-17"
+               value="2052-05-19"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>from</code>. Example: <code>2052-05-17</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>from</code>. Example: <code>2052-05-19</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>per_page</code></b>&nbsp;&nbsp;
@@ -15678,7 +15841,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"name\": \"Antibiótico atualizado\",
-    \"subtype\": \"glp1\",
+    \"subtype\": \"magistral\",
     \"items\": [
         {
             \"medication_name\": \"Dipirona 500mg\",
@@ -15707,7 +15870,7 @@ const headers = {
 
 let body = {
     "name": "Antibiótico atualizado",
-    "subtype": "glp1",
+    "subtype": "magistral",
     "items": [
         {
             "medication_name": "Dipirona 500mg",
@@ -15904,10 +16067,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="subtype"                data-endpoint="PUTapi-prescription-templates--id-"
-               value="glp1"
+               value="magistral"
                data-component="body">
     <br>
-<p>Example: <code>glp1</code></p>
+<p>Example: <code>magistral</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>allopathic</code></li> <li><code>magistral</code></li> <li><code>injectable_im</code></li> <li><code>injectable_ev</code></li> <li><code>injectable_combined</code></li> <li><code>injectable_protocol</code></li> <li><code>glp1</code></li> <li><code>steroid</code></li> <li><code>subcutaneous_implant</code></li> <li><code>ozonotherapy</code></li> <li><code>procedure</code></li></ul>
         </div>
@@ -17089,7 +17252,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>control_type</code></b>&nbsp;&nbsp;
@@ -17571,7 +17734,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"telefone\": \"ngzmiyvdljnikhwa\",
     \"email\": \"breitenberg.gilbert@example.com\",
     \"observacoes\": \"u\",
-    \"data\": \"2052-05-17\",
+    \"data\": \"2052-05-19\",
     \"horario\": \"64:25\"
 }"
 </code></pre></div>
@@ -17592,7 +17755,7 @@ let body = {
     "telefone": "ngzmiyvdljnikhwa",
     "email": "breitenberg.gilbert@example.com",
     "observacoes": "u",
-    "data": "2052-05-17",
+    "data": "2052-05-19",
     "horario": "64:25"
 };
 
@@ -17746,10 +17909,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="data"                data-endpoint="POSTapi-public-schedule--slug--book"
-               value="2052-05-17"
+               value="2052-05-19"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after or equal to <code>today</code>. Example: <code>2052-05-17</code></p>
+<p>Must be a valid date. Must be a date after or equal to <code>today</code>. Example: <code>2052-05-19</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>horario</code></b>&nbsp;&nbsp;
@@ -17940,8 +18103,8 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"blocks\": [
         {
             \"day_of_week\": 1,
-            \"start_time\": \"21:39\",
-            \"end_time\": \"2052-05-17\"
+            \"start_time\": \"01:47\",
+            \"end_time\": \"2052-05-19\"
         }
     ]
 }"
@@ -17963,8 +18126,8 @@ let body = {
     "blocks": [
         {
             "day_of_week": 1,
-            "start_time": "21:39",
-            "end_time": "2052-05-17"
+            "start_time": "01:47",
+            "end_time": "2052-05-19"
         }
     ]
 };
@@ -18092,10 +18255,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="blocks.0.start_time"                data-endpoint="PUTapi-schedule-settings"
-               value="21:39"
+               value="01:47"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>H:i</code>. Example: <code>21:39</code></p>
+<p>Must be a valid date in the format <code>H:i</code>. Example: <code>01:47</code></p>
                     </div>
                                                                 <div style="margin-left: 14px; clear: unset;">
                         <b style="line-height: 2;"><code>end_time</code></b>&nbsp;&nbsp;
@@ -18104,10 +18267,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="blocks.0.end_time"                data-endpoint="PUTapi-schedule-settings"
-               value="2052-05-17"
+               value="2052-05-19"
                data-component="body">
     <br>
-<p>Must be a valid date in the format <code>H:i</code>. Must be a date after <code>blocks.*.start_time</code>. Example: <code>2052-05-17</code></p>
+<p>Must be a valid date in the format <code>H:i</code>. Must be a date after <code>blocks.*.start_time</code>. Example: <code>2052-05-19</code></p>
                     </div>
                                     </details>
         </div>

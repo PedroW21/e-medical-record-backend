@@ -168,7 +168,7 @@ endpoints:
         name: data
         description: 'Must be a valid date. Must be a date after or equal to <code>today</code>.'
         required: true
-        example: '2052-05-17'
+        example: '2052-05-19'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -190,7 +190,7 @@ endpoints:
       telefone: ngzmiyvdljnikhwa
       email: breitenberg.gilbert@example.com
       observacoes: u
-      data: '2052-05-17'
+      data: '2052-05-19'
       horario: '64:25'
     fileParameters: []
     responses: []

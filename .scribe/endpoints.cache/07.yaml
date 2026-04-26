@@ -548,7 +548,7 @@ endpoints:
         name: 'items[].is_controlled'
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false

@@ -94,7 +94,7 @@ endpoints:
         name: 'preferences[].channel'
         description: ''
         required: true
-        example: whatsapp
+        example: broadcast
         type: string
         enumValues:
           - mail
@@ -119,7 +119,7 @@ endpoints:
       preferences:
         -
           type: b
-          channel: whatsapp
+          channel: broadcast
           enabled: true
     fileParameters: []
     responses: []

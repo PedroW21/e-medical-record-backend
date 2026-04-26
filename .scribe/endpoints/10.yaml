@@ -213,7 +213,7 @@ endpoints:
         name: 'panels[].is_custom'
         description: ''
         required: false
-        example: true
+        example: false
         type: boolean
         enumValues: []
         exampleWasSpecified: false
