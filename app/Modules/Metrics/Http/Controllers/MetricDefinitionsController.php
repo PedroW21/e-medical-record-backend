@@ -19,6 +19,7 @@ final class MetricDefinitionsController extends Controller
      * revalidate with `If-None-Match` and receive a 304 when nothing changed.
      *
      * @group Metrics
+     *
      * @authenticated
      *
      * @response 200 scenario="Success" {
