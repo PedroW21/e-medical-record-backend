@@ -30,3 +30,22 @@ it('omits internal catalogoExameId from payload', function (): void {
             ->and($metric)->not->toHaveKey('catalogo_exame_id');
     }
 });
+
+it('groups categories in the documented display order', function (): void {
+    $user = User::factory()->doctor()->create();
+
+    $response = $this->actingAs($user)->getJson('/api/metrics/definitions');
+
+    $categoriesInOrder = array_values(array_unique(
+        array_column($response->json('data'), 'category')
+    ));
+
+    expect($categoriesInOrder)->toBe([
+        'hemogram',
+        'biochemistry',
+        'lipid_profile',
+        'liver_function',
+        'thyroid',
+        'renal_function',
+    ]);
+});
