@@ -17,3 +17,16 @@ it('lists all metric definitions for an authenticated user', function (): void {
             ],
         ]);
 });
+
+it('omits internal catalogoExameId from payload', function (): void {
+    $user = User::factory()->doctor()->create();
+
+    $response = $this->actingAs($user)->getJson('/api/metrics/definitions');
+
+    $payload = $response->json('data');
+
+    foreach ($payload as $metric) {
+        expect($metric)->not->toHaveKey('catalogoExameId')
+            ->and($metric)->not->toHaveKey('catalogo_exame_id');
+    }
+});
