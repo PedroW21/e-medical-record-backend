@@ -242,7 +242,7 @@ endpoints:
         name: subtype
         description: ''
         required: false
-        example: glp1
+        example: magistral
         type: string
         enumValues:
           - allopathic
@@ -290,7 +290,7 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       name: 'Antibiótico atualizado'
-      subtype: glp1
+      subtype: magistral
       items:
         -
           medication_name: 'Dipirona 500mg'

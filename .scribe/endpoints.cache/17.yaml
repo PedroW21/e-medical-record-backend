@@ -116,7 +116,7 @@ endpoints:
         name: from
         description: 'Must be a valid date.'
         required: false
-        example: '2026-04-24T21:39:22'
+        example: '2026-04-26T01:47:47'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -127,7 +127,7 @@ endpoints:
         name: to
         description: 'Must be a valid date. Must be a date after or equal to <code>from</code>.'
         required: false
-        example: '2052-05-17'
+        example: '2052-05-19'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -147,8 +147,8 @@ endpoints:
     cleanBodyParameters:
       status: read
       type: b
-      from: '2026-04-24T21:39:22'
-      to: '2052-05-17'
+      from: '2026-04-26T01:47:47'
+      to: '2052-05-19'
       per_page: 22
     fileParameters: []
     responses:
