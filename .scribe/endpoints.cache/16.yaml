@@ -221,7 +221,7 @@ endpoints:
       -
         custom: []
         status: 401
-        content: '{"message": "Token inválido."}'
+        content: '{"message": "Unauthenticated."}'
         headers: []
         description: Unauthenticated
     responseFields: []
